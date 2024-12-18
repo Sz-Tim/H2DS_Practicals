@@ -1,0 +1,36 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "H2 Data Science Practicals"
+  author: "Tom Wilding & Tim Szewczyk"
+  date: "2025"
+  chapters:
+    - index.qmd
+    - P1_R_recap.qmd
+    - P2_binomial_poisson.qmd
+    - P3_normal.qmd
+    - P4_t_CIs.qmd
+    - P5_ANOVA_regression.qmd
+    - P6_machine_learning.qmd
+    - formula_sheet.qmd
+
+format:
+  html:
+    theme: flatly
+    dark: darkly
+    code-fold: false
+    code-block-bg: true
+    code-link: true
+  pdf:
+    toc: true
+    toc-depth: 2
+    toc-title: Contents
+    number-sections: true
+    colorlinks: true
+    code-block-bg: true
+    
+
+editor: visual
+
