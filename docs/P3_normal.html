@@ -170,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P7_appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
   </div>
 </li>
     </ul>
@@ -469,10 +469,10 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>orig<span class="op">=</span><span class="va">long_numbers</span>,</span>
 <span>           clean<span class="op">=</span><span class="fu">trim_values</span><span class="op">(</span><span class="va">long_numbers</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>       orig clean
-1 0.7005405 0.701
-2 1.7205912 1.721
-3 1.4166889 1.417</code></pre>
+<pre><code>      orig clean
+1 5.378487  5.38
+2 3.906306  3.91
+3 3.823875  3.82</code></pre>
 </div>
 </div>
 <p>Notice anything strange about the output? The function <code><a href="https://rdrr.io/r/base/format.html">format()</a></code> converts the vector from <code>numeric</code> to <code>character</code> to display each value with the same number of characters. The <code>digits=3</code> argument is also taken as a suggestion (kind of like <code>breaks</code> in <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>). Try some of the other options in <code><a href="https://rdrr.io/r/base/format.html">format()</a></code> or adjust the <code>digits</code> argument, re-running the function definition each time to see the changes.</p>
@@ -594,9 +594,9 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
       N se_sim se_calc
   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
 1     2  1.43    1.41 
-2    10  0.629   0.632
-3    30  0.355   0.365
-4   100  0.202   0.2  </code></pre>
+2    10  0.595   0.632
+3    30  0.346   0.365
+4   100  0.205   0.2  </code></pre>
 </div>
 </div>
 <p><em>Q101. Given what you know about the CLT, how does this change with non-normally distributed data? Try changing <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> to <code><a href="https://rdrr.io/r/stats/Poisson.html">rpois()</a></code></em></p>

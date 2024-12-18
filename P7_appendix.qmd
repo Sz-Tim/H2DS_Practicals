@@ -150,7 +150,7 @@ $\bar{y} \pm t_{\alpha/2, df=n-1} * s_{\bar{y}}$
 An ANOVA table contains the following:
 
 | Source of variation | Sum of Squares  | Degrees of Freedom | Mean Square                           | F                                    |
-|---------------|---------------|---------------|---------------|---------------|
+|---------------------|-----------------|--------------------|---------------------------------------|--------------------------------------|
 | Between groups      | ${SS}_{groups}$ | ${df}_{groups}$    | $\frac{{SS}_{groups}}{{df}_{groups}}$ | $\frac{{MS}_{groups}}{{MS}_{error}}$ |
 | Error               | ${SS}_{error}$  | ${df}_{error}$     | $\frac{{SS}_{error}}{{df}_{error}}$   |                                      |
 | Total               | ${SS}_{total}$  | ${df}_{total}$     |                                       |                                      |

@@ -170,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P7_appendix.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Appendix</span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
   </div>
 </li>
     </ul>
@@ -323,9 +323,9 @@ mean of x
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "True mean: 100, true sd: 10"
-[1] "Sample 1 mean:100.8, sd: 10.58"
-[1] "Sample 2 mean:102.4, sd: 13.29"
-[1] "Sample 3 mean:94.74, sd: 7.723"</code></pre>
+[1] "Sample 1 mean:101.2, sd: 4.18"
+[1] "Sample 2 mean:91.54, sd: 8.139"
+[1] "Sample 3 mean:97.53, sd: 9.261"</code></pre>
 </div>
 </div>
 <p>Note: these are random samples, so the values will be different each time you run the code. However, R uses pseudo-random number generation. Use <code><a href="https://rdrr.io/r/base/Random.html">set.seed()</a></code> for fully reproducible code.</p>
@@ -402,10 +402,10 @@ mean of x
 <span>  <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_i</span><span class="op">)</span>, col <span class="op">=</span> <span class="st">"red"</span>, lwd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 198.7672 226.8828 205.0583 192.9418 225.9762
-[1] 205.7926 198.2930 193.8216 183.2635 193.5688
-[1] 218.2232 215.5961 229.7085 211.7591 190.4371
-[1] 166.5994 225.9397 248.2372 197.4574 171.0093</code></pre>
+<pre><code>[1] 214.0130 137.1715 221.8883 230.9094 187.4191
+[1] 183.7704 153.3706 195.5737 181.3747 170.9948
+[1] 198.3301 209.8108 240.6437 270.3821 205.3395
+[1] 188.5887 177.4757 175.7666 181.3763 189.0614</code></pre>
 </div>
 <div class="cell-output-display">
 <div id="fig-ci_examp2" class="quarto-figure quarto-figure-center anchored">
@@ -526,7 +526,7 @@ mean of x
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">a</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">100</span>, sd <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="va">a</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 101.0  88.0  93.5 103.0  86.0  98.1  93.5  99.2  96.6 107.0</code></pre>
+<pre><code> [1] 117.0 117.0  86.2 108.0 100.0  78.9 102.0  99.0 102.0 109.0</code></pre>
 </div>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/t.test.html">t.test</a></span><span class="op">(</span><span class="va">a</span>, mu <span class="op">=</span> <span class="fl">100</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -534,13 +534,13 @@ mean of x
     One Sample t-test
 
 data:  a
-t = -1.5945, df = 9, p-value = 0.1453
+t = 0.51687, df = 9, p-value = 0.6177
 alternative hypothesis: true mean is not equal to 100
 95 percent confidence interval:
-  91.89698 101.40282
+  93.30807 110.65559
 sample estimates:
 mean of x 
-  96.6499 </code></pre>
+ 101.9818 </code></pre>
 </div>
 </div>
 <div class="cell">

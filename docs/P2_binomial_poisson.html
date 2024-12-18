@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Q33. Write down the model specification in the standard notation (with parameters)</em></p>
 <p><em>Q34. Calculate the expected proportions of clutches of eggs that contain (a) two fertile, (b) two infertile, and (c) one of each.</em></p>
 <p>Often we are faced with more than two events and the quadratic expansion approach you used above is no longer convenient. In such circumstances you use the binomial expression.</p>
-<p><em>Q35. Copy down the binomial probability mass function (from Chapter</em> <a href="#sec-appendix"><span class="quarto-unresolved-ref">sec-appendix</span></a><em>) and use it as an alternative method for calculating the fertility proportions for two eggs (a, b, c above).</em></p>
+<p><em>Q35. Copy down the binomial probability mass function (from Chapter</em> <a href="P7_appendix.html"><span>Chapter&nbsp;7</span></a><em>) and use it as an alternative method for calculating the fertility proportions for two eggs (a, b, c above).</em></p>
 <p>Oozle birds are much more sensible than Wongles and always have broods of eight offspring and all of them hatch. We are interested in modelling the probabilities of the proportion of male and female offspring in broods of eight eggs.</p>
 <p><em>Q36. What is the Bernoulli event here? (What has two mutually exclusive outcomes?)</em></p>
 <p><em>Q37. What are the theoretical limits to your outcomes (i.e, max numbers of each)?</em></p>
@@ -391,7 +391,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">2.2</span> The Poisson distribution</h2>
 <p>The Poisson distribution is another probability distribution that describes discrete events that occur in space and/or time. The Poisson distribution is used to model (predict) the distribution of events that are rare, random, and independent. This can include events like earthquakes, storms, or the number of bends arriving at the SAMS recompression facility.</p>
 <p>The Poisson distribution takes a single parameter: the mean. If a variable is Poisson distributed, its variance will equal its mean. This is a diagnostic feature of the distribution. The Poisson distribution is a discrete probability distribution, but its parameter, the mean, is continuous (similar to continuous <span class="math inline">\(p\)</span> for the discrete binomial distribution).</p>
-<p>The Poisson formula is simple - find it in <a href="#sec-appendix"><span class="quarto-unresolved-ref">sec-appendix</span></a> . Here, <span class="math inline">\(\bar{y}\)</span> is the mean, <span class="math inline">\(x\)</span> is the outcome of interest, <span class="math inline">\(e\)</span> is Euler’s number, and <span class="math inline">\(!\)</span> is factorial. Note that here, we use <span class="math inline">\(\bar{y}\)</span> as our stand-in for the population parameter <span class="math inline">\(\lambda = \mu = \sigma\)</span> which defines the poisson distribution. Translate this formula into an R function by completing this code:</p>
+<p>The Poisson formula is simple - find it in <a href="P7_appendix.html"><span>Chapter&nbsp;7</span></a> . Here, <span class="math inline">\(\bar{y}\)</span> is the mean, <span class="math inline">\(x\)</span> is the outcome of interest, <span class="math inline">\(e\)</span> is Euler’s number, and <span class="math inline">\(!\)</span> is factorial. Note that here, we use <span class="math inline">\(\bar{y}\)</span> as our stand-in for the population parameter <span class="math inline">\(\lambda = \mu = \sigma\)</span> which defines the poisson distribution. Translate this formula into an R function by completing this code:</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># hint: exp(2) = e^2</span></span>
 <span><span class="co"># hint: factorial(3) = 3!</span></span>
@@ -402,7 +402,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="poisson-distributions-by-hand" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="poisson-distributions-by-hand">
 <span class="header-section-number">2.2.1</span> Poisson distributions by hand</h3>
 <p>These problems usually start by asking you to calculate the mean number of observations made per unit of space or time. This is the Poisson parameter, and is referred to as the <em>rate</em> or as <em>lambda</em> (<span class="math inline">\(\lambda\)</span>). The unit could be spatial (e.g., per <span class="math inline">\(m^2\)</span>) or temporal (e.g., per hour).</p>
-<p>Consider randomly throwing a 1<span class="math inline">\(m^2\)</span> quadrat repeatedly on a sandy beach covered in worm casts <a href="#fig-wormcasts">Figure&nbsp;<span class="quarto-unresolved-ref">fig-wormcasts</span></a>. You then count the number of casts in each quadrat.</p>
+<p>Consider randomly throwing a 1<span class="math inline">\(m^2\)</span> quadrat repeatedly on a sandy beach covered in worm casts <a href="#fig-wormcasts">Figure&nbsp;<span>2.3</span></a>. You then count the number of casts in each quadrat.</p>
 <div id="fig-wormcasts" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="figs/worm_casts.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;2.3: Worm casts on a sandy beach with 1x1 m quadrats.</figcaption></figure>
@@ -619,12 +619,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><em>Q68. What is the modal value in these distributions?</em></p>
-<p>Generate some random numbers from the distributions in <a href="#fig-binom_pois_approx">Figure&nbsp;<span class="quarto-unresolved-ref">fig-binom_pois_approx</span></a> and calculate their mean and variance. Here is <span class="math inline">\(y \sim Pois(\lambda=5)\)</span>:</p>
+<p>Generate some random numbers from the distributions in <a href="#fig-binom_pois_approx">Figure&nbsp;<span>2.5</span></a> and calculate their mean and variance. Here is <span class="math inline">\(y \sim Pois(\lambda=5)\)</span>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Mean: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">", variance: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Mean: 5, variance: 5.02"</code></pre>
+<pre><code>[1] "Mean: 5, variance: 4.96"</code></pre>
 </div>
 </div>
 <p><em>Q69. What do you notice about the mean and variance in the Poisson model?</em></p>

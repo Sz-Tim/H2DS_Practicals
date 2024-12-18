@@ -411,7 +411,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figure class="figure"><p><img src="figs/bad_fig_1.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1.1: An example of a terrible graphic, as published in a Scottish government report.</figcaption></figure>
 </div>
-<p>In addition to poor design choices for effective communication (<a href="#fig-bad1">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bad1</span></a>), graphics can also be deliberately misleading (<a href="#fig-bad2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bad2</span></a>).</p>
+<p>In addition to poor design choices for effective communication (<a href="#fig-bad1">Figure&nbsp;<span>1.1</span></a>), graphics can also be deliberately misleading (<a href="#fig-bad2">Figure&nbsp;<span>1.2</span></a>).</p>
 <div id="fig-bad2" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="figs/bad_fig_2.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Figure&nbsp;1.2: A misleading graphic. What type of plot is this and how is it misleading?</figcaption></figure>
@@ -463,9 +463,9 @@ Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 <span><span class="co"># See examples at bottom of the help page</span></span>
 <span><span class="co"># Produce a box plot with axes labels and a title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Reproduce the plot shown in <a href="#fig-mpl_cyl">Figure&nbsp;<span class="quarto-unresolved-ref">fig-mpl_cyl</span></a> (assume 1 gallon = 4.5 L). Remember you can learn about these data with <code><a href="https://rdrr.io/r/datasets/mtcars.html">?mtcars</a></code>. You will need to generate a new variable (miles per litre) and label your box plot appropriately. You can limit the extent of the y-axis by adding the argument <code>ylim=c(a, b)</code> where <code>a</code> and <code>b</code> are the limits you want (e.g., <code>ylim=c(0, 100)</code>).</p>
+<p>Reproduce the plot shown in <a href="#fig-mpl_cyl">Figure&nbsp;<span>1.5</span></a> (assume 1 gallon = 4.5 L). Remember you can learn about these data with <code><a href="https://rdrr.io/r/datasets/mtcars.html">?mtcars</a></code>. You will need to generate a new variable (miles per litre) and label your box plot appropriately. You can limit the extent of the y-axis by adding the argument <code>ylim=c(a, b)</code> where <code>a</code> and <code>b</code> are the limits you want (e.g., <code>ylim=c(0, 100)</code>).</p>
 <p><em>Q4. Use <code><a href="https://rdrr.io/r/graphics/boxplot.html">?boxplot</a></code> to investigate what the box and whiskers in the box plot actually represent. Check you can reproduce the upper and lower adjacent values manually (see Chapter</em> <em>)</em></p>
-<p>Note that box plots are not the most visually intuitive. Packages like <code>ggplot2</code> (and extensions) make alternatives like those in <a href="#fig-mpl_cyl_ggplot">Figure&nbsp;<span class="quarto-unresolved-ref">fig-mpl_cyl_ggplot</span></a> simple to produce. We will cover some of these later.</p>
+<p>Note that box plots are not the most visually intuitive. Packages like <code>ggplot2</code> (and extensions) make alternatives like those in <a href="#fig-mpl_cyl_ggplot">Figure&nbsp;<span>1.6</span></a> simple to produce. We will cover some of these later.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-mpl_cyl_ggplot" class="quarto-figure quarto-figure-center anchored">
@@ -502,7 +502,7 @@ Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use <code><a href="https://rdrr.io/r/graphics/plot.default.html">?plot</a></code> to investigate options for plotting. Find the <code>type=</code> argument for plotting both the points and a connecting line. This might be the best option in this case. Why?</p>
-<p><em>Q6. Using the R plot function, produce a line plot of the Trappings data, as per Figure</em> <a href="#fig-lynx_1">Figure&nbsp;<span class="quarto-unresolved-ref">fig-lynx_1</span></a>.</p>
+<p><em>Q6. Using the R plot function, produce a line plot of the Trappings data, as per Figure</em> <a href="#fig-lynx_1">Figure&nbsp;<span>1.7</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div id="fig-lynx_1" class="quarto-figure quarto-figure-center anchored">
@@ -822,7 +822,7 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 <pre><code>[1] 5.6</code></pre>
 </div>
 </div>
-<p>R is excellent at generating well formatted tables such as shown in <a href="#tbl-scallop">Table&nbsp;<span class="quarto-unresolved-ref">tbl-scallop</span></a>. What is missing from from this table?</p>
+<p>R is excellent at generating well formatted tables such as shown in <a href="#tbl-scallop">Table&nbsp;<span>1.1</span></a>. What is missing from from this table?</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-scallop" class="anchored">
@@ -866,7 +866,7 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 </div>
 </div>
 </div>
-<p><em>Q19. How would the patterns seen in</em> <a href="#tbl-scallop">Table&nbsp;<span class="quarto-unresolved-ref">tbl-scallop</span></a> <em>influence your choice if you were required to summarise data that you thought might contain data that you weren’t sure about? The three measure of central tendency are influenced to different extents by the ‘shape’ of the data they are used to describe.</em></p>
+<p><em>Q19. How would the patterns seen in</em> <a href="#tbl-scallop">Table&nbsp;<span>1.1</span></a> <em>influence your choice if you were required to summarise data that you thought might contain data that you weren’t sure about? The three measure of central tendency are influenced to different extents by the ‘shape’ of the data they are used to describe.</em></p>
 <div class="cell">
 <div class="sourceCode" id="cb101"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hake_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_1.xlsx"</span>, sheet<span class="op">=</span><span class="st">"Hake"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">hake_df</span><span class="op">)</span> <span class="co"># once again, column names made for excel rather than R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -910,7 +910,7 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 </div>
 </div>
 </div>
-<p>Try to re-create <a href="#tbl-hake">Table&nbsp;<span class="quarto-unresolved-ref">tbl-hake</span></a>.</p>
+<p>Try to re-create <a href="#tbl-hake">Table&nbsp;<span>1.2</span></a>.</p>
 <p>The following ‘settling velocity’ data relates to the settling velocity of salmon faecal material. Shona Magill generated these data.</p>
 <div class="cell">
 <div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fishPoo_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_1.xlsx"</span>, sheet<span class="op">=</span><span class="st">"Settling velocity"</span><span class="op">)</span></span>
@@ -925,7 +925,7 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 <p><em>Q25. Sketch the distribution and indicate the relative positions of the mean and median.</em></p>
 <p><em>Q26. Generate a new column of the log-transformed settling velocity data and plot these data.</em></p>
 <p><em>Q27. What measures of central tendency and variability could be applied to the log-transformed data? Selecting the preferable measure of central tendency and variability in a dataset is not necessarily straightforward.</em></p>
-<p><a href="#tbl-metric">Table&nbsp;<span class="quarto-unresolved-ref">tbl-metric</span></a> gives some indication of what issues you might consider.</p>
+<p><a href="#tbl-metric">Table&nbsp;<span>1.3</span></a> gives some indication of what issues you might consider.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="tbl-metric" class="anchored">
