@@ -1,4 +1,4 @@
-# Practical 4: T distribution and confidence intervals
+# T distribution and confidence intervals {#sec-P4}
 
 The goal of science is to understand nature (i.e. everything!). To do that, we want to know the values of population parameters (e.g., the mean size of barnacles on the back-beach, the variance in fail-rate of a machine component, the maximum satellite signal strength per satellite transect, the mean size of a fisher's catch). However, we usually cannot measure entire populations due to logistical/time/money constraints. Instead, we take a (random) sample, and infer from that sample to our population of interest. This is statistical inference and it's based on our statistical models of the world.
 
@@ -6,10 +6,25 @@ When we take a random sample, we can never know how well it reflects the populat
 
 For example, our random sample of barnacles might contain (by chance alone) mostly big ones, or barnacles that varied considerably (or negligibly) in size. The t-distribution is similar to the normal distribution, but it accounts for this added uncertainty. This enables us to estimate the probability that a given sample came from a population with any given mean (with caveats). The t-distribution also enables us to put confidence intervals around the mean of our sample, and gives us some idea of the range of values of the mean that are likely.
 
-The t-distribution models the chances of making observations from a given population where the population parameters are estimated from your random sample. The t statistic is calculated in the same way as the Z score for samples, but the expected scores follow the t-distribution (instead of the normal distribution) which accounts for sampling uncertainty. As the sample size gets smaller we get increasingly less confident about the reliability of the population parameter estimates and the t-distribution becomes less like the normal distribution (Fig. \@ref(fig:t-vs-norm)). The shape of the t-distribution depends on the *degrees of freedom* ($df = \nu = N-1$). There is more guidance on the t-distribution, and links to other sources on Brightspace.
+The t-distribution models the chances of making observations from a given population where the population parameters are estimated from your random sample. The t statistic is calculated in the same way as the Z score for samples, but the expected scores follow the t-distribution (instead of the normal distribution) which accounts for sampling uncertainty. As the sample size gets smaller we get increasingly less confident about the reliability of the population parameter estimates and the t-distribution becomes less like the normal distribution (@fig-t_vs_norm). The shape of the t-distribution depends on the *degrees of freedom* ($df = \nu = N-1$). There is more guidance on the t-distribution, and links to other sources on Brightspace.
 
-```{r t-vs-norm, echo=FALSE, fig.cap="Comparison of different t-distributions (note that t with 30 df is nearly identical to the normal distribution).", fig.dim=c(4,3)}
+```{r}
+#| message: false
+#| warning: false
+
 library(tidyverse)
+library(readxl)
+```
+
+```{r}
+#| label: fig-t_vs_norm
+#| fig-cap: "Comparison of different t-distributions (note that t with 30 df is nearly identical to the normal distribution)."
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 4
+#| fig-height: 3
+
 t_Norm.df <- tibble(
   x = seq(-6, 6, length.out = 100),
   Norm = dnorm(x),
@@ -53,15 +68,19 @@ We use the t-test to determine the probability of drawing the Evening Star sampl
 
 *Q118. Given the hypothesis, is this one or two tailed test?*
 
-We collect a sample of 20 fish (found in the worksheet ‘Cod lengths’). The sample size is $<$ 30 so we can't assume that the means will be normally distributed under the CLT. We can check the normality assumption by plotting the data using a ‘normality’ plot or ‘QQ-plot’ (Fig. \@ref(fig:cod-qq)).
+We collect a sample of 20 fish (found in the worksheet ‘Cod lengths’). The sample size is $<$ 30 so we can't assume that the means will be normally distributed under the CLT. We can check the normality assumption by plotting the data using a ‘normality’ plot or ‘QQ-plot’ (@fig-cod_qq).
 
 ```{r}
-library(readxl)
 cod_df <- read_excel("data/practical_3_4.xlsx", sheet = "Cod lengths")
 str(cod_df)
 ```
 
-```{r cod-qq, fig.cap="QQ-plot for the sample of code from the Evening Star.", fig.dim=c(4,4)}
+```{r}
+#| label: fig-cod_qq
+#| fig-cap: "QQ-plot for the sample of code from the Evening Star."
+#| fig-width: 4
+#| fig-height: 4
+
 qqnorm(cod_df$CodLength_cm, main = NULL)
 qqline(cod_df$CodLength_cm)
 ```
@@ -74,7 +93,9 @@ Now we wish to assess how likely our sample is to have been drawn from a populat
 
 *Q121. Use R to calculate summary statistics (mean and standard deviation/standard error of the mean) for the cod sample data (as per results below).*
 
-```{r, results="hold"}
+```{r}
+#| results: "hold"
+
 paste("Mean:", mean(cod_df$CodLength_cm))
 paste("SD:", sd(cod_df$CodLength_cm))
 paste("Var:", var(cod_df$CodLength_cm))
@@ -125,7 +146,9 @@ Now to play around with some random data that you generate yourself. We generate
 
 We calculate summary statistics for this randomly generated dataset. Note that in this case, we *know* the population parameters.
 
-```{r, results='hold'}
+```{r}
+#| results: "hold"
+
 num_iter <- 3
 sample_size <- 3
 mu <- 100
@@ -148,9 +171,14 @@ Your answer to the above should be yes. You know there is a discrepancy because 
 
 The t-distribution is the distribution of values you get when you subtract sample means from the true mean and standardize by the sample standard error (i.e., $\frac{\bar{y} - \mu}{SE_{\bar{y}}}$). Think about this and relate it to the formula for determining single-sample T-statistics and what the critical values actually are.
 
-The code below simulates repeated samples from a population with $y \sim Norm(\mu, \sigma)$. Each sample takes `sample_size` individuals, with `num_samples` unique samples. For each sample `i`, the t-statistic is calculated and stored in `T_sample[i]`. Fig. \@ref(fig:t-stat-hist) shows the distribution of `T_sample` (the histogram) with the corresponding t-distribution (df=`sample_size - 1`) as the solid line and a standard normal distribution as the dotted line. Play with the values for `sample_size` below to see how the shapes change.
+The code below simulates repeated samples from a population with $y \sim Norm(\mu, \sigma)$. Each sample takes `sample_size` individuals, with `num_samples` unique samples. For each sample `i`, the t-statistic is calculated and stored in `T_sample[i]`. @fig-t_stat_hist shows the distribution of `T_sample` (the histogram) with the corresponding t-distribution (df=`sample_size - 1`) as the solid line and a standard normal distribution as the dotted line. Play with the values for `sample_size` below to see how the shapes change.
 
-```{r t-stat-hist, fig.cap="Histogram of 100,000 t-statistics calculated from 100,000 samples, along with the corresponding theoretical t-distribution (solid line) and a standard normal (dotted line).", out.width="70%", out.height="70%", fig.dim=c(6,4)}
+```{r}
+#| label: fig-t_stat_hist
+#| fig-cap: "Histogram of 100,000 t-statistics calculated from 100,000 samples, along with the corresponding theoretical t-distribution (solid line) and a standard normal (dotted line)."
+#| fig-width: 6
+#| fig-height: 4
+
 mu <- 10 # population mean
 sigma <- 0.5 # population sd
 num_samples <- 1e5 # number of samples
@@ -185,7 +213,12 @@ Say you are interested in knowing the mean of a population (e.g. barnacle mass o
 
 We’ll invent a population of barnacle diameters, called `barnacle_diam`, and then create a histogram of that population and superimpose values on that. Again, these are random numbers so your values will be slightly different from mine.
 
-```{r ci-examp1, fig.cap="Histogram of a simulated barnacle population with 2.5\\% and 97.5\\% quantiles.", fig.dim=c(5,4)}
+```{r}
+#| label: fig-ci_examp1
+#| fig-cap: "Histogram of a simulated barnacle population with 2.5\\% and 97.5\\% quantiles."
+#| fig-width: 5
+#| fig-height: 4
+
 pop_size <- 100000  # number of barnacles in the population
 barnacle_mu <- 200
 barnacle_sigma <- 25
@@ -201,7 +234,12 @@ text(x=Q95[2], y=pop_size/7,
 
 Now we can take samples from that population: this is the reality, you take samples (usually) from populations where you don’t know the true mean and standard deviation. Let's take 4 samples, each with size `sample_size`.
 
-```{r ci-examp2, fig.cap="Histogram of the barnacle population showing location of 4 sample means (red lines), each with N = 5. The blue line shows the true population mean mu.", fig.dim=c(5,4)}
+```{r}
+#| label: fig-ci_examp2
+#| fig-cap: "Histogram of the barnacle population showing location of 4 sample means (red lines), each with N = 5. The blue line shows the true population mean mu."
+#| fig-width: 5
+#| fig-height: 4
+
 hist(barnacle_diam, main = NULL)
 sample_size <- 5
 num_samples <- 4
@@ -216,7 +254,12 @@ for (i in 1:num_samples) {
 
 Our sample means inevitably differ from the true population mean ($\mu$), even if only a bit. Likewise, the sample standard deviations will differ from the true population standard deviation ($\sigma$). If you keep repeating this sampling you can generate a distribution of sample standard deviations. This distribution is not normal, but is instead related to the chi-square distribution (don’t worry too much about this). The point is that if your sample size is small, your estimate of the standard deviation is often very poor.
 
-```{r sd-N-hist, fig.cap="Histograms of sample standard deviations from repeated samples of the same population. The true population standard deviation is shown in blue.", fig.dim=c(8,6), out.width="70%", out.height="70%"}
+```{r}
+#| label: fig-sd_N_hist
+#| fig-cap: "Histograms of sample standard deviations from repeated samples of the same population. The true population standard deviation is shown in blue."
+#| fig-width: 8
+#| fig-height: 6
+
 par(mfrow=c(2,2))
 # sim_df will hold the sample sizes N, and the median and mean sample sd's 
 num_samples <- 1e4
@@ -247,7 +290,12 @@ for (i in 1:nrow(sim_df)) {
 }
 ```
 
-```{r sd-N-lines, fig.cap="Mean (black), median (blue), and 50\\% and 95\\% quantiles (vertical lines) for (left) sample standard deviations at each sample size compared to the true population standard deviation (dotted line) or for the (right) sample means.", fig.dim=c(9,5), out.width="70%", out.height="70%"}
+```{r}
+#| label: fig-sd_N_lines
+#| fig-cap: "Mean (black), median (blue), and 50\\% and 95\\% quantiles (vertical lines) for (left) sample standard deviations at each sample size compared to the true population standard deviation (dotted line) or for the (right) sample means."
+#| fig-width: 9
+#| fig-height: 5
+
 par(mfrow=c(1,2))
 plot(sim_df$N, sim_df$sd_median,
   xlim = c(0, 30), ylim = range(c(sim_df[,2:7], sigma)),
@@ -277,11 +325,16 @@ legend("topright", c("Mean sample mean", "Median sample mean", "True mean"),
 
 *Q133. What is the most common standard deviation for your samples by sample size?*
 
-The t-distribution allows for the fact that the standard deviation of small samples is, usually, less than that of the population as seen in Fig. \@ref(fig:sd-N-hist).
+The t-distribution allows for the fact that the standard deviation of small samples is, usually, less than that of the population as seen in @fig-sd_N_hist .
 
 The take home message here is that when you take a sample from a population with unknown $\mu$ and $\sigma$, you won’t know how ‘accurate’ you sample is but you do know how your random samples ‘behave’ - they are modelled using the t-distribution. From this knowledge you can build a 95% confidence interval which is described as an interval which, if repeated for 100 samples, would include $\mu$ within its boundaries in 95 of those samples (on average). Read that again. You don’t have knowledge of the true value of the mean or sd (as you did for Z score calculations) and the t-distribution accounts for this uncertainty.
 
-```{r ci-examp3, fig.cap="Histogram illustrating the barnacle population with population mean (blue) and sample means with 95\\% CIs (red) repeated across 5 samples.", fig.dim=c(5,4)}
+```{r}
+#| label: fig-ci_examp3
+#| fig-cap: "Histogram illustrating the barnacle population with population mean (blue) and sample means with 95\\% CIs (red) repeated across 5 samples."
+#| fig-width: 5
+#| fig-height: 4
+
 num_samples <- 5
 sample_size <- 3
 
@@ -315,7 +368,7 @@ for (i in 1:num_samples) {
 
 Let’s explore the influence of sample size on the width of the confidence interval a little more.
 
-We will plot the resultant mean estimate and 95% CI on Fig. \@ref(fig:ci-v-N). NOTE: the example shown in Fig. \@ref(fig:ci-v-N) is a random example, not linked to the output below. Repeat this process, but this time determine the mean and sd (or variance) for samples of 2, 5 and 10. Do this simply by changing `n=…` in `rnorm()` Repeat this 5 times for each sample size and sketch your results (where they fit) onto Fig. \@ref(fig:ci-v-N).
+We will plot the resultant mean estimate and 95% CI on @fig-ci_v_N . NOTE: the example shown is a random example, not linked to the output below. Repeat this process, but this time determine the mean and sd (or variance) for samples of 2, 5 and 10. Do this simply by changing `n=…` in `rnorm()` Repeat this 5 times for each sample size and sketch your results (where they fit) onto Fig. @fig-ci_v_N .
 
 ```{r}
 a <- rnorm(n = 10, mean = 100, sd = 10)
@@ -323,7 +376,13 @@ signif(a, 3)
 t.test(a, mu = 100)
 ```
 
-```{r ci-v-N, echo=FALSE, fig.cap="Confidence interval size vs. sample size.", fig.dim=c(4,3), out.width="60%", out.height="60%"}
+```{r}
+#| label: fig-ci_v_N
+#| fig-cap: "Confidence interval size vs. sample size."
+#| echo: false
+#| fig-width: 4
+#| fig-height: 3
+
 examp.df <- tibble(N=c(2,5,10),
                    mn=c(126, 100, 100),
                    lo=c(126-78, NA, NA),
@@ -351,7 +410,7 @@ ggplot(examp.df, aes(mn, N, xmin=lo, xmax=hi, colour=N)) +
 
 ## Comparing means (two-sample t tests)
 
-The two-sample t-test is one of the most widely used inferential statistical tests. The two-sample t-test is a special case of analysis of variance (ANOVA) where you are only comparing two means. The results are identical and so we do not focus on two-sample t-tests. You need to know of the existence of the two-sample t-test because it is so commonly used and cited, but you will be comparing means using ANOVA in Practical \@ref(glm).
+The two-sample t-test is one of the most widely used inferential statistical tests. The two-sample t-test is a special case of analysis of variance (ANOVA) where you are only comparing two means. The results are identical and so we do not focus on two-sample t-tests. You need to know of the existence of the two-sample t-test because it is so commonly used and cited, but you will be comparing means using ANOVA in @sec-P5 .
 
 ## Non-parametric Tests
 
@@ -363,7 +422,7 @@ The t-test is a ‘classic’ statistical test which doesn’t assume knowledge 
 
 The central limit theorem tells us that the means of non-normally distributed data will be normally distributed if the sample size is sufficiently large. If your sample size is $>$ 30 it is likely that the means of that sample will be normally distributed regardless of the distribution of the original data.
 
-Parametric tests including the t-test are quite ‘robust’ against deviations from normality, particularly as sample sizes increase. However, parametric test are less robust against heteroscedasticity, regardless of sample size. Always check this assumption and be prepared to transform the data if the assumption of homoscedasticity is not tenable (more of this in Practical \@ref(glm)).
+Parametric tests including the t-test are quite ‘robust’ against deviations from normality, particularly as sample sizes increase. However, parametric test are less robust against heteroscedasticity, regardless of sample size. Always check this assumption and be prepared to transform the data if the assumption of homoscedasticity is not tenable (more of this in @sec-P5).
 
 The t-test is in the ‘general linear model’ family (and this is a subset of the generalized linear modelling family). General linear models are usually used to model continuous data. If you have count data, you should start with a different member of the GLM family (you might not be able to transform count data to something approximating a normal distribution). Non-parametric tests are frequently adopted when data do not conform to the assumptions of normality but they are invariably used for NHST with all the inherent problems with that approach.
 

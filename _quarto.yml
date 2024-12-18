@@ -8,13 +8,14 @@ book:
   date: "2025"
   chapters:
     - index.qmd
+    - P0_R_setup.qmd
     - P1_R_recap.qmd
     - P2_binomial_poisson.qmd
     - P3_normal.qmd
     - P4_t_CIs.qmd
     - P5_ANOVA_regression.qmd
     - P6_machine_learning.qmd
-    - formula_sheet.qmd
+    - P7_appendix.qmd
 
 format:
   html:

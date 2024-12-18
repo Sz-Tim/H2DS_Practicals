@@ -1,4 +1,4 @@
-# Practical 3: Normal distribution
+# Normal distribution {#sec-P3}
 
 Statistical inference is the process by which we infer from a sample statistic to the population. We need to infer from samples to populations because it is usually impossible to measure the entire populations. We call this this estimating population parameters from samples.
 
@@ -9,6 +9,14 @@ In order to infer from samples to populations we need to understand/predict how 
 The normal (a.k.a., Gaussian) distribution is another theoretical distribution and is central to inferential statistics. If your data (or, more accurately, statistics derived from you data) are reasonably approximated by the normal distribution then you will be able to use a wide range of techniques to deal with it.
 
 In this practical we will examine the normal distribution, calculate Z scores, and interpret those Z scores. We’ll also use our knowledge of the normal distribution’s behaviour to produce confidence intervals and assess whether data are reasonably assumed to be normally distributed, transforming the data where they are not. We’ll apply the CLT and evaluate how well other distributions are approximated by the normal distribution.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(readxl)
+```
 
 ------------------------------------------------------------------------
 
@@ -25,11 +33,15 @@ The length, in cm, of a catch of herring was measured. Five hundred individuals 
 When we have population parameters such as we have here, we can calculate Z scores for individuals (or groups of individuals) from that population and calculate how unusual they are. For the moment, we are interested in determining what proportion of fish from this population are expected to be \< 38 cm.
 
 ```{r}
+#| label: fig-normal_herring
+#| fig-cap: "Normal distribution of herring lengths."
+#| message: false
+#| warning: false
+
 mu <- 37.6
 sigma <- 1.2
 y <- 38
 
-library(tidyverse)
 y_l38_df <- tibble(len=seq(mu-3*sigma, mu+3*sigma, length.out=1e3),
                      density=dnorm(len, mu, sigma),
                      shade=len < 38)
@@ -46,17 +58,26 @@ To solve this problem using R we use the cumulative probability. Observations at
 
 *Q77. What shape is the cumulative probability curve of a normally distributed variable?*
 
-You can ask R to determine the probabilities of an event occurring within a normal distribution. For example, you could ask what the probability is of observing a fish greater than 38 cm, when the mean is 37.6 cm and the standard deviation is 1.20 cm. You need to specify the model, and the problem. Use `?dnorm` or `?pnorm` and look at your options.
+You can ask R to determine the probabilities of an event occurring within a normal distribution. For example, you could ask what the probability is of observing a fish greater than 38 cm, when the mean is 37.6 cm and the standard deviation is 1.20 cm. You need to specify the model, and the problem. Use `?dnorm` or `?pnorm` and look at your options (@fig-dpq_examp).
 
-```{r, eval=F}
+```{r}
+#| eval: false
+
 # cumulative probability: which bit of the curve does this relate to?
 pnorm(q = 38, mean = 37.6, sd = 1.2) 
 ```
 
-*Q78. Identify the correct area on the figure above according to the probability.*
+*Q78. Which area on @fig-normal_herring are we interested in?*
 
-```{r dpq-examp, echo=FALSE, warning=F, fig.cap="Functions for distributions in R illustrated with a standard normal.", fig.dim=c(8,6), out.width="80%", out.height="80%"}
-library(tidyverse)
+```{r}
+#| label: fig-dpq_examp
+#| fig-cap: "Functions for distributions in R illustrated with a standard normal."
+#| fig-width: 8
+#| fig-height: 6
+#| echo: false
+#| warning: false
+#| message: false
+
 library(cowplot)
 norm_df <- tibble(x=seq(-4, 4, length.out=1e3),
                   x2=seq(0, 1, length.out=1e3),
@@ -97,7 +118,9 @@ plot_grid(p1, p2, p3, p4, align="hv", axis="tblr")
 
 We can plot any normal distribution we like. Play with the values for `mu` and `sigma` below, adjusting the values for `from` and `to` as needed to see the distribution.
 
-```{r, eval=F}
+```{r}
+#| eval: false
+
 mu <- 37.6  # population mean
 sigma <- 1.2  # population sd
 curve(dnorm(x, mean = mu, sd = sigma), from = 30, to = 45,
@@ -152,8 +175,12 @@ We quote our mean and interval like this: “The mean fish length and 95% interv
 
 To visualize regions of the normal distribution, let's use `ggplot`.
 
-```{r iq-examp, fig.cap="The normal distribution illustrating probability of a random herring from your population having a length between 36 and 40 cm.", fig.dim=c(6, 4), out.width="60%", out.height="60%"}
-library(tidyverse)
+```{r}
+#| label: fig-herring2
+#| fig-cap: "The normal distribution illustrating probability of a random herring from your population having a length between 36 and 40 cm."
+#| fig-width: 6
+#| fig-height: 4
+
 # The population: y ~ Norm(mean=37.6, sd=1.2) 
 mu <- 37.6
 sigma <- 1.2
@@ -197,12 +224,16 @@ Many statistical tests assume that data are reasonably approximated by a normal 
 The data you collect will be part of a population. The normality check assesses the viability of the assumption that the data you collected were drawn from a population that was normally distributed. Note that populations are, in practice, *never* actually normally distributed. Your test is to assess how *reasonable* the assumption of normality is.
 
 ```{r}
-library(readxl) 
 MS <- read_xlsx("data/practical_3_4.xlsx", sheet = "Mood shrimp")
 # check the data using head(), str() etc.
 ```
 
-```{r qq-examp, fig.cap="Normal (QQ) plots. The left indicates that the normality assumption might be reasonable, not so on the right.", fig.dim=c(6, 3)}
+```{r}
+#| label: qq-examp
+#| fig-cap: "Normal (QQ) plots. The left indicates that the normality assumption might be reasonable, not so on the right."
+#| fig-width: 6
+#| fig-height: 3
+
 par(mfrow = c(1, 2))
 qqnorm(MS$Shrimp1)
 qqline(MS$Shrimp1, col = 2) # the data fall near the line
@@ -226,16 +257,21 @@ Non-normality often occurs because our measurements are near a logical zero. For
 
 There are several simple mathematical transformation options that you can use in an attempt to convert your data to something that is reasonably approximated by a normal distribution even if it is not well approximated in the original measurement units.
 
-Here we will consider four common transformations. These are the log (base 10 or natural), the square-root, the arcsine, and the logit transformation. Often transformations will also correct unequal variances (see Practical \@ref(glm)) in addition to non-normality so they are very useful. The appropriate transformation depends on the data.
+Here we will consider four common transformations. These are the log (base 10 or natural), the square-root, the arcsine, and the logit transformation. Often transformations will also correct unequal variances (see @sec-P5) in addition to non-normality so they are very useful. The appropriate transformation depends on the data.
 
 -   Log (`log()`, inverse: `exp()`): When the distribution is skewed right and all values are \>0. Often ‘cures’ heteroscedasticity.\
--   Square-root (`sqrt()`, inverse: `^2`): When the measurements are areas (e.g., leaf areas). Often used to ‘down-weight’ common species (e.g., Practical \@ref(multivariate)), which is unrelated to model assumptions. Values must be \>0.\
+-   Square-root (`sqrt()`, inverse: `^2`): When the measurements are areas (e.g., leaf areas). Often used to ‘down-weight’ common species (e.g., @sec-P6), which is unrelated to model assumptions. Values must be \>0.\
 -   Arcsine (`asin()`, inverse: `sin()^2`): When the measurements are proportions. Tends to stretch out the tails (e.g., near 0 or 1 for proportions) and squash the middle (e.g., near 0.5).\
 -   Logit (`boot::logit()`, inverse: `boot::inv.logit()`): Used for proportions excluding 0 and 1. Also commonly used in models with a binary response variable (e.g., survival probability predicted by temperature, where the response variable is 'alive'/'dead').
 
 Identifying the correct transformation can be led by an underlying comprehension of the nature of the data. However, this often doesn’t work so expect some trial and error.
 
-```{r, fig.dim=c(9, 2.5), out.width="95%", out.height="50%"}
+```{r}
+#| label: fig-trans_positiveData
+#| fig-cap: "Effect of common transformations on positive data."
+#| fig-width: 9
+#| fig-height: 2.5
+
 positive_df <- tibble(orig=seq(0.01, 10, length.out=1e3)) |>
   mutate(sqrt=sqrt(orig),
          ln=log(orig),
@@ -249,7 +285,12 @@ ggplot(positive_df, aes(orig, new_value)) +
   labs(main="Positive values", x="Original", y="Transformed")
 ```
 
-```{r, fig.dim=c(9, 2.5), out.width="95%", out.height="50%"}
+```{r}
+#| label: fig-trans_proportionalData
+#| fig-cap: "Effect of common transformations on proportions."
+#| fig-width: 9
+#| fig-height: 2.5
+
 proportion_df <- tibble(orig=seq(0.01, 0.99, length.out=1e3)) |>
   mutate(sqrt=sqrt(orig),
          ln=log(orig),
@@ -313,7 +354,12 @@ The following code generates a non-normally distributed dataset (`obs_data`), re
 
 Copy the code and experiment with the `sample_size`.
 
-```{r clt-examp, fig.cap="The central limit theorem in action (when n>30).", fig.dim=c(6, 6), out.width="70%", out.height="70%"}
+```{r}
+#| label: fig-clt_examp
+#| fig-cap: "The central limit theorem in action (when n>30)."
+#| fig-width: 6
+#| fig-height: 6
+
 # Run this code, then adjust the values for obs_data as you like.
 # Play with more distributions if you want: ?stats::distributions
 obs_data <- c(rnorm(2000, 200, 20), 
@@ -370,10 +416,9 @@ Note also the relationship between the sample size and the range of values for t
 
 ## The standard error of the mean
 
-The standard error of the mean is the standard deviation of sample means, of a given sample size, taken from a population. It is the standard deviation of the distribution shown in the lower histogram in Fig. \@ref(fig:clt-examp) -- `sd(sample_means)`. Usually we only have a single sample rather than 10,000 (=`num_samples`). In that case, we estimate it from single sample as ${SE}_{\bar{y}} = \frac{sd(y)}{\sqrt{n}}$, where $y$ is a vector of $n$ observations.
+The standard error of the mean is the standard deviation of sample means, of a given sample size, taken from a population. It is the standard deviation of the distribution shown in the lower histogram in @fig-clt_examp : `sd(sample_means)`. Usually we only have a single sample rather than 10,000 (=`num_samples`). In that case, we estimate it from single sample as ${SE}_{\bar{y}} = \frac{sd(y)}{\sqrt{n}}$, where $y$ is a vector of $n$ observations.
 
 ```{r}
-library(tidyverse)
 # Simulate a normally distributed population with mean mu and sd sigma
 mu <- 10
 sigma <- 2
@@ -394,7 +439,12 @@ for(i in 1:nrow(sample_mean_df)) {
 
 ```
 
-```{r SEM-fig, fig.cap="Simulated sample means.", fig.dim=c(6, 4), out.width="80%"}
+```{r}
+#| label: fig-SEM
+#| fig-cap: "Simulated sample means."
+#| fig-width: 6
+#| fig-height: 4
+
 sample_mean_df |>
   mutate(N=factor(N, levels=unique(N), labels=paste("n:", unique(N)))) |>
   ggplot(aes(sample_mean, colour=N)) +
@@ -409,7 +459,9 @@ sample_mean_df |>
 
 Hint:
 
-```{r, eval=F}
+```{r}
+#| eval: false
+
 sample_mean_df |>
   group_by(N) |>
   summarise() # what goes here?
@@ -445,7 +497,7 @@ As a rough guideline, a normal approximation is reasonable if $\lambda \geq 30$.
 
 *Q104. For a Poisson distribution* $y \sim Pois(40)$ *define the normal approximation in the usual way* ($y /sim Norm(...)$)*.*
 
-*Q105. Using R and referring Practical* \@ref(binpois)*, calculate* $P(y_i \leq 35)$ *from* $y \sim Pois(40)$ *(Ans = 0.242)*
+*Q105. Using R and referring to* @sec-P2, *calculate* $P(y_i \leq 35)$ *from* $y \sim Pois(40)$ *(Ans = 0.242)*
 
 *Q106. Using R, calculate* $P(y_i < 35)$ *from the above normal approximation of the Poisson distribution (Ans = 0.215).*
 
@@ -461,7 +513,7 @@ What is the point of this? Well, if you have a binomially distributed variable w
 
 Turtles lay clutches of 40 eggs. We might be interested in predicting the number of male and female offspring. Assume the proportion that are male is 0.5. Our investigation stems from the observation that several clutches of eggs, on a particular island, contained only 10 males. We might wonder how unlikely this was by chance, assuming $P(male)=0.5$.
 
-*Q109. Referring to Practical* \@ref(binpois) *if necessary, use the binomial model, calculate how unusual (i.e. the probability) it is to get* $\leq 10$ *males.*
+*Q109. Referring to @sec-P2* *if necessary, use the binomial model, calculate how unusual (i.e. the probability) it is to get* $\leq 10$ *males.*
 
 *Q110. Plot your probability (i.e. from 0 – 40 males) as a bar graph. Comment on its shape.*
 

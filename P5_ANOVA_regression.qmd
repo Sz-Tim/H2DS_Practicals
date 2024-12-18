@@ -1,4 +1,4 @@
-# Practical 5: ANOVA and regression
+# ANOVA and regression {#sec-P5}
 
 General linear models are a key member of the generalized linear modelling family and they are among the most widely used and reported models in the marine science literature, particularly biology. This course focuses on two subsets of linear models: ANOVA and regression. ANOVA and regression are typically used for different data modelling scenarios: ANOVA when you’ve got a categorical predictor variable(s) and regression when your predictor is continuous.
 
@@ -6,19 +6,22 @@ General linear models are a key member of the generalized linear modelling famil
 
 ANOVA is a widely used modelling approach that enables you to compare means and put confidence intervals on the differences between those means. For a predictor with only two categories, ANOVA is identical to the 2-sample t-test, so we'll just use ANOVA.
 
-When you see "analysis of variance", think "analysis of means". In an ANOVA, we analyse the variance in the data in order to compare the means of different groups. In an ANOVA, we compare means by determining the ratio of \[the variance between treatments and the overall mean (large black arrows in Fig. \@ref(fig:var-sources))\] and \[the variance within treatments (sum of the dotted arrows in Fig. \@ref(fig:var-sources))\]. The black line under the red dots in Fig. \@ref(fig:var-sources) shows the actual data distribution and the actual parameters for mean values (50 and 150 cm for A and B respectively). You then take samples from A and B (n=4 in this example) and, from these, derive your parameter estimates for the mean of each group and the overall mean.
+When you see "analysis of variance", think "analysis of means". In an ANOVA, we analyse the variance in the data in order to compare the means of different groups. In an ANOVA, we compare means by determining the ratio of "the variance between treatments and the overall mean" (large black arrows in @fig-var_sources) and "the variance within treatments" (sum of the dotted arrows in @fig-var_sources). The black line under the red dots in @fig-var_sources shows the actual data distribution and the actual parameters for mean values (50 and 150 cm for A and B respectively). You then take samples from A and B (n=4 in this example) and, from these, derive your parameter estimates for the mean of each group and the overall mean.
 
-In Fig. \@ref(fig:var-sources) below you can see that the solid black arrows are much larger than the dotted ones leading you to think that the chance that these two samples are drawn from the same population (with a value of the overall mean) as very unlikely. Make sure you understand Fig. \@ref(fig:var-sources) (more detail in the ANOVA lecture).
+In @fig-var_sources below you can see that the solid black arrows are much larger than the dotted ones leading you to think that the chance that these two samples are drawn from the same population (with a value of the overall mean) as very unlikely. Make sure you understand @fig-var_sources (more detail in the ANOVA lecture).
 
 In most circumstances you know that the means that you are comparing with ANOVA are different (i.e. that testing a null hypothesis of no difference isn’t useful). ANOVA allows you to put confidence intervals around differences between means, or groups of means.
 
-```{=tex}
-\begin{figure}
-\centerline{\includegraphics[width=0.6\textwidth]{figs/ANOVA_sources_of_var.png}}
-\caption{Sources of variation (within group and between groups) as quantified by ANOVA.}
-\label{fig:var-sources}
-\end{figure}
+![Sources of variation (within group and between groups) as quantified by ANOVA.](figs/ANOVA_sources_of_var.png){#fig-var_sources}
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(readxl)
 ```
+
 ### ANOVA in R
 
 There are numerous variations on the theme of ANOVA. We cover one-way ANOVA and we mention two-way ANOVA with and without replication. The objective of ANOVA is to establish the size of the difference (called the ‘effect size’) between different groups (e.g., treatments or locations) and put a confidence interval on those differences.
@@ -32,7 +35,6 @@ The first example data is the yield in $\mu g$ C $ml^{-1}$ of a species of micro
 Note: the function to conduct an ANOVA is `aov()`. The function `anova()` converts various statistical model outputs to the standard ANOVA-table output (including any from the GLM family).
 
 ```{r}
-library(readxl)
 algae_wide_df <- read_excel("data/practical_5.xlsx", sheet = "Microalgae")
 # check these data as usual
 ```
@@ -49,20 +51,16 @@ algae_wide_df <- read_excel("data/practical_5.xlsx", sheet = "Microalgae")
 
 *Q163. Is it reasonable to assume that these data are drawn from a population that is normally distributed?*
 
-We can check the homoscedasticity assumption using Bartlett’s test. Before we can use this test we need to rearrange the data so that the data is in a tidy format. We'll use the *tidyverse* as before.
+To work with our data, we need to rearrange the data so that the data is in a tidy format with each variable corresponding to one column, and each observation corresponding to one row. We'll use the *tidyverse* as before.
 
-```{r, message=F}
-library(tidyverse)
+```{r}
 head(algae_wide_df, 2)
 algae_df <- algae_wide_df |>
   pivot_longer(everything(), names_to = "Treatment", values_to = "Yield")
 glimpse(algae_df, width=80)
-bartlett.test(Yield ~ Treatment, data = algae_df) #?bartlett.test
 ```
 
-*Q164. With regard to Bartlett's test, is the assumption of homogeneity reasonable?*
-
-A better way of checking model assumptions is to check residual patterns. A ‘residual’ is the difference between an actual data value and that predicted by the model. Here we have randomly assigned five cultures each of the same species to three specific treatments (light levels).
+While there are formal tests to evaluate model assumptions (e.g., the Shapiro-Wilkes test or the Bartlett test), a better way of checking model assumptions is to check residual patterns. A ‘residual’ is the difference between an actual data value and that predicted by the model. Here we have randomly assigned five cultures each of the same species to three specific treatments (light levels).
 
 *Q165. What type of experiment is this? (How many factors (=predictors)? Are they fixed or random?)*
 
@@ -72,9 +70,14 @@ Next to conduct the analysis:
 algae_aov <- aov(Yield ~ Treatment, data = algae_df) # ?aov
 ```
 
-Before we look at the output, let's assess the assumptions using the residuals. The default residual plots created by R are shown in Fig. \@ref(fig:algae-aov) and enables us to rapidly assess whether the model assumptions are reasonable.
+Before we look at the output, let's assess the assumptions using the residuals. The default residual plots created by R are shown in @fig-algae_aov and enables us to rapidly assess whether the model assumptions are reasonable.
 
-```{r algae-aov, fig.cap="Residual plots from one-way ANOVA.", fig.dim=c(5.5,5)}
+```{r}
+#| label: fig-algae_aov
+#| fig-cap: "Residual plots from one-way ANOVA."
+#| fig-width: 5.5
+#| fig-height: 5
+
 par(mfrow = c(2, 2), mar=c(4,4,1,1)) 
 plot(algae_aov) 
 ```
@@ -115,14 +118,9 @@ You can see that the mean yield at the high light level is higher than at both t
 
 You’ve had a look at one-way ANOVA (i.e., one predictor), which is a good starting point. However, in nature you often find numerous factors combine to influence an outcome. This is called an ‘interaction’. Two-way ANOVA allows you to investigate the nature of this interaction term. You can also get three-way ANOVA and more, but these get logistically challenging because you need to replicate across each level. The interpretation also gets increasingly difficult. You need to be aware of the existence of two-way ANOVA and what it offers, and how to interpret simple graphics (below), but we do not cover implementation of two-way ANOVA.
 
-```{=tex}
-\begin{figure}
-\centerline{\includegraphics[width=0.6\textwidth]{figs/interactions.png}}
-\caption{Graphic illustrating differing levels of interaction on the response from two treatments A and B.}
-\label{fig:interaction}
-\end{figure}
-```
-In Fig. \@ref(fig:interaction) we have the outcome of an experiment. Each dot on the plot represents the mean Response (e.g. growth) of a number of replicates, subject to the combination of Temperature (cold and hot) and Nutrient (N and P). We are interested in the main effects (Temp and Nutrient) and their interaction (Temp \* Nutrient) In panel A, there is no effect of Temp on the Response (the lines between Cold and Hot are horizontal), but there is a main effect of Nutrient (P is higher than N). In B, there is an effect of Temp (Hot is, on average higher than Cold) but there is also an interaction as the effect of Hot is more for P than for N (where it has no effect in this example). In C, the interaction is stronger compared with B. In D, there are no treatment main effects because mean Cold = mean Hot and mean N = mean P, but there is a very strong interaction effect; the effect of Temp is reversed by Nutrient, so that the level of Nutrient (N or P) determines the effect of Temp. When it is Cold the Response is high for Nutrient P and low for Nutrient N, when it is Hot, the Response is low for Nutrient P and high for Nutrient N (but the average for hot=cold, and average for N=P)
+![Graphic illustrating differing levels of interaction on the response from two treatments A and B.](figs/interactions.png){#fig-interactions}
+
+In @fig-interactions we have the outcome of an experiment. Each dot on the plot represents the mean Response (e.g. growth) of a number of replicates, subject to the combination of Temperature (cold and hot) and Nutrient (N and P). We are interested in the main effects (Temp and Nutrient) and their interaction (Temp \* Nutrient) In panel A, there is no effect of Temp on the Response (the lines between Cold and Hot are horizontal), but there is a main effect of Nutrient (P is higher than N). In B, there is an effect of Temp (Hot is, on average higher than Cold) but there is also an interaction as the effect of Hot is more for P than for N (where it has no effect in this example). In C, the interaction is stronger compared with B. In D, there are no treatment main effects because mean Cold = mean Hot and mean N = mean P, but there is a very strong interaction effect; the effect of Temp is reversed by Nutrient, so that the level of Nutrient (N or P) determines the effect of Temp. When it is Cold the Response is high for Nutrient P and low for Nutrient N, when it is Hot, the Response is low for Nutrient P and high for Nutrient N (but the average for hot=cold, and average for N=P)
 
 ------------------------------------------------------------------------
 
@@ -140,7 +138,7 @@ Regression is at the heart of linear models. ANOVA and t-tests are, basically, s
 
 As usual, null hypothesis significance testing is often applied to regression statistics. As usual, the null hypothesis being tested is usually “there is no functional relationship between the response and the predictor” and this is usually conceptually nonsense. In conducting regression analysis, your objective is to quantify to the most appropriate precision and accuracy possible the relationship between X (the aspect you control, the predictor, plotted on the X axis) and Y (the variable you measure, the response, plotted on the Y axis). Your objective is to quantify this relationship, put confidence intervals on it, and then interpret your findings in relation to the objectives of the study and in relation to other research.
 
-*Q169. Sketch a graph demonstrating the null hypothesis (of no relationship) in regression analysis.* \newline \newline \newline \newline \newline
+*Q169. What does the plot look like when there is no relationship between the predictor and the response?*
 
 Let us now consider an example in which cause and effect does exist. The data in worksheet ‘Beetles’ in *practical_6.xlsx* shows the weight loss in *Tribolium confusum*, the confused flour beetle, at different relative humidities (data from Sokal and Rohlf, 1995). The relative humidity (RH) to which the beetles are exposed can be fixed and the weight loss (via evaporative losses) of the beetles then assessed. There is no way that the null hypothesis can be true in this case: humidity will obviously influence weight loss in beetles.
 
@@ -156,7 +154,12 @@ In R we can use a variety of techniques to conduct linear regression. The easies
 
 Import data and begin:
 
-```{r beetle-scatter, fig.dim=c(4,4), out.width="40%"}
+```{r}
+#| label: fig-beetle_scatter
+#| fig-cap: "Beetle weight loss as a function of relative humidity."
+#| fig-width: 4
+#| fig-height: 4
+
 beetle_df <- read_excel("data/practical_6.xlsx", sheet = "Beetles")
 # inspect the dataframe, then make a scatter plot
 par(mfrow=c(1,1))
@@ -176,7 +179,12 @@ beetle_lm <- lm(WeightLoss_Mg ~ Humidity, data = beetle_df)
 
 Before we go on and interpret the model output we need to assess the model assumptions. This is done in the same way as for ANOVA with the same commands.
 
-```{r beetle-diag, fig.dim=c(5,5)}
+```{r}
+#| label: fig-beetle_diag
+#| fig-cap: "Regression diagnostics"
+#| fig-width: 5
+#| fig-height: 5
+
 par(mfrow = c(2, 2), mar=c(4,4,1,1)) # set up 4 in 1 plot.
 plot(beetle_lm) # plot the regression residuals.
 ```
@@ -223,22 +231,27 @@ If we imagine there were many alternate you's (like in a multiverse) repeating t
 
 A regression model (i.e. the linear relationship between the predictor and response variables) allows us to predict values for any value of the predictor, along with confidence levels. We can plot this regression line without too much effort.
 
-```{r beetle-regline, fig.cap="Regression line (solid) with upper and lower 95\\% CI (dashed)", fig.dim=c(4,4)}
-beetle_pred <- predict(beetle_lm, interval = "confidence", level = 0.95)
+```{r}
+#| label: fig-beetle_regline
+#| fig-cap: "Regression line (solid) with upper and lower 95\\% confidence intervals on the regression line (dashed)."
+#| fig-width: 4
+#| fig-height: 4
+
+beetle_pred_line <- predict(beetle_lm, interval = "confidence", level = 0.95)
 
 par(mfrow=c(1,1))
-plot(WeightLoss_Mg ~ Humidity, data = beetle_df, 
+plot(WeightLoss_Mg ~ Humidity, data = beetle_df, ylim=c(3, 10),
      xlab = "Relative humidity (%)", ylab = "Weight loss (mg)") 
-lines(beetle_df$Humidity, beetle_pred[, "fit"])
-lines(beetle_df$Humidity, beetle_pred[, "lwr"], lty = 2)
-lines(beetle_df$Humidity, beetle_pred[, "upr"], lty = 2)
+lines(beetle_df$Humidity, beetle_pred_line[, "fit"])
+lines(beetle_df$Humidity, beetle_pred_line[, "lwr"], lty = 2)
+lines(beetle_df$Humidity, beetle_pred_line[, "upr"], lty = 2)
 ```
 
 Try generating 90% confidence intervals and add them to the plot.
 
 *Q178. Which will have the wider interval, a 99.99% interval or a 50% interval and why?*
 
-*Q179. Do the confidence intervals in Fig.* \@ref(fig:beetle-regline) *run parallel to the regression line?*
+*Q179. Do the confidence intervals in @fig-beetle_regline run parallel to the regression line?*
 
 *Q180. If not, what does this suggest about the degree of confidence you have in values predicted at various points along the line?*
 
@@ -259,24 +272,66 @@ predict(beetle_lm,
         level = 0.95)
 ```
 
-These are prediction intervals and they are broader than confidence intervals. The confidence intervals express your confidence about where the mean regression line would lie (if you went back in time and were somehow able to repeatedly sample from the same population). The prediction interval expresses your confidence about where the *values* would lie if you went back and repeatedly took an individual of the population at a given value of the predictor (e.g. 50% humidity). For more kicks, import the 'PhosphateCalibration' sheet (1st year practical data) into R and duplicate the following plots and confidence intervals.
+And we can plot these intervals too:
+
+```{r}
+#| label: fig-beetle_regline_predInterval
+#| fig-cap: "Regression line (solid) with upper and lower 95\\% confidence intervals on the regression line (dashed) and 95% prediction intervals (dotted)."
+#| fig-width: 4
+#| fig-height: 4
+
+new_humidity_df <- data.frame(Humidity = 0:100)
+beetle_pred_line <- predict(beetle_lm, 
+                            newdata = new_humidity_df,
+                            interval = "confidence", 
+                            level = 0.95)
+beetle_pred_obs <- predict(beetle_lm,
+                           newdata = new_humidity_df, 
+                           interval = "prediction", 
+                           level = 0.95)
+
+par(mfrow=c(1,1))
+plot(WeightLoss_Mg ~ Humidity, data = beetle_df, ylim=c(3, 10),
+     xlab = "Relative humidity (%)", ylab = "Weight loss (mg)") 
+lines(new_humidity_df$Humidity, beetle_pred_line[, "fit"])
+lines(new_humidity_df$Humidity, beetle_pred_line[, "lwr"], lty = 2)
+lines(new_humidity_df$Humidity, beetle_pred_line[, "upr"], lty = 2)
+lines(new_humidity_df$Humidity, beetle_pred_obs[, "lwr"], lty = 3)
+lines(new_humidity_df$Humidity, beetle_pred_obs[, "upr"], lty = 3)
+```
+
+These are prediction intervals and they are broader than confidence intervals. The confidence intervals express your confidence about the *regression line* for the population. The prediction interval expresses your confidence about the distribution of the *observations* for the population. For more kicks, import the 'PhosphateCalibration' sheet (1st year practical data) into R and duplicate the following plots and confidence intervals.
 
 ```{r}
 phosphate_df <- read_xlsx("data/Practical_6.xlsx", "PhosphateCalibration")
 ```
 
-```{r echo=FALSE, fig.dim=c(4,4)}
+```{r}
+#| label: fig-phosphateScatter
+#| fig-cap: "Phosphate calibration scatter plot."
+#| echo: false
+#| fig-width: 4
+#| fig-height: 4
+
 par(mfrow=c(1,1))
 plot(Absorbance ~ Concentration, data = phosphate_df)
 ```
 
-```{r echo=FALSE, fig.dim=c(5,5)}
+```{r}
+#| label: fig-phosphateDiagnostics
+#| fig-cap: "Phosphate calibration regression diagnostics."
+#| echo: false
+#| fig-width: 5
+#| fig-height: 5
+
 par(mfrow=c(2,2), mar=c(4,4,1,1))
 phos.mod <- lm(Absorbance ~ Concentration, data = phosphate_df)
 plot(phos.mod)
 ```
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
+
 summary(phos.mod)
 ```
 
@@ -290,7 +345,9 @@ summary(phos.mod)
 
 You should get:
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
+
 predict(phos.mod, newdata=data.frame(Concentration = 0.75), interval = "predict")
 ```
 

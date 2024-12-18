@@ -1,4 +1,4 @@
-# Practical 2: Binomial and Poisson Distributions
+# Binomial and Poisson Distributions {#sec-P2}
 
 The role of statisticians is often to determine the probability of events occurring in nature given our current understanding of the processes that are involved (normally on the basis of previous data). This requires a mathematical description of a theoretical relationship. We refer to this as a statistical model. Statistical models are like any model in that they can be a useful simplification of reality. However, as George Box said, ‘all models are wrong but some are useful’. We will come back to this concept again and again throughout this course.
 
@@ -12,6 +12,13 @@ Examples of the questions addressed using the binomial and Poisson models includ
 -   What proportion of clutches of fish eggs will contain all males?
 
 This practical gives you the opportunity to practice using these distributions. In the first part of this class you will conduct a number of short exercises to familiarize yourselves with the necessary commands in R to study probability using the binomial and Poisson distributions.
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
 
 ------------------------------------------------------------------------
 
@@ -71,7 +78,7 @@ Wongles always lay two eggs in a clutch but 50% of the eggs are infertile and do
 
 Often we are faced with more than two events and the quadratic expansion approach you used above is no longer convenient. In such circumstances you use the binomial expression.
 
-*Q35. Copy down the binomial probability mass function (from Chapter* \@ref(appendix)*) and use it as an alternative method for calculating the fertility proportions for two eggs (a, b, c above).*
+*Q35. Copy down the binomial probability mass function (from Chapter* @sec-appendix*) and use it as an alternative method for calculating the fertility proportions for two eggs (a, b, c above).*
 
 Oozle birds are much more sensible than Wongles and always have broods of eight offspring and all of them hatch. We are interested in modelling the probabilities of the proportion of male and female offspring in broods of eight eggs.
 
@@ -107,7 +114,9 @@ num_trials <- 8
 p_female <- 0.5
 ```
 
-```{r, eval=F}
+```{r}
+#| eval: false
+
 # for a single probability: y~Binom(n=8, p=0.5) determine P(y_i=4)
 dbinom(num_female, num_trials, p_female) # dbinom(4, 8, 0.5)
 ```
@@ -159,7 +168,12 @@ paste("The cumulative probability is",
 
 Let's visualize these distributions in order to better understand them.
 
-```{r, fig.dim=c(5,3)}
+```{r}
+#| label: fig-binom_dist
+#| fig-cap: "Binomial probability distribution"
+#| fig-width: 5
+#| fig-height: 3
+
 # Run this, then explore values of p_female
 # Note: 'success' and 'failure' is arbitrary. Just make sure you're calculating
 # what you think. How would you calculate the probabilities for males instead?
@@ -172,7 +186,12 @@ barplot(prFemale_df$prob, names = prFemale_df$num_female,
         xlab = "Number of females", ylab = "Probability")
 ```
 
-```{r, fig.dim=c(5,3)}
+```{r}
+#| label: fig-binom_cum_dist
+#| fig-cap: "Cumulative binomial probability distribution"
+#| fig-width: 5
+#| fig-height: 3
+
 prFemale_df$cumul_prob <- cumsum(prFemale_df$prob)
 barplot(prFemale_df$cumul_prob, names = prFemale_df$num_female, 
         xlab = "Enter the correct label!", ylab = "Enter the correct label!")
@@ -202,24 +221,39 @@ The Poisson distribution is another probability distribution that describes disc
 
 The Poisson distribution takes a single parameter: the mean. If a variable is Poisson distributed, its variance will equal its mean. This is a diagnostic feature of the distribution. The Poisson distribution is a discrete probability distribution, but its parameter, the mean, is continuous (similar to continuous $p$ for the discrete binomial distribution).
 
-The Poisson formula is simple - copy it from Chapter \@ref(appendix) into here: \newline \newline \newline \newline \newline \newline \newline $\bar{y}$ is the mean, $x$ is the outcome of interest, $e$ is Euler's number, and $!$ is factorial.
+The Poisson formula is simple - find it in @sec-appendix . Here, $\bar{y}$ is the mean, $x$ is the outcome of interest, $e$ is Euler's number, and $!$ is factorial. Note that here, we use $\bar{y}$ as our stand-in for the population parameter $\lambda = \mu = \sigma$ which defines the poisson distribution. Translate this formula into an R function by completing this code:
+
+```{r}
+#| eval: false
+
+# hint: exp(2) = e^2
+# hint: factorial(3) = 3!
+calc_poisson_prob <- function(x, y_bar) {
+  
+}
+```
+
+```{r}
+#| echo: false
+
+calc_poisson_prob <- function(x, y_bar) {
+  (y_bar^x * exp(-y_bar)) / factorial(x)
+}
+```
 
 ### Poisson distributions by hand
 
 These problems usually start by asking you to calculate the mean number of observations made per unit of space or time. This is the Poisson parameter, and is referred to as the *rate* or as *lambda* ($\lambda$). The unit could be spatial (e.g., per $m^2$) or temporal (e.g., per hour).
 
-Consider randomly throwing a 1$m^2$ quadrat repeatedly on a sandy beach covered in worm casts (Fig. \@ref(fig:worm-casts)). You then count the number of casts in each quadrat.
+Consider randomly throwing a 1$m^2$ quadrat repeatedly on a sandy beach covered in worm casts @fig-wormcasts. You then count the number of casts in each quadrat.
 
-```{=tex}
-\begin{figure}
-\centerline{\includegraphics[width=0.5\textwidth]{figs/worm_casts.png}}
-\caption{Worm casts on a sandy beach with 1x1 m quadrats.}
-\label{fig:worm-casts}
-\end{figure}
-```
+![Worm casts on a sandy beach with 1x1 m quadrats.](figs/worm_casts.png){#fig-wormcasts}
+
 From these data you can calculate the mean number of observations per unit.
 
-```{r include=FALSE}
+```{r}
+#| include: false
+
 worm_df <- data.frame(num_worms = c(0, 1, 2, 3, 4, 5, 6),
                       num_quadrats = c(35, 28, 15, 10, 7, 5, 0))
 ```
@@ -245,11 +279,11 @@ Probability questions often includes terms such as $P(y_i \leq a)$. That is, the
 
 So, if you are interested in predicting the probability of obtaining 1 or fewer worms per quadrat, you would start your calculation by writing $P(y_i = 0) + P(y_i=1) = \dots$.
 
-*Q60. Use the Poisson formula to calculate the expected frequency of 0, 1 & 2 worms per quadrat.*
+*Q60. Use your `calc_poisson_prob()` function to calculate the expected frequency of 0, 1 & 2 worms per quadrat.*
 
 *Q61. What calculation would you need to conduct to determine* $P(y_i \geq 1)$*?*
 
-Again, calculating Poisson distributed variables in R is easier than doing it by hand, but you must be sure of what you are actually asking (hence bothering with the hand calculations).
+R has built-in functions for calculating these, but it is important to know what you are asking them to calculate.
 
 ### Poisson distributions in R
 
@@ -279,7 +313,10 @@ dpois(a, lambda) # probability of observing 'a' worms per quadrat: dpois()
 1-ppois(a-1, lambda) # probability of observing >= 'a' worms: ppois()
 ```
 
-```{r, eval=-1}
+```{r}
+#| label: fig-worm_poisson
+#| fig-cap: "Poisson probability distribution."
+
 ppois(0:a, lambda) # what does 0:a mean? What's another way to do this? 
 signif(ppois(0:a, lambda), 3) # round with ?signif
 barplot(dpois(0:a, lambda),
@@ -295,10 +332,14 @@ worm_df$prob <- dpois(worm_df$num_worms, lambda)
 worm_df$cumul_prob <- cumsum(worm_df$prob)
 ```
 
-```{r worm-table, message=FALSE, warning=FALSE}
+```{r}
+#| label: tbl-worm_table
+#| tbl-cap: "Worm cast observations and expected probabilities."
+#| message: false
+#| warning: false
+
 # Make Table 2.1. Use packageName::function() instead of loading with library()
-knitr::kable(worm_df, digits=5,
-             caption = 'Worm cast observations and expected probabilities.') 
+knitr::kable(worm_df, digits=5) 
 ```
 
 *Q64. Format the probabilities in the table to 3 decimal places.*
@@ -324,11 +365,13 @@ There are several rules of thumb that apply here. Some say that when $p<0.1$, th
 There are an infinite number of ways of multiplying two numbers together to get 5. Call our numbers $p$ and $k$. For example, when $p=0.5$, $n=10$ OR when $p=0.05$, $n=100$, $n*p=5$. We can use this to illustrate the Poisson approximation of the binomial distribution.
 
 ```{r}
+#| message: false
+#| warning: false
+
 # generate dataframe with probability for 0:16 'successes' from different 
 # distributions but where mean is 5.
 # note that in y ~ Binom(10,0.5), probability of >10 successes is zero.
 # We're going to leverage the power of the tidyverse here
-library(tidyverse)
 y_seq <- 0:16
 binom_df <- tibble(y=rep(y_seq, times=3), # ?rep
                    n=rep(c(10, 20, 100), each=length(y_seq)),
@@ -351,17 +394,25 @@ head(binom_df, 2)
 head(pois_df, 2)
 ```
 
-```{r binom-pois-approx, fig.cap="Binomial and Poisson distributions converge with larger numbers of events.", fig.dim=c(10,3), out.width="100%", out.height="100%"}
+```{r}
+#| label: fig-binom_pois_approx
+#| fig-cap: "Binomial and Poisson distributions converge with larger numbers of events, depending on p."
+#| fig-width: 10
+#| fig-height: 3
+#| warning: false
+#| message: false
+
 ggplot(PDF_df, aes(y, prob, fill=label)) +  # ggplot(data, aes(xVar, yVar))
   geom_bar(stat="identity", position="dodge", colour="grey30") +  # ?geom_bar
   scale_fill_brewer("Distribution", palette="Purples") + # from colorbrewer2.org
   labs(x="Number of successes with mean = 5", y="Probability") +
-  theme_classic() + theme(legend.position=c(0.85, 0.85))
+  theme_classic() + 
+  theme(legend.position=c(0.85, 0.85))
 ```
 
 *Q68. What is the modal value in these distributions?*
 
-Generate some random numbers from the distributions in Fig \@ref(fig:binom-pois-approx) and calculate their mean and variance. Here is $y \sim Pois(\lambda=5)$:
+Generate some random numbers from the distributions in @fig-binom_pois_approx and calculate their mean and variance. Here is $y \sim Pois(\lambda=5)$:
 
 ```{r}
 y <- rpois(10000, 5)
