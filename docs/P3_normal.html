@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>H2 Data Science Practicals - 3&nbsp; Practical 3: Normal distribution</title>
+<title>H2 Data Science Practicals - 3&nbsp; Normal distribution</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P3_normal.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical 3: Normal distribution</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P3_normal.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Normal distribution</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -122,49 +122,55 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P0_R_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R setup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P1_R_recap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Practical 1: R recap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R recap</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P2_binomial_poisson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical 2: Binomial and Poisson Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P3_normal.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical 3: Normal distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Normal distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P4_t_CIs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical 4: T distribution and confidence intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">T distribution and confidence intervals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P5_ANOVA_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practical 5: ANOVA and regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA and regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P6_machine_learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practical 6: Machine Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./formula_sheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
+  <a href="./P7_appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Appendix</span></a>
   </div>
 </li>
     </ul>
@@ -205,9 +211,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical 3: Normal distribution</span>
-</h1>
+<h1 class="title"><span id="sec-P3" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Normal distribution</span></span></h1>
 </div>
 
 
@@ -225,6 +229,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Q71. Which two theoretical distributions have we already covered in this course?</em></p>
 <p>The normal (a.k.a., Gaussian) distribution is another theoretical distribution and is central to inferential statistics. If your data (or, more accurately, statistics derived from you data) are reasonably approximated by the normal distribution then you will be able to use a wide range of techniques to deal with it.</p>
 <p>In this practical we will examine the normal distribution, calculate Z scores, and interpret those Z scores. We’ll also use our knowledge of the normal distribution’s behaviour to produce confidence intervals and assess whether data are reasonably assumed to be normally distributed, transforming the data where they are not. We’ll apply the CLT and evaluate how well other distributions are approximated by the normal distribution.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <hr>
 <section id="using-the-normal-probability-distributions" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="using-the-normal-probability-distributions">
 <span class="header-section-number">3.1</span> Using the normal probability distributions</h2>
@@ -234,24 +242,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Q74. Assume length of herring is approximately normally distributed and write down the model which describes the fish length distribution (</em> <span class="math inline">\(y_i \sim Norm(\mu, \sigma)\)</span> <em>).</em></p>
 <p>When we have population parameters such as we have here, we can calculate Z scores for individuals (or groups of individuals) from that population and calculate how unusual they are. For the moment, we are interested in determining what proportion of fish from this population are expected to be &lt; 38 cm.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">37.6</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">37.6</span></span>
 <span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fl">1.2</span></span>
 <span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fl">38</span></span>
 <span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y_l38_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>len<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="va">mu</span><span class="op">-</span><span class="fl">3</span><span class="op">*</span><span class="va">sigma</span>, <span class="va">mu</span><span class="op">+</span><span class="fl">3</span><span class="op">*</span><span class="va">sigma</span>, length.out<span class="op">=</span><span class="fl">1e3</span><span class="op">)</span>,</span>
+<span><span class="va">y_l38_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>len<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="va">mu</span><span class="op">-</span><span class="fl">3</span><span class="op">*</span><span class="va">sigma</span>, <span class="va">mu</span><span class="op">+</span><span class="fl">3</span><span class="op">*</span><span class="va">sigma</span>, length.out<span class="op">=</span><span class="fl">1e3</span><span class="op">)</span>,</span>
 <span>                     density<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">len</span>, <span class="va">mu</span>, <span class="va">sigma</span><span class="op">)</span>,</span>
 <span>                     shade<span class="op">=</span><span class="va">len</span> <span class="op">&lt;</span> <span class="fl">38</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">y_l38_df</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">len</span>, ymin<span class="op">=</span><span class="fl">0</span>, ymax<span class="op">=</span><span class="va">density</span>, fill<span class="op">=</span><span class="va">shade</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -260,39 +255,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="st">"Herring length (cm)"</span>, y<span class="op">=</span><span class="st">"density"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P3_normal_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
+<div id="fig-normal_herring" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P3_normal_files/figure-html/fig-normal_herring-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.1: Normal distribution of herring lengths.</figcaption></figure>
+</div>
 </div>
 </div>
 <section id="using-r-to-calculate-areas-under-the-normal-curve" class="level3" data-number="3.1.1"><h3 data-number="3.1.1" class="anchored" data-anchor-id="using-r-to-calculate-areas-under-the-normal-curve">
 <span class="header-section-number">3.1.1</span> Using R to calculate areas under the normal curve</h3>
 <p>To solve this problem using R we use the cumulative probability. Observations at the extreme low end are extremely unlikely, but the probability of observing data increases and reaches a maximum at the mean, after which it declines again. The normal distribution is symmetrical.</p>
 <p><em>Q77. What shape is the cumulative probability curve of a normally distributed variable?</em></p>
-<p>You can ask R to determine the probabilities of an event occurring within a normal distribution. For example, you could ask what the probability is of observing a fish greater than 38 cm, when the mean is 37.6 cm and the standard deviation is 1.20 cm. You need to specify the model, and the problem. Use <code><a href="https://rdrr.io/r/stats/Normal.html">?dnorm</a></code> or <code><a href="https://rdrr.io/r/stats/Normal.html">?pnorm</a></code> and look at your options.</p>
+<p>You can ask R to determine the probabilities of an event occurring within a normal distribution. For example, you could ask what the probability is of observing a fish greater than 38 cm, when the mean is 37.6 cm and the standard deviation is 1.20 cm. You need to specify the model, and the problem. Use <code><a href="https://rdrr.io/r/stats/Normal.html">?dnorm</a></code> or <code><a href="https://rdrr.io/r/stats/Normal.html">?pnorm</a></code> and look at your options (<a href="#fig-dpq_examp">Figure&nbsp;<span>3.2</span></a>).</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cumulative probability: which bit of the curve does this relate to?</span></span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># cumulative probability: which bit of the curve does this relate to?</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">38</span>, mean <span class="op">=</span> <span class="fl">37.6</span>, sd <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Q78. Identify the correct area on the figure above according to the probability.</em></p>
-<div class="cell" data-fig.dim="[8,6]">
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'cowplot'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:lubridate':
-
-    stamp</code></pre>
-</div>
+<p><em>Q78. Which area on <a href="#fig-normal_herring">Figure&nbsp;<span>3.1</span></a> are we interested in?</em></p>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P3_normal_files/figure-html/dpq-examp-1.png" style="width:80.0%;height:80.0%" class="figure-img"></p>
-<figcaption class="figure-caption">Functions for distributions in R illustrated with a standard normal.</figcaption></figure>
+<div id="fig-dpq_examp" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P3_normal_files/figure-html/fig-dpq_examp-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.2: Functions for distributions in R illustrated with a standard normal.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>We can plot any normal distribution we like. Play with the values for <code>mu</code> and <code>sigma</code> below, adjusting the values for <code>from</code> and <code>to</code> as needed to see the distribution.</p>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">37.6</span>  <span class="co"># population mean</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">37.6</span>  <span class="co"># population mean</span></span>
 <span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fl">1.2</span>  <span class="co"># population sd</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/curve.html">curve</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">dnorm</a></span><span class="op">(</span><span class="va">x</span>, mean <span class="op">=</span> <span class="va">mu</span>, sd <span class="op">=</span> <span class="va">sigma</span><span class="op">)</span>, from <span class="op">=</span> <span class="fl">30</span>, to <span class="op">=</span> <span class="fl">45</span>,</span>
 <span>      main <span class="op">=</span> <span class="st">"Normal density"</span>, ylab <span class="op">=</span> <span class="st">"Density"</span>, xlab <span class="op">=</span> <span class="st">"Fish length, cm"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -311,18 +300,18 @@ Attaching package: 'cowplot'</code></pre>
 <p>There are 99 quantiles, called percentiles, that split your data into 100 groups. The 2.5 percentile is the value that splits your data into two groups corresponding to 2.5% along the distribution (from negative infinity for the normal distribution). Just as we can ask what proportion of a distribution is above or below a set value, we can also ask between what values will a given percentage of my data lie (e.g.&nbsp;what values correspond to the middle 95%?).</p>
 <p>To solve this problem using R we use the quantile function <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>, which uses the cumulative probability.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.975</span>, mean <span class="op">=</span> <span class="fl">37.6</span>, sd <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span> <span class="co"># p is the cumulative probability </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="fl">0.975</span>, mean <span class="op">=</span> <span class="fl">37.6</span>, sd <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span> <span class="co"># p is the cumulative probability </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 39.95196</code></pre>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0.1</span>, to <span class="op">=</span> <span class="fl">0.9</span>, by <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="co"># vectorize for multiple values</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">probs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0.1</span>, to <span class="op">=</span> <span class="fl">0.9</span>, by <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span> <span class="co"># vectorize for multiple values</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html">rbind</a></span><span class="op">(</span><span class="va">probs</span>, quantiles<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">probs</span>, mean <span class="op">=</span> <span class="fl">37.6</span>, sd <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              [,1]     [,2] [,3]     [,4]     [,5]
 probs      0.10000  0.30000  0.5  0.70000  0.90000
 quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">probs_95</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span> <span class="co"># middle 95% (2.5% on either side)</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">probs_95</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">0.975</span><span class="op">)</span> <span class="co"># middle 95% (2.5% on either side)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span>p <span class="op">=</span> <span class="va">probs_95</span>, mean <span class="op">=</span> <span class="fl">37.6</span>, sd <span class="op">=</span> <span class="fl">1.2</span><span class="op">)</span> <span class="co"># round as appropriate</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 35.24804 39.95196</code></pre>
@@ -335,9 +324,8 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <p><em>Q87. What value would you expect to correspond to 0.5 (i.e., what value would be found half-way along your distribution)?</em></p>
 <p><em>Q88. Check your answer above using <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code></em></p>
 <p>To visualize regions of the normal distribution, let’s use <code>ggplot</code>.</p>
-<div class="cell" data-fig.dim="[6,4]">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="co"># The population: y ~ Norm(mean=37.6, sd=1.2) </span></span>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># The population: y ~ Norm(mean=37.6, sd=1.2) </span></span>
 <span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">37.6</span></span>
 <span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fl">1.2</span></span>
 <span><span class="co"># lower boundary and upper boundary of the region of interest</span></span>
@@ -357,9 +345,9 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span>                       <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">ub</span>, <span class="va">mu</span>, <span class="va">sigma</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">pnorm</a></span><span class="op">(</span><span class="va">lb</span>, <span class="va">mu</span>, <span class="va">sigma</span><span class="op">)</span>, digits<span class="op">=</span><span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># changes how the plot looks: ?theme</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P3_normal_files/figure-html/iq-examp-1.png" style="width:60.0%;height:60.0%" class="figure-img"></p>
-<figcaption class="figure-caption">The normal distribution illustrating probability of a random herring from your population having a length between 36 and 40 cm.</figcaption></figure>
+<div id="fig-herring2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P3_normal_files/figure-html/fig-herring2-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.3: The normal distribution illustrating probability of a random herring from your population having a length between 36 and 40 cm.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -374,12 +362,11 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <p>Many statistical tests assume that data are reasonably approximated by a normal distribution and have homogeneous variance. R can be used to formally test the assumption that data are normally distributed, though you should have some idea of whether this is likely through consideration of the data source. This applies particularly where you have a small sample size which makes evaluating the distribution challenging.</p>
 <p>The data you collect will be part of a population. The normality check assesses the viability of the assumption that the data you collected were drawn from a population that was normally distributed. Note that populations are, in practice, <em>never</em> actually normally distributed. Your test is to assess how <em>reasonable</em> the assumption of normality is.</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span> </span>
-<span><span class="va">MS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"data/practical_3_4.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Mood shrimp"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">MS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"data/practical_3_4.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Mood shrimp"</span><span class="op">)</span></span>
 <span><span class="co"># check the data using head(), str() etc.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-fig.dim="[6,3]">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">MS</span><span class="op">$</span><span class="va">Shrimp1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">MS</span><span class="op">$</span><span class="va">Shrimp1</span>, col <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="co"># the data fall near the line</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">MS</span><span class="op">$</span><span class="va">Shrimp2</span><span class="op">)</span></span>
@@ -399,19 +386,19 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <p>The assumption that our sample data are drawn from a normally distributed population is central to the use of many important inferential statistical techniques. However, frequently it is <em>not</em> reasonable to assume that data are likely to be normally distributed and they ‘fail’ normality tests (e.g.&nbsp;clearly do not fall on the red <code><a href="https://rdrr.io/r/stats/qqnorm.html">qqline()</a></code>).</p>
 <p>Non-normality often occurs because our measurements are near a logical zero. For example, chemical concentrations (e.g., of zinc in sediments) is limited by zero; you cannot have negative zinc concentrations. Similarly, you cannot have negative lengths, time, mass, proportions, etc. Where data is collected ‘near’ a logical zero they are often not normally distributed, since the normal distribution predicts a negative-value ‘tail’ which is impossible.</p>
 <p>There are several simple mathematical transformation options that you can use in an attempt to convert your data to something that is reasonably approximated by a normal distribution even if it is not well approximated in the original measurement units.</p>
-<p>Here we will consider four common transformations. These are the log (base 10 or natural), the square-root, the arcsine, and the logit transformation. Often transformations will also correct unequal variances (see Practical @ref(glm)) in addition to non-normality so they are very useful. The appropriate transformation depends on the data.</p>
+<p>Here we will consider four common transformations. These are the log (base 10 or natural), the square-root, the arcsine, and the logit transformation. Often transformations will also correct unequal variances (see <a href="P5_ANOVA_regression.html"><span>Chapter&nbsp;5</span></a>) in addition to non-normality so they are very useful. The appropriate transformation depends on the data.</p>
 <ul>
 <li>Log (<code><a href="https://rdrr.io/r/base/Log.html">log()</a></code>, inverse: <code><a href="https://rdrr.io/r/base/Log.html">exp()</a></code>): When the distribution is skewed right and all values are &gt;0. Often ‘cures’ heteroscedasticity.<br>
 </li>
-<li>Square-root (<code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code>, inverse: <code>^2</code>): When the measurements are areas (e.g., leaf areas). Often used to ‘down-weight’ common species (e.g., Practical @ref(multivariate)), which is unrelated to model assumptions. Values must be &gt;0.<br>
+<li>Square-root (<code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code>, inverse: <code>^2</code>): When the measurements are areas (e.g., leaf areas). Often used to ‘down-weight’ common species (e.g., <a href="P6_machine_learning.html"><span>Chapter&nbsp;6</span></a>), which is unrelated to model assumptions. Values must be &gt;0.<br>
 </li>
 <li>Arcsine (<code><a href="https://rdrr.io/r/base/Trig.html">asin()</a></code>, inverse: <code>sin()^2</code>): When the measurements are proportions. Tends to stretch out the tails (e.g., near 0 or 1 for proportions) and squash the middle (e.g., near 0.5).<br>
 </li>
 <li>Logit (<code><a href="https://rdrr.io/pkg/boot/man/logit.html">boot::logit()</a></code>, inverse: <code><a href="https://rdrr.io/pkg/boot/man/inv.logit.html">boot::inv.logit()</a></code>): Used for proportions excluding 0 and 1. Also commonly used in models with a binary response variable (e.g., survival probability predicted by temperature, where the response variable is ‘alive’/‘dead’).</li>
 </ul>
 <p>Identifying the correct transformation can be led by an underlying comprehension of the nature of the data. However, this often doesn’t work so expect some trial and error.</p>
-<div class="cell" data-fig.dim="[9,2.5]">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">positive_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>orig<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">10</span>, length.out<span class="op">=</span><span class="fl">1e3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">positive_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>orig<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">10</span>, length.out<span class="op">=</span><span class="fl">1e3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sqrt<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">orig</span><span class="op">)</span>,</span>
 <span>         ln<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">orig</span><span class="op">)</span>,</span>
 <span>         inv.logit<span class="op">=</span><span class="fu">boot</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/boot/man/inv.logit.html">inv.logit</a></span><span class="op">(</span><span class="va">orig</span><span class="op">)</span>,</span>
@@ -423,11 +410,14 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">transformation</span>, scales<span class="op">=</span><span class="st">"free"</span>, nrow<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>main<span class="op">=</span><span class="st">"Positive values"</span>, x<span class="op">=</span><span class="st">"Original"</span>, y<span class="op">=</span><span class="st">"Transformed"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P3_normal_files/figure-html/unnamed-chunk-6-1.png" style="width:95.0%;height:50.0%"></p>
+<div id="fig-trans_positiveData" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P3_normal_files/figure-html/fig-trans_positiveData-1.png" class="img-fluid figure-img" width="864"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.4: Effect of common transformations on positive data.</figcaption></figure>
 </div>
 </div>
-<div class="cell" data-fig.dim="[9,2.5]">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">proportion_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>orig<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0.99</span>, length.out<span class="op">=</span><span class="fl">1e3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">proportion_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>orig<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0.01</span>, <span class="fl">0.99</span>, length.out<span class="op">=</span><span class="fl">1e3</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>sqrt<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="va">orig</span><span class="op">)</span>,</span>
 <span>         ln<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span><span class="op">(</span><span class="va">orig</span><span class="op">)</span>,</span>
 <span>         asin<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/Trig.html">asin</a></span><span class="op">(</span><span class="va">orig</span><span class="op">)</span>,</span>
@@ -439,13 +429,16 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">transformation</span>, scales<span class="op">=</span><span class="st">"free"</span>, nrow<span class="op">=</span><span class="fl">1</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>main<span class="op">=</span><span class="st">"Proportions"</span>, x<span class="op">=</span><span class="st">"Original value"</span>, y<span class="op">=</span><span class="st">"Transformed value"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P3_normal_files/figure-html/unnamed-chunk-7-1.png" style="width:95.0%;height:50.0%"></p>
+<div id="fig-trans_proportionalData" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P3_normal_files/figure-html/fig-trans_proportionalData-1.png" class="img-fluid figure-img" width="864"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.5: Effect of common transformations on proportions.</figcaption></figure>
+</div>
 </div>
 </div>
 <p><em>Q95. Using the Radon concentration worksheet in practical_3_4.xlsx, plot the data. Do they look normally distributed?</em></p>
 <p><em>Q96. In your own time,use R to determine the log, square root, and reciprocals (and combinations of all of them: at least one converts the data to approximate normality).</em></p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get the Radon data into R; the units are parts per billion</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># get the Radon data into R; the units are parts per billion</span></span>
 <span><span class="fu">readxl</span><span class="fu">::</span><span class="fu"><a href="https://readxl.tidyverse.org/reference/excel_sheets.html">excel_sheets</a></span><span class="op">(</span><span class="st">"data/practical_3_4.xlsx"</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Cod lengths"           "Shrimps"               "Caffeine"             
@@ -454,7 +447,7 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 [10] "Radon (ppb)"           "Zinc conc"             "Heart-beat,2012"      
 [13] "Sheet1"               </code></pre>
 </div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load the dataset and try some transformations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># load the dataset and try some transformations</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Q97. Generate a vector of numbers and then use <code><a href="https://rdrr.io/r/base/MathFun.html">sqrt()</a></code> on them.</em></p>
 <hr></section><section id="functions-in-r" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="functions-in-r">
@@ -462,7 +455,7 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <p>Everything that <em>does</em> in R is a function. Writing your own functions becomes useful as you use R more and more often. It can keep your code legible and reduce work for yourself (since any changes need to be done in only one location instead of everywhere you’ve repeated the same code).</p>
 <p>We’ll create a function called <code>trim_values()</code>, which takes a single argument (<code>x</code>), formats it to three digits, and returns the formatted output. Play around with the function to see how it works. We’ll use this function to ‘clean’ our output. In order to use the function, you must run the code defining it first. You will see your functions listed (alongside your dataframes, vectors, lists, etc) in RStudio’s ‘Environment’ pane.</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trim_values</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">trim_values</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="va">x</span>, digits <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/function.html">return</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span></span>
 <span><span class="op">}</span> </span>
@@ -472,14 +465,14 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "1.23"</code></pre>
 </div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">long_numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">long_numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>orig<span class="op">=</span><span class="va">long_numbers</span>,</span>
 <span>           clean<span class="op">=</span><span class="fu">trim_values</span><span class="op">(</span><span class="va">long_numbers</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>      orig clean
-1 0.773076 0.773
-2 1.927487 1.927
-3 2.250694 2.251</code></pre>
+<pre><code>       orig clean
+1 0.7005405 0.701
+2 1.7205912 1.721
+3 1.4166889 1.417</code></pre>
 </div>
 </div>
 <p>Notice anything strange about the output? The function <code><a href="https://rdrr.io/r/base/format.html">format()</a></code> converts the vector from <code>numeric</code> to <code>character</code> to display each value with the same number of characters. The <code>digits=3</code> argument is also taken as a suggestion (kind of like <code>breaks</code> in <code><a href="https://rdrr.io/r/graphics/hist.html">hist()</a></code>). Try some of the other options in <code><a href="https://rdrr.io/r/base/format.html">format()</a></code> or adjust the <code>digits</code> argument, re-running the function definition each time to see the changes.</p>
@@ -491,8 +484,8 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span class="header-section-number">3.7.1</span> The distribution of means from various data distributions</h3>
 <p>The following code generates a non-normally distributed dataset (<code>obs_data</code>), repeatedly takes samples from it (<code>num_samples</code> samples, with each sample made up of <code>sample_size</code> random observations from <code>obs_data</code>), and then plots histograms and QQ-plots for the raw data and for the sample means.</p>
 <p>Copy the code and experiment with the <code>sample_size</code>.</p>
-<div class="cell" data-fig.dim="[6,6]">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Run this code, then adjust the values for obs_data as you like.</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Run this code, then adjust the values for obs_data as you like.</span></span>
 <span><span class="co"># Play with more distributions if you want: ?stats::distributions</span></span>
 <span><span class="va">obs_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">2000</span>, <span class="fl">200</span>, <span class="fl">20</span><span class="op">)</span>, </span>
 <span>              <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">1500</span>, <span class="fl">100</span>, <span class="fl">20</span><span class="op">)</span>, </span>
@@ -534,9 +527,9 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqnorm</a></span><span class="op">(</span><span class="va">sample_means</span>, main<span class="op">=</span><span class="st">"Sample mean QQ"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/qqnorm.html">qqline</a></span><span class="op">(</span><span class="va">sample_means</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P3_normal_files/figure-html/clt-examp-1.png" style="width:70.0%;height:70.0%" class="figure-img"></p>
-<figcaption class="figure-caption">The central limit theorem in action (when n&gt;30).</figcaption></figure>
+<div id="fig-clt_examp" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P3_normal_files/figure-html/fig-clt_examp-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.6: The central limit theorem in action (when n&gt;30).</figcaption></figure>
 </div>
 </div>
 </div>
@@ -546,10 +539,9 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <p>Note also the relationship between the sample size and the range of values for the sample mean. How does the standard deviation of <code>sample_means</code> change with changes in <code>sample_size</code>?.</p>
 <hr></section></section><section id="the-standard-error-of-the-mean" class="level2" data-number="3.8"><h2 data-number="3.8" class="anchored" data-anchor-id="the-standard-error-of-the-mean">
 <span class="header-section-number">3.8</span> The standard error of the mean</h2>
-<p>The standard error of the mean is the standard deviation of sample means, of a given sample size, taken from a population. It is the standard deviation of the distribution shown in the lower histogram in Fig. @ref(fig:clt-examp) – <code>sd(sample_means)</code>. Usually we only have a single sample rather than 10,000 (=<code>num_samples</code>). In that case, we estimate it from single sample as <span class="math inline">\({SE}_{\bar{y}} = \frac{sd(y)}{\sqrt{n}}\)</span>, where <span class="math inline">\(y\)</span> is a vector of <span class="math inline">\(n\)</span> observations.</p>
+<p>The standard error of the mean is the standard deviation of sample means, of a given sample size, taken from a population. It is the standard deviation of the distribution shown in the lower histogram in <a href="#fig-clt_examp">Figure&nbsp;<span>3.6</span></a> : <code>sd(sample_means)</code>. Usually we only have a single sample rather than 10,000 (=<code>num_samples</code>). In that case, we estimate it from single sample as <span class="math inline">\({SE}_{\bar{y}} = \frac{sd(y)}{\sqrt{n}}\)</span>, where <span class="math inline">\(y\)</span> is a vector of <span class="math inline">\(n\)</span> observations.</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="co"># Simulate a normally distributed population with mean mu and sd sigma</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Simulate a normally distributed population with mean mu and sd sigma</span></span>
 <span><span class="va">mu</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
 <span><span class="va">sigma</span> <span class="op">&lt;-</span> <span class="fl">2</span></span>
 <span><span class="va">sim_obs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="va">mu</span>, <span class="va">sigma</span><span class="op">)</span></span>
@@ -567,8 +559,8 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span>  <span class="va">sample_mean_df</span><span class="op">$</span><span class="va">sample_mean</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sample_i</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-fig.dim="[6,4]">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_mean_df</span> <span class="op">|&gt;</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_mean_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>N<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">N</span>, levels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span>, labels<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"n:"</span>, <span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">sample_mean</span>, colour<span class="op">=</span><span class="va">N</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept<span class="op">=</span><span class="va">mu</span>, linetype<span class="op">=</span><span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
@@ -577,22 +569,22 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Means of"</span>, <span class="va">num_samples</span>, <span class="st">"simulated samples"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_classic</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P3_normal_files/figure-html/SEM-fig-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Simulated sample means.</figcaption></figure>
+<div id="fig-SEM" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P3_normal_files/figure-html/fig-SEM-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.7: Simulated sample means.</figcaption></figure>
 </div>
 </div>
 </div>
 <p><em>Q100. Calculate the theoretical standard error of the mean for each <code>sample_size</code> given <code>sigma</code> (i.e., from the equation) and compare this with the standard error from the simulated sample means in <code>sample_mean_df</code>.</em></p>
 <p>Hint:</p>
 <div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_mean_df</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_mean_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="op">)</span> <span class="co"># what goes here?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>And here’s a tidy solution:</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_mean_df</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sample_mean_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">N</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>se_sim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">sample_mean</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">ungroup</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -601,10 +593,10 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <pre><code># A tibble: 4 × 3
       N se_sim se_calc
   &lt;dbl&gt;  &lt;dbl&gt;   &lt;dbl&gt;
-1     2  1.44    1.41 
-2    10  0.632   0.632
-3    30  0.363   0.365
-4   100  0.194   0.2  </code></pre>
+1     2  1.43    1.41 
+2    10  0.629   0.632
+3    30  0.355   0.365
+4   100  0.202   0.2  </code></pre>
 </div>
 </div>
 <p><em>Q101. Given what you know about the CLT, how does this change with non-normally distributed data? Try changing <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code> to <code><a href="https://rdrr.io/r/stats/Poisson.html">rpois()</a></code></em></p>
@@ -618,7 +610,7 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <p><em>Q103. For</em> <span class="math inline">\(y \sim Pois(10)\)</span> <em>write the equivalent normal distribution in the usual notation</em> (<span class="math inline">\(y /sim Norm(...)\)</span>)<em>.</em></p>
 <p>As a rough guideline, a normal approximation is reasonable if <span class="math inline">\(\lambda \geq 30\)</span>. So <span class="math inline">\(y \sim Pois(10)\)</span> should not be approximated by the normal distribution while <span class="math inline">\(y \sim Pois(30)\)</span> could be. However, it is generally preferable to use the natural distribution for your data (e.g., a Poisson distribution for counts). The normal distribution is beneficial in some cases, but this is increasingly less so with modern methods.</p>
 <p><em>Q104. For a Poisson distribution</em> <span class="math inline">\(y \sim Pois(40)\)</span> <em>define the normal approximation in the usual way</em> (<span class="math inline">\(y /sim Norm(...)\)</span>)<em>.</em></p>
-<p><em>Q105. Using R and referring Practical</em> @ref(binpois)<em>, calculate</em> <span class="math inline">\(P(y_i \leq 35)\)</span> <em>from</em> <span class="math inline">\(y \sim Pois(40)\)</span> <em>(Ans = 0.242)</em></p>
+<p><em>Q105. Using R and referring to</em> <a href="P2_binomial_poisson.html"><span>Chapter&nbsp;2</span></a>, <em>calculate</em> <span class="math inline">\(P(y_i \leq 35)\)</span> <em>from</em> <span class="math inline">\(y \sim Pois(40)\)</span> <em>(Ans = 0.242)</em></p>
 <p><em>Q106. Using R, calculate</em> <span class="math inline">\(P(y_i &lt; 35)\)</span> <em>from the above normal approximation of the Poisson distribution (Ans = 0.215).</em></p>
 <p><em>Q107. What do you think of the normal approximation?</em></p>
 <p><em>Q108. Evaluate</em> <span class="math inline">\(P(y_i&lt;3\ |\ \lambda=5)\)</span> <em>using the Poisson model and its normal approximation.</em></p>
@@ -627,7 +619,7 @@ quantiles 36.06214 36.97072 37.6 38.22928 39.13786</code></pre>
 <p>Whilst we accept the fundamental difference between continuous and discrete data, in making continuous-variable measurements we inevitably allocate each measurement to a single measurement category (we are limited by our ability to measure, eg. to the nearest millimeter if using a ruler). If we wish to treat a continuous variable as a continuous variable, the number of categories between the smallest and largest measurement should be a minimum of ~30 (the upper limit doesn’t matter so much but there is no need to &gt;300). For example, suppose we were measuring fish-lengths and the min was 20 cm and the max 40 cm. That means there are 20 x 1 cm measurement units between them. This falls under our 30 unit minimum – measuring to the nearest cm would not be adequate. There are, however, 40 x 0.5 cm units between them so we could measure to the nearest 0.5 cm (we would probably use 0.1 cm though). But, even if we measure to the correct degree of precision, we are still categorizing the lengths. For example, a fish of 20.5 cm actually means we think that fish was between 20.45 and 20.55 cm.</p>
 <p>What is the point of this? Well, if you have a binomially distributed variable where <span class="math inline">\(n\)</span>, the number of trials, is sufficiently large (meaning the number of outcomes is large too) then the binomial distribution begins to look like the normal distribution, particularly where <span class="math inline">\(p\)</span> is somewhere near 0.5. The general guideline is that where the number of trials multiplied by the smaller of the probability of success (<span class="math inline">\(p\)</span>) or the probability of failure (<span class="math inline">\(q=1-p\)</span>) is greater than 5 then we can reasonably use the normal distribution to model the data (i.e.&nbsp;both <span class="math inline">\(n*p &gt; 5\)</span> and <span class="math inline">\(n*(1-p) &gt; 5\)</span>).</p>
 <p>Turtles lay clutches of 40 eggs. We might be interested in predicting the number of male and female offspring. Assume the proportion that are male is 0.5. Our investigation stems from the observation that several clutches of eggs, on a particular island, contained only 10 males. We might wonder how unlikely this was by chance, assuming <span class="math inline">\(P(male)=0.5\)</span>.</p>
-<p><em>Q109. Referring to Practical</em> @ref(binpois) <em>if necessary, use the binomial model, calculate how unusual (i.e.&nbsp;the probability) it is to get</em> <span class="math inline">\(\leq 10\)</span> <em>males.</em></p>
+<p><em>Q109. Referring to <a href="P2_binomial_poisson.html"><span>Chapter&nbsp;2</span></a></em> <em>if necessary, use the binomial model, calculate how unusual (i.e.&nbsp;the probability) it is to get</em> <span class="math inline">\(\leq 10\)</span> <em>males.</em></p>
 <p><em>Q110. Plot your probability (i.e.&nbsp;from 0 – 40 males) as a bar graph. Comment on its shape.</em></p>
 <p>The variance of a binomially distributed variable is simply <span class="math inline">\(n*p*q\)</span>.</p>
 <p><em>Q111. Calculate the mean and variance of this population.</em></p>
@@ -878,12 +870,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./P2_binomial_poisson.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical 2: Binomial and Poisson Distributions</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./P4_t_CIs.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical 4: T distribution and confidence intervals</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">T distribution and confidence intervals</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

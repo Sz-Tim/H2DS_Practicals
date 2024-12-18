@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>H2 Data Science Practicals - 5&nbsp; Practical 5: ANOVA and regression</title>
+<title>H2 Data Science Practicals - 5&nbsp; ANOVA and regression</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P5_ANOVA_regression.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practical 5: ANOVA and regression</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P5_ANOVA_regression.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA and regression</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -122,48 +122,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P0_R_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R setup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P1_R_recap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Practical 1: R recap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R recap</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P2_binomial_poisson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical 2: Binomial and Poisson Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P3_normal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical 3: Normal distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Normal distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P4_t_CIs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical 4: T distribution and confidence intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">T distribution and confidence intervals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P5_ANOVA_regression.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practical 5: ANOVA and regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA and regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P6_machine_learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practical 6: Machine Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./formula_sheet.html" class="sidebar-item-text sidebar-link">
+  <a href="./P7_appendix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
   </div>
 </li>
@@ -196,9 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practical 5: ANOVA and regression</span>
-</h1>
+<h1 class="title"><span id="sec-P5" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA and regression</span></span></h1>
 </div>
 
 
@@ -215,9 +219,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="analysis-of-variance-anova" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="analysis-of-variance-anova">
 <span class="header-section-number">5.1</span> Analysis of variance (ANOVA)</h2>
 <p>ANOVA is a widely used modelling approach that enables you to compare means and put confidence intervals on the differences between those means. For a predictor with only two categories, ANOVA is identical to the 2-sample t-test, so we’ll just use ANOVA.</p>
-<p>When you see “analysis of variance”, think “analysis of means”. In an ANOVA, we analyse the variance in the data in order to compare the means of different groups. In an ANOVA, we compare means by determining the ratio of [the variance between treatments and the overall mean (large black arrows in Fig. @ref(fig:var-sources))] and [the variance within treatments (sum of the dotted arrows in Fig. @ref(fig:var-sources))]. The black line under the red dots in Fig. @ref(fig:var-sources) shows the actual data distribution and the actual parameters for mean values (50 and 150 cm for A and B respectively). You then take samples from A and B (n=4 in this example) and, from these, derive your parameter estimates for the mean of each group and the overall mean.</p>
-<p>In Fig. @ref(fig:var-sources) below you can see that the solid black arrows are much larger than the dotted ones leading you to think that the chance that these two samples are drawn from the same population (with a value of the overall mean) as very unlikely. Make sure you understand Fig. @ref(fig:var-sources) (more detail in the ANOVA lecture).</p>
+<p>When you see “analysis of variance”, think “analysis of means”. In an ANOVA, we analyse the variance in the data in order to compare the means of different groups. In an ANOVA, we compare means by determining the ratio of “the variance between treatments and the overall mean” (large black arrows in <a href="#fig-var_sources">Figure&nbsp;<span>5.1</span></a>) and “the variance within treatments” (sum of the dotted arrows in <a href="#fig-var_sources">Figure&nbsp;<span>5.1</span></a>). The black line under the red dots in <a href="#fig-var_sources">Figure&nbsp;<span>5.1</span></a> shows the actual data distribution and the actual parameters for mean values (50 and 150 cm for A and B respectively). You then take samples from A and B (n=4 in this example) and, from these, derive your parameter estimates for the mean of each group and the overall mean.</p>
+<p>In <a href="#fig-var_sources">Figure&nbsp;<span>5.1</span></a> below you can see that the solid black arrows are much larger than the dotted ones leading you to think that the chance that these two samples are drawn from the same population (with a value of the overall mean) as very unlikely. Make sure you understand <a href="#fig-var_sources">Figure&nbsp;<span>5.1</span></a> (more detail in the ANOVA lecture).</p>
 <p>In most circumstances you know that the means that you are comparing with ANOVA are different (i.e.&nbsp;that testing a null hypothesis of no difference isn’t useful). ANOVA allows you to put confidence intervals around differences between means, or groups of means.</p>
+<div id="fig-var_sources" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="figs/ANOVA_sources_of_var.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.1: Sources of variation (within group and between groups) as quantified by ANOVA.</figcaption></figure>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="anova-in-r" class="level3" data-number="5.1.1"><h3 data-number="5.1.1" class="anchored" data-anchor-id="anova-in-r">
 <span class="header-section-number">5.1.1</span> ANOVA in R</h3>
 <p>There are numerous variations on the theme of ANOVA. We cover one-way ANOVA and we mention two-way ANOVA with and without replication. The objective of ANOVA is to establish the size of the difference (called the ‘effect size’) between different groups (e.g., treatments or locations) and put a confidence interval on those differences.</p>
@@ -227,8 +239,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The first example data is the yield in <span class="math inline">\(\mu g\)</span> C <span class="math inline">\(ml^{-1}\)</span> of a species of microalgae (<em>Isochrysis galbana</em>) in laboratory culture exposed to three light levels (low, medium and high). We are interested in these particular light levels because they represent the means of winter, spring, and summer Scottish sun intensity. The data are in worksheet ‘Microalgae’.</p>
 <p>Note: the function to conduct an ANOVA is <code><a href="https://rdrr.io/r/stats/aov.html">aov()</a></code>. The function <code><a href="https://rdrr.io/r/stats/anova.html">anova()</a></code> converts various statistical model outputs to the standard ANOVA-table output (including any from the GLM family).</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
-<span><span class="va">algae_wide_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_5.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Microalgae"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algae_wide_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_5.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Microalgae"</span><span class="op">)</span></span>
 <span><span class="co"># check these data as usual</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><em>Q158. What is your objective in this type of experiment? What are you interested in estimating?</em></p>
@@ -237,10 +248,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Q161. Given your sample size can we assume normality of means?</em></p>
 <p><em>Q162. Are the data normally distributed (be careful how you word your answer to this question, see the following question)?</em></p>
 <p><em>Q163. Is it reasonable to assume that these data are drawn from a population that is normally distributed?</em></p>
-<p>We can check the homoscedasticity assumption using Bartlett’s test. Before we can use this test we need to rearrange the data so that the data is in a tidy format. We’ll use the <em>tidyverse</em> as before.</p>
+<p>To work with our data, we need to rearrange the data so that the data is in a tidy format with each variable corresponding to one column, and each observation corresponding to one row. We’ll use the <em>tidyverse</em> as before.</p>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">algae_wide_df</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">algae_wide_df</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 3
     low medium  high
@@ -248,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1  13.1   12    14.2
 2  11.5   11.5  13.1</code></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algae_df</span> <span class="op">&lt;-</span> <span class="va">algae_wide_df</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algae_df</span> <span class="op">&lt;-</span> <span class="va">algae_wide_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"Treatment"</span>, values_to <span class="op">=</span> <span class="st">"Yield"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">algae_df</span>, width<span class="op">=</span><span class="fl">80</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -257,30 +267,21 @@ Columns: 2
 $ Treatment &lt;chr&gt; "low", "medium", "high", "low", "medium", "high", "low", "me…
 $ Yield     &lt;dbl&gt; 13.07599, 12.00000, 14.20000, 11.53923, 11.50000, 13.10000, …</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/bartlett.test.html">bartlett.test</a></span><span class="op">(</span><span class="va">Yield</span> <span class="op">~</span> <span class="va">Treatment</span>, data <span class="op">=</span> <span class="va">algae_df</span><span class="op">)</span> <span class="co">#?bartlett.test</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-    Bartlett test of homogeneity of variances
-
-data:  Yield by Treatment
-Bartlett's K-squared = 2.8413, df = 2, p-value = 0.2416</code></pre>
 </div>
-</div>
-<p><em>Q164. With regard to Bartlett’s test, is the assumption of homogeneity reasonable?</em></p>
-<p>A better way of checking model assumptions is to check residual patterns. A ‘residual’ is the difference between an actual data value and that predicted by the model. Here we have randomly assigned five cultures each of the same species to three specific treatments (light levels).</p>
+<p>While there are formal tests to evaluate model assumptions (e.g., the Shapiro-Wilkes test or the Bartlett test), a better way of checking model assumptions is to check residual patterns. A ‘residual’ is the difference between an actual data value and that predicted by the model. Here we have randomly assigned five cultures each of the same species to three specific treatments (light levels).</p>
 <p><em>Q165. What type of experiment is this? (How many factors (=predictors)? Are they fixed or random?)</em></p>
 <p>Next to conduct the analysis:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algae_aov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Yield</span> <span class="op">~</span> <span class="va">Treatment</span>, data <span class="op">=</span> <span class="va">algae_df</span><span class="op">)</span> <span class="co"># ?aov</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algae_aov</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/aov.html">aov</a></span><span class="op">(</span><span class="va">Yield</span> <span class="op">~</span> <span class="va">Treatment</span>, data <span class="op">=</span> <span class="va">algae_df</span><span class="op">)</span> <span class="co"># ?aov</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Before we look at the output, let’s assess the assumptions using the residuals. The default residual plots created by R are shown in Fig. @ref(fig:algae-aov) and enables us to rapidly assess whether the model assumptions are reasonable.</p>
-<div class="cell" data-fig.dim="[5.5,5]">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> </span>
+<p>Before we look at the output, let’s assess the assumptions using the residuals. The default residual plots created by R are shown in <a href="#fig-algae_aov">Figure&nbsp;<span>5.2</span></a> and enables us to rapidly assess whether the model assumptions are reasonable.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">algae_aov</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/algae-aov-1.png" class="img-fluid figure-img" width="528"></p>
-<figcaption class="figure-caption">Residual plots from one-way ANOVA.</figcaption></figure>
+<div id="fig-algae_aov" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/fig-algae_aov-1.png" class="img-fluid figure-img" width="528"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.2: Residual plots from one-way ANOVA.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -304,7 +305,7 @@ Bartlett's K-squared = 2.8413, df = 2, p-value = 0.2416</code></pre>
 <p><em>Q168. Assuming you have chosen</em> <span class="math inline">\(\alpha = 0.05\)</span><em>, what might you be interested in going on to test next? Hint: you are testing to see whether the means of three populations are different.</em></p>
 <p>Everything looks OK, so we can then look at the results of the ANOVA.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># anova(algae_aov) # outputs an anova-type table, but unnecessary with aov()</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># anova(algae_aov) # outputs an anova-type table, but unnecessary with aov()</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">algae_aov</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            Df Sum Sq Mean Sq F value Pr(&gt;F)  
@@ -316,7 +317,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>Reporting that there are ‘significant’ differences between means is not enough. What your readers should be interested in is what the differences between the means actually are, and how confident you are in your assessment. This can be provided by the Tukey test in R.</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algae_grp_diffs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">algae_aov</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> </span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">algae_grp_diffs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">algae_aov</span>, conf.level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> </span>
 <span><span class="co"># HSD stands for 'honestly significant difference'</span></span>
 <span><span class="va">algae_grp_diffs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -336,7 +337,11 @@ medium-low  -0.09077539 -1.575855  1.3943043 0.9854641</code></pre>
 </section><section id="two-way-anova" class="level3" data-number="5.1.3"><h3 data-number="5.1.3" class="anchored" data-anchor-id="two-way-anova">
 <span class="header-section-number">5.1.3</span> Two-way ANOVA</h3>
 <p>You’ve had a look at one-way ANOVA (i.e., one predictor), which is a good starting point. However, in nature you often find numerous factors combine to influence an outcome. This is called an ‘interaction’. Two-way ANOVA allows you to investigate the nature of this interaction term. You can also get three-way ANOVA and more, but these get logistically challenging because you need to replicate across each level. The interpretation also gets increasingly difficult. You need to be aware of the existence of two-way ANOVA and what it offers, and how to interpret simple graphics (below), but we do not cover implementation of two-way ANOVA.</p>
-<p>In Fig. @ref(fig:interaction) we have the outcome of an experiment. Each dot on the plot represents the mean Response (e.g.&nbsp;growth) of a number of replicates, subject to the combination of Temperature (cold and hot) and Nutrient (N and P). We are interested in the main effects (Temp and Nutrient) and their interaction (Temp * Nutrient) In panel A, there is no effect of Temp on the Response (the lines between Cold and Hot are horizontal), but there is a main effect of Nutrient (P is higher than N). In B, there is an effect of Temp (Hot is, on average higher than Cold) but there is also an interaction as the effect of Hot is more for P than for N (where it has no effect in this example). In C, the interaction is stronger compared with B. In D, there are no treatment main effects because mean Cold = mean Hot and mean N = mean P, but there is a very strong interaction effect; the effect of Temp is reversed by Nutrient, so that the level of Nutrient (N or P) determines the effect of Temp. When it is Cold the Response is high for Nutrient P and low for Nutrient N, when it is Hot, the Response is low for Nutrient P and high for Nutrient N (but the average for hot=cold, and average for N=P)</p>
+<div id="fig-interactions" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="figs/interactions.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.3: Graphic illustrating differing levels of interaction on the response from two treatments A and B.</figcaption></figure>
+</div>
+<p>In <a href="#fig-interactions">Figure&nbsp;<span>5.3</span></a> we have the outcome of an experiment. Each dot on the plot represents the mean Response (e.g.&nbsp;growth) of a number of replicates, subject to the combination of Temperature (cold and hot) and Nutrient (N and P). We are interested in the main effects (Temp and Nutrient) and their interaction (Temp * Nutrient) In panel A, there is no effect of Temp on the Response (the lines between Cold and Hot are horizontal), but there is a main effect of Nutrient (P is higher than N). In B, there is an effect of Temp (Hot is, on average higher than Cold) but there is also an interaction as the effect of Hot is more for P than for N (where it has no effect in this example). In C, the interaction is stronger compared with B. In D, there are no treatment main effects because mean Cold = mean Hot and mean N = mean P, but there is a very strong interaction effect; the effect of Temp is reversed by Nutrient, so that the level of Nutrient (N or P) determines the effect of Temp. When it is Cold the Response is high for Nutrient P and low for Nutrient N, when it is Hot, the Response is low for Nutrient P and high for Nutrient N (but the average for hot=cold, and average for N=P)</p>
 <hr></section></section><section id="regression" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="regression">
 <span class="header-section-number">5.2</span> Regression</h2>
 <p>Correlation and regression are used to examine the strength of association between two variables. In correlation, both variables are measured (and therefore associated with measurement error). In regression, one variable is fixed (by the experimenter) and is assumed to have no ‘error’ associated with it and the other, called the ‘response variable’, is measured (so has measurement error). You must be able to distinguish which of correlation or regression analyses are most appropriate.</p>
@@ -346,7 +351,7 @@ medium-low  -0.09077539 -1.575855  1.3943043 0.9854641</code></pre>
 <span class="header-section-number">5.2.1</span> Overview</h3>
 <p>Regression is at the heart of linear models. ANOVA and t-tests are, basically, special cases of linear regression models. The regression coefficient is a measure of the strength of the relationship between the dependent variable (the one you measure) and the independent variable (the one you fix like a fixed factor in ANOVA). The regression coefficient is denoted by <span class="math inline">\(R^2\)</span> compared with <span class="math inline">\(r\)</span> in correlation. The regression coefficient <span class="math inline">\(R^2\)</span> ranges from 0 to 1 (unlike <span class="math inline">\(r\)</span> which ranges from -1 to 1). A value <span class="math inline">\(R^2 = 0\)</span> indicates no relationship to the independent variable while <span class="math inline">\(R^2=1\)</span> indicates that the independent variable is entirely responsible for the variability in the measured variable.</p>
 <p>As usual, null hypothesis significance testing is often applied to regression statistics. As usual, the null hypothesis being tested is usually “there is no functional relationship between the response and the predictor” and this is usually conceptually nonsense. In conducting regression analysis, your objective is to quantify to the most appropriate precision and accuracy possible the relationship between X (the aspect you control, the predictor, plotted on the X axis) and Y (the variable you measure, the response, plotted on the Y axis). Your objective is to quantify this relationship, put confidence intervals on it, and then interpret your findings in relation to the objectives of the study and in relation to other research.</p>
-<p><em>Q169. Sketch a graph demonstrating the null hypothesis (of no relationship) in regression analysis.</em> </p>
+<p><em>Q169. What does the plot look like when there is no relationship between the predictor and the response?</em></p>
 <p>Let us now consider an example in which cause and effect does exist. The data in worksheet ‘Beetles’ in <em>practical_6.xlsx</em> shows the weight loss in <em>Tribolium confusum</em>, the confused flour beetle, at different relative humidities (data from Sokal and Rohlf, 1995). The relative humidity (RH) to which the beetles are exposed can be fixed and the weight loss (via evaporative losses) of the beetles then assessed. There is no way that the null hypothesis can be true in this case: humidity will obviously influence weight loss in beetles.</p>
 <p><em>Q170. In this case, what is your response variable (what are you measuring) and your predictor (i.e.&nbsp;what is it that you are manipulating to determine the extent of the response)?</em></p>
 <p><em>Q171. Plot the data in R and check your prediction. In this case, the predictor must be displayed on the x-axis and the response must be on the y-axis.</em></p>
@@ -355,36 +360,42 @@ medium-low  -0.09077539 -1.575855  1.3943043 0.9854641</code></pre>
 <span class="header-section-number">5.2.2</span> Linear regression in R</h3>
 <p>In R we can use a variety of techniques to conduct linear regression. The easiest is to use <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code>. It is worth noting that <code><a href="https://rdrr.io/r/stats/lm.html">lm()</a></code> would also work for all your other general linear models (e.g.&nbsp;ANOVA). They are, in fact, the same model, it is just the default output (and necessary input formatting) that differs. Try reproducing the ANOVAs above with <code>anova(lm(...))</code>.</p>
 <p>Import data and begin:</p>
-<div class="cell" data-fig.dim="[4,4]">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beetle_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_6.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Beetles"</span><span class="op">)</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beetle_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_6.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Beetles"</span><span class="op">)</span></span>
 <span><span class="co"># inspect the dataframe, then make a scatter plot</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">WeightLoss_Mg</span> <span class="op">~</span> <span class="va">Humidity</span>, data <span class="op">=</span> <span class="va">beetle_df</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P5_ANOVA_regression_files/figure-html/beetle-scatter-1.png" class="img-fluid" style="width:40.0%"></p>
+<div id="fig-beetle_scatter" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/fig-beetle_scatter-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.4: Beetle weight loss as a function of relative humidity.</figcaption></figure>
+</div>
 </div>
 </div>
 <p>An aside on plotting: you can provide <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> with either a vector for the x-axis and a vector for the y-axis (i.e., <code>plot(x_var, y_var)</code>) <em>or</em> you can use a formula, specifying the dataframe (i.e., <code>plot(y ~ x, data=data_df)</code>). Just be aware of which variable is on which axis.</p>
 <p>Now we have explored and plotted the data we can conduct the regression analysis.</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># weight loss is modelled as (~) a function of humidity</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># weight loss is modelled as (~) a function of humidity</span></span>
 <span><span class="va">beetle_lm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">WeightLoss_Mg</span> <span class="op">~</span> <span class="va">Humidity</span>, data <span class="op">=</span> <span class="va">beetle_df</span><span class="op">)</span> </span>
 <span><span class="co"># beetle_lm</span></span>
 <span><span class="co"># str(beetle_lm) # lm outputs are complex structures</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Before we go on and interpret the model output we need to assess the model assumptions. This is done in the same way as for ANOVA with the same commands.</p>
-<div class="cell" data-fig.dim="[5,5]">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># set up 4 in 1 plot.</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># set up 4 in 1 plot.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">beetle_lm</span><span class="op">)</span> <span class="co"># plot the regression residuals.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P5_ANOVA_regression_files/figure-html/beetle-diag-1.png" class="img-fluid" width="480"></p>
+<div id="fig-beetle_diag" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/fig-beetle_diag-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.5: Regression diagnostics</figcaption></figure>
+</div>
 </div>
 </div>
 <p>The small sample size here (<span class="math inline">\(n=9\)</span>) makes a proper analysis of the residuals difficult. The plot should be assessed in the same way as for the ANOVA residuals. Basically, any pattern is bad. The upper left (Residuals v Fitted) doesn’t cause any major concern, though the upper right (Normal QQ) indicates a possible problem. Scale-Location (lower left) is difficult to interpret but no obvious pattern is present. The Residuals v. leverage (lower right) indicates a potential issue as well. A point with a large residual (i.e.&nbsp;where it is very different to that expected by the model) and with a high leverage (i.e.&nbsp;at the extreme ends of the predictors range) has a large Cook’s distance and has a disproportionate effect on the slope and intercept. These points should be examined in more detail.</p>
 <p><em>Q172. Which point has the largest Cook’s distance?</em></p>
 <p>We will now proceed to looking at the linear regression analysis results on the basis that the residuals do not raise any concerns.</p>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">beetle_lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">beetle_lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -417,7 +428,7 @@ F-statistic: 267.2 on 1 and 7 DF,  p-value: 7.816e-07</code></pre>
 <p><em>Q176. Given the very high</em> <span class="math inline">\(R^2\)</span> <em>(and looking at your plot) would you expect the regression model to be significantly better than the null model in explaining the variance in weight loss?</em></p>
 <p><em>Q177. With</em> <span class="math inline">\(\alpha = 0.05\)</span><em>, do you reject or accept the null hypothesis? What would you wish to report in relation to the slope coefficient if you were reporting the results from this analysis?</em></p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">beetle_lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/confint.html">confint</a></span><span class="op">(</span><span class="va">beetle_lm</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                  2.5 %      97.5 %
 (Intercept)  8.25104923  9.15700538
@@ -429,30 +440,30 @@ Humidity    -0.06092143 -0.04552287</code></pre>
 </section><section id="plotting-the-regression-line-and-confidence-intervals" class="level3" data-number="5.2.3"><h3 data-number="5.2.3" class="anchored" data-anchor-id="plotting-the-regression-line-and-confidence-intervals">
 <span class="header-section-number">5.2.3</span> Plotting the regression line and confidence intervals</h3>
 <p>A regression model (i.e.&nbsp;the linear relationship between the predictor and response variables) allows us to predict values for any value of the predictor, along with confidence levels. We can plot this regression line without too much effort.</p>
-<div class="cell" data-fig.dim="[4,4]">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beetle_pred</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">beetle_lm</span>, interval <span class="op">=</span> <span class="st">"confidence"</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">beetle_pred_line</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">beetle_lm</span>, interval <span class="op">=</span> <span class="st">"confidence"</span>, level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">WeightLoss_Mg</span> <span class="op">~</span> <span class="va">Humidity</span>, data <span class="op">=</span> <span class="va">beetle_df</span>, </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">WeightLoss_Mg</span> <span class="op">~</span> <span class="va">Humidity</span>, data <span class="op">=</span> <span class="va">beetle_df</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span>,</span>
 <span>     xlab <span class="op">=</span> <span class="st">"Relative humidity (%)"</span>, ylab <span class="op">=</span> <span class="st">"Weight loss (mg)"</span><span class="op">)</span> </span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">beetle_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred</span><span class="op">[</span>, <span class="st">"fit"</span><span class="op">]</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">beetle_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred</span><span class="op">[</span>, <span class="st">"lwr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">beetle_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred</span><span class="op">[</span>, <span class="st">"upr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">beetle_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_line</span><span class="op">[</span>, <span class="st">"fit"</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">beetle_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_line</span><span class="op">[</span>, <span class="st">"lwr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">beetle_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_line</span><span class="op">[</span>, <span class="st">"upr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/beetle-regline-1.png" class="img-fluid figure-img" width="384"></p>
-<figcaption class="figure-caption">Regression line (solid) with upper and lower 95% CI (dashed)</figcaption></figure>
+<div id="fig-beetle_regline" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/fig-beetle_regline-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.6: Regression line (solid) with upper and lower 95% confidence intervals on the regression line (dashed).</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Try generating 90% confidence intervals and add them to the plot.</p>
 <p><em>Q178. Which will have the wider interval, a 99.99% interval or a 50% interval and why?</em></p>
-<p><em>Q179. Do the confidence intervals in Fig.</em> @ref(fig:beetle-regline) <em>run parallel to the regression line?</em></p>
+<p><em>Q179. Do the confidence intervals in <a href="#fig-beetle_regline">Figure&nbsp;<span>5.6</span></a> run parallel to the regression line?</em></p>
 <p><em>Q180. If not, what does this suggest about the degree of confidence you have in values predicted at various points along the line?</em></p>
 <p><em>Q181. At what value of relative humidity are your predictions of weight loss likely most accurate?</em></p>
 <p>We can make predictions based on our regression line, and put confidence intervals on those predictions. Say we had a relative humidity of 50% in the above example. You could ask for the model-predicted weight loss and you’d want confidence intervals on that prediction.</p>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># predict() needs a data.frame with the same predictors used in beetle_lm</span></span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># predict() needs a data.frame with the same predictors used in beetle_lm</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">beetle_lm</span>, </span>
 <span>        newdata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Humidity <span class="op">=</span> <span class="fl">50</span><span class="op">)</span>, </span>
 <span>        interval <span class="op">=</span> <span class="st">"predict"</span>, </span>
@@ -461,7 +472,7 @@ Humidity    -0.06092143 -0.04552287</code></pre>
 <pre><code>      fit      lwr      upr
 1 6.04292 5.303471 6.782368</code></pre>
 </div>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or more fully:</span></span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># or more fully:</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">beetle_lm</span>, </span>
 <span>        newdata <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Humidity <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">100</span>, by<span class="op">=</span><span class="fl">25</span><span class="op">)</span><span class="op">)</span>, </span>
 <span>        interval <span class="op">=</span> <span class="st">"predict"</span>, </span>
@@ -475,18 +486,51 @@ Humidity    -0.06092143 -0.04552287</code></pre>
 5 3.381812 2.549540 4.214084</code></pre>
 </div>
 </div>
-<p>These are prediction intervals and they are broader than confidence intervals. The confidence intervals express your confidence about where the mean regression line would lie (if you went back in time and were somehow able to repeatedly sample from the same population). The prediction interval expresses your confidence about where the <em>values</em> would lie if you went back and repeatedly took an individual of the population at a given value of the predictor (e.g.&nbsp;50% humidity). For more kicks, import the ‘PhosphateCalibration’ sheet (1st year practical data) into R and duplicate the following plots and confidence intervals.</p>
+<p>And we can plot these intervals too:</p>
+<div class="cell">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">new_humidity_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>Humidity <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">100</span><span class="op">)</span></span>
+<span><span class="va">beetle_pred_line</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">beetle_lm</span>, </span>
+<span>                            newdata <span class="op">=</span> <span class="va">new_humidity_df</span>,</span>
+<span>                            interval <span class="op">=</span> <span class="st">"confidence"</span>, </span>
+<span>                            level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span><span class="va">beetle_pred_obs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/predict.html">predict</a></span><span class="op">(</span><span class="va">beetle_lm</span>,</span>
+<span>                           newdata <span class="op">=</span> <span class="va">new_humidity_df</span>, </span>
+<span>                           interval <span class="op">=</span> <span class="st">"prediction"</span>, </span>
+<span>                           level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">WeightLoss_Mg</span> <span class="op">~</span> <span class="va">Humidity</span>, data <span class="op">=</span> <span class="va">beetle_df</span>, ylim<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">10</span><span class="op">)</span>,</span>
+<span>     xlab <span class="op">=</span> <span class="st">"Relative humidity (%)"</span>, ylab <span class="op">=</span> <span class="st">"Weight loss (mg)"</span><span class="op">)</span> </span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">new_humidity_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_line</span><span class="op">[</span>, <span class="st">"fit"</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">new_humidity_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_line</span><span class="op">[</span>, <span class="st">"lwr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">new_humidity_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_line</span><span class="op">[</span>, <span class="st">"upr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">new_humidity_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_obs</span><span class="op">[</span>, <span class="st">"lwr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">new_humidity_df</span><span class="op">$</span><span class="va">Humidity</span>, <span class="va">beetle_pred_obs</span><span class="op">[</span>, <span class="st">"upr"</span><span class="op">]</span>, lty <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-beetle_regline_predInterval" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/fig-beetle_regline_predInterval-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.7: Regression line (solid) with upper and lower 95% confidence intervals on the regression line (dashed) and 95% prediction intervals (dotted).</figcaption></figure>
+</div>
+</div>
+</div>
+<p>These are prediction intervals and they are broader than confidence intervals. The confidence intervals express your confidence about the <em>regression line</em> for the population. The prediction interval expresses your confidence about the distribution of the <em>observations</em> for the population. For more kicks, import the ‘PhosphateCalibration’ sheet (1st year practical data) into R and duplicate the following plots and confidence intervals.</p>
 <div class="cell">
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">phosphate_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_xlsx</a></span><span class="op">(</span><span class="st">"data/Practical_6.xlsx"</span>, <span class="st">"PhosphateCalibration"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-fig.dim="[4,4]">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="P5_ANOVA_regression_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="384"></p>
+<div id="fig-phosphateScatter" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/fig-phosphateScatter-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.8: Phosphate calibration scatter plot.</figcaption></figure>
 </div>
 </div>
-<div class="cell" data-fig.dim="[5,5]">
+</div>
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="P5_ANOVA_regression_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid" width="480"></p>
+<div id="fig-phosphateDiagnostics" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P5_ANOVA_regression_files/figure-html/fig-phosphateDiagnostics-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;5.9: Phosphate calibration regression diagnostics.</figcaption></figure>
+</div>
 </div>
 </div>
 <div class="cell">
@@ -762,12 +806,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./P4_t_CIs.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical 4: T distribution and confidence intervals</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">T distribution and confidence intervals</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./P6_machine_learning.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practical 6: Machine Learning</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

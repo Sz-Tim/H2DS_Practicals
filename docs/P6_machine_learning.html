@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>H2 Data Science Practicals - 6&nbsp; Practical 6: Machine Learning</title>
+<title>H2 Data Science Practicals - 6&nbsp; Machine Learning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -60,7 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./formula_sheet.html" rel="next">
+<link href="./P7_appendix.html" rel="next">
 <link href="./P5_ANOVA_regression.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P6_machine_learning.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practical 6: Machine Learning</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P6_machine_learning.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -122,48 +122,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P0_R_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R setup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P1_R_recap.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Practical 1: R recap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R recap</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P2_binomial_poisson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical 2: Binomial and Poisson Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P3_normal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical 3: Normal distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Normal distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P4_t_CIs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical 4: T distribution and confidence intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">T distribution and confidence intervals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P5_ANOVA_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practical 5: ANOVA and regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA and regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P6_machine_learning.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practical 6: Machine Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./formula_sheet.html" class="sidebar-item-text sidebar-link">
+  <a href="./P7_appendix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
   </div>
 </li>
@@ -184,9 +190,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practical 6: Machine Learning</span>
-</h1>
+<h1 class="title"><span id="sec-P6" class="quarto-section-identifier"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></h1>
 </div>
 
 
@@ -203,14 +207,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Multivariate analysis typically includes three stages: 1) data transformation or standardisation, 2) generation of a dissimilarity matrix and, 3) ordination (display) of that matrix. Each of these elements has numerous options, with advantages and disadvantages to each. Multivariate analysis are less inferential than most univariate approaches and implementation can feel like a ‘black-art’! Statisticians are still arguing about the best way to approach multivariate analyses.</p>
 <p>Multivariate data, such as species inventories, have been recorded for centuries and form a critical resource. Multivariate time series data are particularly important for assessing relative change that might be attributable to man’s activities, for example in relation to climate or land-use change. The ‘internet of things’, the generation of multiple data-streams from the same station (e.g.&nbsp;a glider with CTD), and the development of bioinformatics (e.g.&nbsp;metabarcoding) all lend themselves to multivariate analyses.</p>
 <p>More detail on the the material we cover here is given in <a href="https://www.primer-e.com/wp-content/uploads/2018/10/Change-in-Marine-Communities-3rd-ed.pdf">Clarke et al.&nbsp;2014. Change in marine communities: An approach to statistical analysis and interpretation.</a>. If that link does not work, you can try navigating to the <a href="https://www.primer-e.com/download/">PRIMER-e downloads page</a>, fill out your info to download the Manuals, then select “Change in Marine Communities”. Unfortunately, the PRIMER software developed by the authors is not free. Instead, we’ll use our gloriously free and open source R.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vegandevs/vegan">vegan</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="multivariate-analysis-in-r" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="multivariate-analysis-in-r">
 <span class="header-section-number">6.1</span> Multivariate analysis in R</h2>
 <p>For the non-metric NMDS workflow, we’ll start by simulating some data. Then, we’ll transform the data (‘log’ and fourth-root) and generate dissimilarity matrices from this transformed data. Finally, we’ll plot it using NMDS. We’ll generate diversity indices with our simulated data, then have a look at some real data (available via the package <em>vegan</em>).</p>
 <p>For the PCA workflow, we’ll have a look at some environmental data using PCA. Throughout this practical, we’ll illustrate some coding techniques which will help you practice wrangling your data to make it suitable for analysis. As we’ve discussed, data wrangling is a time-consuming and crucial part of data analysis so familiarity with this is essential.</p>
-<p>Recall from Practical @ref(normal) that the <code>^</code> operator raises each element in a vector to a power. For example, say we create a vector <code>obs_values &lt;- c(1, 10, 35)</code>. We can calculate a fourth-root transformation of the whole vector with <code>obs_values^(1/4)</code>. Remember from previous courses that this is identical to <code>sqrt(sqrt(obs_values))</code>.</p>
+<p>Recall that the <code>^</code> operator raises each element in a vector to a power. For example, say we create a vector <code>obs_values &lt;- c(1, 10, 35)</code>. We can calculate a fourth-root transformation of the whole vector with <code>obs_values^(1/4)</code>. Remember from previous courses that this is identical to <code>sqrt(sqrt(obs_values))</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/vegandevs/vegan">vegan</a></span><span class="op">)</span> </span>
-<span><span class="co"># these toy data duplicate those in the multivariate lecture.</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># these toy data duplicate those in the multivariate lecture.</span></span>
 <span><span class="va">worm_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  row.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"CE1"</span>, <span class="st">"CE2"</span>, <span class="st">"Ref1"</span>, <span class="st">"Ref2"</span><span class="op">)</span>,</span>
 <span>  Capitella <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1000</span>, <span class="fl">1500</span>, <span class="fl">10</span>, <span class="fl">50</span><span class="op">)</span>,</span>
@@ -226,28 +234,28 @@ CE2       1500       2000       0       0
 Ref1        10         50      25      20
 Ref2        50         25      30      15</code></pre>
 </div>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># alt-log transformation: ifelse(x==0, 0, log(x))</span></span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># alt-log transformation: ifelse(x==0, 0, log(x))</span></span>
 <span><span class="va">worm_df_log</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/decostand.html">decostand</a></span><span class="op">(</span><span class="va">worm_df</span>, method <span class="op">=</span> <span class="st">"log"</span>, logbase <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">worm_df_4rt</span> <span class="op">&lt;-</span> <span class="va">worm_df</span><span class="op">^</span><span class="fl">0.25</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Take a look at <code>worm_df</code>, <code>worm_df_log</code>, and <code>worm_df_4rt</code> to be sure they make sense.</p>
 <p>Next we use <code><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist()</a></code> to generate different distance matrices for the raw and transformed data. See <code><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">?vegdist</a></code> for more information. We’ll use Bray-Curtis for the raw and 4<sup>th</sup>-root transformed data, and alternative Gower for the alt-log transformed data. See the multivariate lecture area on Brightspace for details on these algorithms. Feel free to investigate other combinations of data transformation and dissimilarity matrices.</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist</a></span><span class="op">(</span><span class="va">worm_df</span>, method <span class="op">=</span> <span class="st">"bray"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist</a></span><span class="op">(</span><span class="va">worm_df</span>, method <span class="op">=</span> <span class="st">"bray"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           CE1       CE2      Ref1
 CE2  0.4002399                    
 Ref1 0.9228376 0.9667129          
 Ref2 0.9050555 0.9585635 0.3333333</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist</a></span><span class="op">(</span><span class="va">worm_df_4rt</span>, method <span class="op">=</span> <span class="st">"bray"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist</a></span><span class="op">(</span><span class="va">worm_df_4rt</span>, method <span class="op">=</span> <span class="st">"bray"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            CE1        CE2       Ref1
 CE2  0.18044721                      
 Ref1 0.39098221 0.59100112           
 Ref2 0.36024122 0.55728021 0.08642723</code></pre>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist</a></span><span class="op">(</span><span class="va">worm_df_log</span>, method <span class="op">=</span> <span class="st">"altGower"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">vegdist</a></span><span class="op">(</span><span class="va">worm_df_log</span>, method <span class="op">=</span> <span class="st">"altGower"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>           CE1       CE2      Ref1
 CE2  0.6945378                    
@@ -261,8 +269,8 @@ Ref2 1.3138181 2.0083559 0.3010300</code></pre>
 <p>We have numerous options in relation to displaying the dissimilarity matrices. We’ll explore non-metric multiple dimensional scaling, abbreviated to NMDS, nMDS, nmMDS, or just MDS.</p>
 <p><em>Q142. Use <code><a href="https://rdrr.io/pkg/vegan/man/vegdist.html">?vegdist</a></code> to see what alternative distance measures are available.</em></p>
 <p>The <code><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS()</a></code> function calculates a dissimilarity matrix (as we did above) and produces an R object with all the information needed for plotting. It expects that samples are in rows and species (or features) are in columns. We can also specify the distance metric, the number of axes, whether to autotransform the data, and many other options. See <code><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">?metaMDS</a></code> for the default values and other available arguments.</p>
-<div class="cell" data-fig.dim="[4,4]">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ord_raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">worm_df</span>, distance <span class="op">=</span> <span class="st">"bray"</span>, k <span class="op">=</span> <span class="fl">2</span>,</span>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ord_raw</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">worm_df</span>, distance <span class="op">=</span> <span class="st">"bray"</span>, k <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>                   autotransform <span class="op">=</span> <span class="cn">FALSE</span>, trace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in metaMDS(worm_df, distance = "bray", k = 2, autotransform = FALSE, :
@@ -272,18 +280,18 @@ stress is (nearly) zero: you may have insufficient data</code></pre>
 <pre><code>Warning in postMDS(out$points, dis, plot = max(0, plot - 1), ...): skipping
 half-change scaling: too few points below threshold</code></pre>
 </div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_raw</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, display <span class="op">=</span> <span class="st">"sites"</span>, </span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_raw</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, display <span class="op">=</span> <span class="st">"sites"</span>, </span>
 <span>         type <span class="op">=</span> <span class="st">"text"</span>, main <span class="op">=</span> <span class="st">"NMDS: raw data, Bray-Curtis"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/worm-1-1.png" style="width:40.0%;height:40.0%" class="figure-img"></p>
-<figcaption class="figure-caption">Simple pattern in example worm data.</figcaption></figure>
+<div id="fig-worm_1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-worm_1-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.1: Simple pattern in example worm data.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Compare this with the 4<sup>th</sup>-root transformed data using the same distance metric.</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ord_4rt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">worm_df_4rt</span>, distance <span class="op">=</span> <span class="st">"bray"</span>, k <span class="op">=</span> <span class="fl">2</span>, </span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ord_4rt</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">worm_df_4rt</span>, distance <span class="op">=</span> <span class="st">"bray"</span>, k <span class="op">=</span> <span class="fl">2</span>, </span>
 <span>                   autotransform <span class="op">=</span> <span class="cn">FALSE</span>, trace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in metaMDS(worm_df_4rt, distance = "bray", k = 2, autotransform =
@@ -297,21 +305,21 @@ half-change scaling: too few points below threshold</code></pre>
 <p><em>Q143. Plot <code>ord_4rt</code>. How has the 4th root changed your data interpretation?</em></p>
 <p><em>Q144. Examine your ordination(s) and interpret, cross referencing to the raw and transformed data. Are the patterns that you see in the data apparent on the ordination?</em></p>
 <p>You can include on your plot the species ‘locations’ (as determined by their correlation with the axes). This shows where the main associations are occurring.</p>
-<div class="cell" data-fig.dim="[4,4]">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># you can also plot the 'species' on the ordination,</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># you can also plot the 'species' on the ordination,</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_4rt</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, display <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sites"</span>, <span class="st">"species"</span><span class="op">)</span>, </span>
 <span>         type <span class="op">=</span> <span class="st">"text"</span>, main <span class="op">=</span> <span class="st">"NMDS, 4th-rt trans., Bray-Curtis"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/worm-2-1.png" style="width:40.0%;height:40.0%" class="figure-img"></p>
-<figcaption class="figure-caption">Species superimposed onto ordination, indicating species-site associations.</figcaption></figure>
+<div id="fig-worm_2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-worm_2-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.2: Species superimposed onto ordination, indicating species-site associations.</figcaption></figure>
 </div>
 </div>
 </div>
 <p><em>Q145. Re-plot the untransformed data, but this time include the species. How has the transformation changed your interpretation of the data?</em></p>
 <p>Let’s have a look at another simulated dataset.</p>
-<div class="cell" data-fig.dim="[4,4]">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comm_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">comm_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span></span>
 <span>  row.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Dunst"</span>, <span class="st">"Creran"</span>, <span class="st">"Lismore"</span>, <span class="st">"Charl"</span><span class="op">)</span>,</span>
 <span>  SpA <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">20</span>, <span class="fl">30</span>, <span class="fl">40</span><span class="op">)</span>,</span>
 <span>  SpB <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">11</span>, <span class="fl">22</span>, <span class="fl">50</span>, <span class="fl">1</span><span class="op">)</span>,</span>
@@ -328,7 +336,7 @@ Creran   20  22  40  25   3 250
 Lismore  30  50  30  35   2   1
 Charl    40   1  20  50   1   9</code></pre>
 </div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ord_comm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">comm_df</span>, distance <span class="op">=</span> <span class="st">"bray"</span>, k <span class="op">=</span> <span class="fl">2</span>, </span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ord_comm</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">comm_df</span>, distance <span class="op">=</span> <span class="st">"bray"</span>, k <span class="op">=</span> <span class="fl">2</span>, </span>
 <span>                    autotransform <span class="op">=</span> <span class="cn">FALSE</span>, trace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in metaMDS(comm_df, distance = "bray", k = 2, autotransform = FALSE, :
@@ -338,12 +346,12 @@ stress is (nearly) zero: you may have insufficient data</code></pre>
 <pre><code>Warning in postMDS(out$points, dis, plot = max(0, plot - 1), ...): skipping
 half-change scaling: too few points below threshold</code></pre>
 </div>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_comm</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, </span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_comm</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, </span>
 <span>         display <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sites"</span>, <span class="st">"species"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/comm-ord-1.png" style="width:40.0%;height:40.0%" class="figure-img"></p>
-<figcaption class="figure-caption">Ordination for a simulated dataset showing sites and species.</figcaption></figure>
+<div id="fig-comm_ord" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-comm_ord-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.3: Ordination for a simulated dataset showing sites and species.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -358,13 +366,13 @@ half-change scaling: too few points below threshold</code></pre>
 <p>We can use the <code>comm_df</code> dataset we invented to explore some diversity concepts.</p>
 <p><em>Q150. Looking at the <code>comm_df</code> data (by eye) and given the description above, which of the sites is associated with the lowest and highest diversity?</em></p>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shannon_H</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/diversity.html">diversity</a></span><span class="op">(</span><span class="va">comm_df</span>, <span class="st">"shannon"</span>, base <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> </span>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">shannon_H</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/diversity.html">diversity</a></span><span class="op">(</span><span class="va">comm_df</span>, <span class="st">"shannon"</span>, base <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">exp</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="va">richness</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/diversity.html">specnumber</a></span><span class="op">(</span><span class="va">comm_df</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">shannon_H</span>, main <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="st">"Shannon's H"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/H-examp-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Shannon diversity</figcaption></figure>
+<div id="fig-H_examp" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-H_examp-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.4: Shannon diversity</figcaption></figure>
 </div>
 </div>
 </div>
@@ -379,13 +387,13 @@ half-change scaling: too few points below threshold</code></pre>
 <p>Now you’ve been introduced to NMDS and diversity indices, with ‘fake’ data, you are in a better position to interpret real data. Using simulated (or at least simple) data to learn new statistical techniques is usually the best approach because it gives you the opportunity to get a better sense for how the algorithms work (and to be sure your code is free from bugs!).</p>
 <p>Have a look at the <code>varespec</code> and <code>varechem</code> datasets included in the <em>vegan</em> package. I’ve reproduced the examples below:</p>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">varespec</span><span class="op">)</span> <span class="co"># ?varespec -- percent cover of 44 spp in lichen pastures </span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">varespec</span><span class="op">)</span> <span class="co"># ?varespec -- percent cover of 44 spp in lichen pastures </span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/data.html">data</a></span><span class="op">(</span><span class="va">varechem</span><span class="op">)</span> <span class="co"># ?varechem -- associated soil characteristics</span></span>
 <span><span class="va">ord_vare</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/metaMDS.html">metaMDS</a></span><span class="op">(</span><span class="va">varespec</span><span class="op">^</span><span class="fl">0.25</span>, distance <span class="op">=</span> <span class="st">"bray"</span>, </span>
 <span>                   trace <span class="op">=</span> <span class="cn">FALSE</span>, autotransform <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-fig.dim="[8,2.75]">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> </span>
+<div class="cell">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">3</span><span class="op">)</span>, mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>,<span class="fl">4</span>,<span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_vare</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, display <span class="op">=</span> <span class="st">"sites"</span>, type <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_vare</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, display <span class="op">=</span> <span class="st">"species"</span>, type <span class="op">=</span> <span class="st">"text"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/pkg/vegan/man/ordiplot.html">ordiplot</a></span><span class="op">(</span><span class="va">ord_vare</span>, choices <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, display <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"sites"</span>, <span class="st">"species"</span><span class="op">)</span>,</span>
@@ -395,9 +403,9 @@ half-change scaling: too few points below threshold</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ef</span>, p.max <span class="op">=</span> <span class="fl">0.1</span>, col <span class="op">=</span> <span class="st">"green"</span><span class="op">)</span> <span class="co"># overlay environmental variables</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">ef</span>, p.max <span class="op">=</span> <span class="fl">0.01</span>, col <span class="op">=</span> <span class="st">"blue"</span><span class="op">)</span> <span class="co"># subset based on p</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/vare-ord-1.png" style="width:100.0%;height:100.0%" class="figure-img"></p>
-<figcaption class="figure-caption">vare- data from vegan showing sites only, species only, and both plus environmental overlays.</figcaption></figure>
+<div id="fig-vare_ord" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-vare_ord-1.png" class="img-fluid figure-img" width="768"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.5: vare- data from vegan showing sites only, species only, and both plus environmental overlays.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -412,21 +420,7 @@ half-change scaling: too few points below threshold</code></pre>
 <p>A basic, and very friendly, introduction to PCA is given in Chapter 4 of <a href="https://www.primer-e.com/wp-content/uploads/2018/10/Change-in-Marine-Communities-3rd-ed.pdf">Clarke et al.&nbsp;2014</a>.</p>
 <p>The data set we’ll look at here is from SAMS Professor Tom Wilding’s PhD thesis. He set up an experiment to examine the relative leaching of trace metals from concrete, granite, and a control (artificial seawater). Concrete contains cement which is enriched in vanadium and molybdenum, and these elements could leach out in dangerous amounts. Granite, the main constituent of this concrete, might also leach some trace elements. He suspended concrete and granite powder in artificial water, constantly agitated it, and measured the leachate concentrations over 100 days <a href="https://doi.org/10.1006/jmsc.2002.1267">Wilding and Sayer 2002</a>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.5
-✔ forcats   1.0.0     ✔ stringr   1.5.1
-✔ ggplot2   3.5.1     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.1
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leach_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_5.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Leaching"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leach_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_5.xlsx"</span>, sheet <span class="op">=</span> <span class="st">"Leaching"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Treat_abbr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">Treat</span>, <span class="co"># abbreviate for cleaner plotting</span></span>
 <span>                             levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"concrete"</span>, <span class="st">"control"</span>, <span class="st">"granite"</span><span class="op">)</span>,</span>
 <span>                             labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"conc"</span>, <span class="st">"ctrl"</span>, <span class="st">"gran"</span><span class="op">)</span><span class="op">)</span>,</span>
@@ -442,58 +436,58 @@ half-change scaling: too few points below threshold</code></pre>
 FALSE  TRUE 
   143     4 </code></pre>
 </div>
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">leach_df</span><span class="op">$</span><span class="va">Conc</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="co"># recall that R treats T/F as 1/0 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">leach_df</span><span class="op">$</span><span class="va">Conc</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="co"># recall that R treats T/F as 1/0 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.02721088</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">leach_df</span><span class="op">$</span><span class="va">Conc</span>, main <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/leach-hist-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Histogram of leaching data (raw) illustrating the wide range of values and skew.</figcaption></figure>
+<div id="fig-leach_hist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-leach_hist-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.6: Histogram of leaching data (raw) illustrating the wide range of values and skew.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Next, we need to re-organise the data into a wider format so that each element is a column and each row is a sample.</p>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leach_df_wide</span> <span class="op">&lt;-</span> <span class="va">leach_df</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">leach_df_wide</span> <span class="op">&lt;-</span> <span class="va">leach_df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from<span class="op">=</span><span class="st">"Element"</span>, values_from<span class="op">=</span><span class="st">"Conc"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The column <code>Treat_day</code> is coded as <code>trt_day</code>, where <code>trt</code> is the 4 letter code indicating treatment type and <code>day</code> is the number of days elapsed in the experiment (one of 1, 4, 7, 17, 32, 50 or 100). So <code>gran_32</code> means the granite treatment sampled at day 32.</p>
 <p>We can calculate the principal components using <code><a href="https://rdrr.io/r/stats/prcomp.html">prcomp()</a></code>, subsetting the dataframe to give only the columns with element concentrations (i.e., removing <code>Treat_day</code>, which is the first column). We’ll also set the arguments for centering and scaling to <code>TRUE</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PCA_leach</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span><span class="op">(</span><span class="va">leach_df_wide</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>, center <span class="op">=</span> <span class="cn">TRUE</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PCA_leach</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span><span class="op">(</span><span class="va">leach_df_wide</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>, center <span class="op">=</span> <span class="cn">TRUE</span>, scale <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/screeplot.html">screeplot</a></span><span class="op">(</span><span class="va">PCA_leach</span>, main <span class="op">=</span> <span class="cn">NULL</span>, ylab <span class="op">=</span> <span class="st">"Relative variation explained"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/leach-scree-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Scree plot showing the variance explained by each principal component.</figcaption></figure>
+<div id="fig-leach_scree" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-leach_scree-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.7: Scree plot showing the variance explained by each principal component.</figcaption></figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># take a look at PCA_leach</span></span>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># take a look at PCA_leach</span></span>
 <span><span class="va">PCA_leach</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">PCA_leach</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can see from the scree plot that the amount variance explained declines with principal component as expected and that there is very little variation left after 3 principal components. That is, nearly all of the variation in the dataset is captured by PC1, PC2, and PC3. In this case, PCA has essentially solved the ‘curse of dimensionality’ by successfully reducing 7 dimensional data to about three.</p>
 <p>Data transformations are critical to PCA analysis, as they are with NMDS. In most PCAs you center and standardize your data so that each column is on the same scale.</p>
 <p>We can plot our results using <code><a href="https://rdrr.io/r/stats/biplot.html">biplot()</a></code> which has some helpful defaults including labels for the samples (<code>Treat_day</code>) and the correlation strength of each element with PC1 and PC2:</p>
-<div class="cell" data-fig.dim="[4,4]">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span><span class="op">(</span><span class="va">PCA_leach</span>, xlabs <span class="op">=</span> <span class="va">leach_df_wide</span><span class="op">$</span><span class="va">Treat_day</span>, cex <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span><span class="op">(</span><span class="va">PCA_leach</span>, xlabs <span class="op">=</span> <span class="va">leach_df_wide</span><span class="op">$</span><span class="va">Treat_day</span>, cex <span class="op">=</span> <span class="fl">0.75</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/leach-biplot1-1.png" class="img-fluid figure-img" width="384"></p>
-<figcaption class="figure-caption">PCA of the complete dataset, illustrating the common challenge of overplotting.</figcaption></figure>
+<div id="fig-leach_biplot1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-leach_biplot1-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.8: PCA of the complete dataset, illustrating the common challenge of overplotting.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>To plot more than 2 dimensions you could use a 3D plot, but these are frankly difficult to interpret since it is reduced <em>back</em> to 2D on a page or computer screen. Another option is to use colour for the 3<sup>rd</sup> axis. Here’s an example using <code>ggplot2</code>. Adding arrows showing the loadings (see below) is possible, but more work.</p>
-<div class="cell" data-fig.dim="[4,3]">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PCA_leach</span><span class="op">$</span><span class="va">x</span> <span class="op">|&gt;</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PCA_leach</span><span class="op">$</span><span class="va">x</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Treat_day <span class="op">=</span> <span class="va">leach_df_wide</span><span class="op">$</span><span class="va">Treat_day</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">PC1</span>, <span class="va">PC2</span>, colour <span class="op">=</span> <span class="va">PC3</span>, label <span class="op">=</span> <span class="va">Treat_day</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
@@ -501,9 +495,9 @@ FALSE  TRUE
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_gradient.html">scale_colour_gradient2</a></span><span class="op">(</span>mid <span class="op">=</span> <span class="st">"cornsilk2"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/leach-biplot1-gg-1.png" class="img-fluid figure-img" width="384"></p>
-<figcaption class="figure-caption">PCA of the complete dataset using ggplot2.</figcaption></figure>
+<div id="fig-leach_biplot1_gg" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-leach_biplot1_gg-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.9: PCA of the complete dataset using ggplot2.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -511,17 +505,17 @@ FALSE  TRUE
 <p><em>Q156. Which elements are positively associated with granite and concrete, particularly after longer periods of leaching?</em></p>
 <p>As is typical, overlapping points make interpretation more difficult. There are elegant solutions to this (in terms of labelling) but for now, we’ll split the data and analyse it separately.</p>
 <p>We’ll need more data wrangling to split it efficiently and we’ll use <code><a href="https://rdrr.io/r/base/grep.html">grepl()</a></code>, which identifies a pattern within a character using a regular expression (a.k.a., regex), returning a <code>TRUE</code> or <code>FALSE</code> for each element in the character vector. Here, we’ll filter the dataframe to only include rows where <code>Treat_day</code> contains <code>conc</code> or <code>gran</code>. Remember the ‘or’ operator <code>|</code>?</p>
-<div class="cell" data-fig.dim="[5,5]">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#?grepl</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co">#?grepl</span></span>
 <span><span class="co">#cbind(leach_df_wide$Treat_day, grepl("conc|gran", leach_df_wide$Treat_day))</span></span>
 <span><span class="va">leach_df_trts</span> <span class="op">&lt;-</span> <span class="va">leach_df_wide</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/grep.html">grepl</a></span><span class="op">(</span><span class="st">"conc|gran"</span>, <span class="va">Treat_day</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">PCA_trts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/prcomp.html">prcomp</a></span><span class="op">(</span><span class="va">leach_df_trts</span><span class="op">[</span>, <span class="op">-</span><span class="fl">1</span><span class="op">]</span>, scale <span class="op">=</span> <span class="cn">TRUE</span>, center <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/biplot.html">biplot</a></span><span class="op">(</span><span class="va">PCA_trts</span>, xlabs <span class="op">=</span> <span class="va">leach_df_trts</span><span class="op">$</span><span class="va">Treat_day</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/leach-biplot2-1.png" class="img-fluid figure-img" width="480"></p>
-<figcaption class="figure-caption">PCA of the concrete and granite, illustrating temporal and treatment differences.</figcaption></figure>
+<div id="fig-leach_biplot2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P6_machine_learning_files/figure-html/fig-leach_biplot2-1.png" class="img-fluid figure-img" width="480"></p>
+<figcaption class="figure-caption">Figure&nbsp;6.10: PCA of the concrete and granite, illustrating temporal and treatment differences.</figcaption></figure>
 </div>
 </div>
 </div>
@@ -529,7 +523,7 @@ FALSE  TRUE
 <p>A PCA is normally reported with the proportion of the variation explained by each of the principal components (and the cumulative proportion). If the cumulative proportion for the 1st two PCs is high, then your 2D (PC1 and PC2) ordination is a good representation of the similarities between samples. In that sense a high cumulative proportion is analogous to a low stress (for NMDS).</p>
 <p>Let’s have a look at a summary of the principal components.</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PCA_leach_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">PCA_leach</span><span class="op">)</span> </span>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">PCA_leach_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">PCA_leach</span><span class="op">)</span> </span>
 <span><span class="co">#PCA_leach_summary</span></span>
 <span><span class="co">#str(PCA_leach_summary)</span></span>
 <span><span class="va">PCA_leach_summary</span><span class="op">$</span><span class="va">importance</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span> <span class="co"># extract only PC1-4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -544,7 +538,7 @@ Cumulative Proportion  0.564640 0.865320 0.9518500 0.9966400</code></pre>
 <p>Finally, we can look at factor loadings. This is a measure of how each feature (metal concentration in this case) relates to the principal components. In PCA, the principal components are sequentially ‘less’ influential since they describe increasingly smaller amounts of variation. By centering and standardising your response variables, you can assess the relative importance of each in driving the patterns you observe in your ordination. The magnitude is what we’re interested in rather than the sign.</p>
 <p>In an object created by <code><a href="https://rdrr.io/r/stats/prcomp.html">prcomp()</a></code>, the loadings are stored as <code>.$rotation</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ?prcomp</span></span>
+<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># ?prcomp</span></span>
 <span><span class="co"># str(PCA_leach)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="va">PCA_leach</span><span class="op">$</span><span class="va">rotation</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">5</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span> <span class="co"># factor loadings for PC1-5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -798,11 +792,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./P5_ANOVA_regression.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practical 5: ANOVA and regression</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA and regression</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./formula_sheet.html" class="pagination-link">
+      <a href="./P7_appendix.html" class="pagination-link">
         <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>H2 Data Science Practicals - 1&nbsp; Practical 1: R recap</title>
+<title>H2 Data Science Practicals - 1&nbsp; R recap</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +61,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./P2_binomial_poisson.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./P0_R_setup.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -98,7 +98,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1_R_recap.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Practical 1: R recap</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P1_R_recap.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R recap</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -122,48 +122,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Introduction</span></a>
+ <span class="menu-text">Preface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./P0_R_setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R setup</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P1_R_recap.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Practical 1: R recap</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R recap</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P2_binomial_poisson.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical 2: Binomial and Poisson Distributions</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P3_normal.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Practical 3: Normal distribution</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Normal distribution</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P4_t_CIs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Practical 4: T distribution and confidence intervals</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">T distribution and confidence intervals</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P5_ANOVA_regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Practical 5: ANOVA and regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">ANOVA and regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./P6_machine_learning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Practical 6: Machine Learning</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Machine Learning</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./formula_sheet.html" class="sidebar-item-text sidebar-link">
+  <a href="./P7_appendix.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Appendix</span></span></a>
   </div>
 </li>
@@ -186,11 +192,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li>
 <a href="#graphical-methods-for-displaying-data" id="toc-graphical-methods-for-displaying-data" class="nav-link" data-scroll-target="#graphical-methods-for-displaying-data"><span class="header-section-number">1.2</span> Graphical methods for displaying data</a>
   <ul class="collapse">
-<li><a href="#scatter-plot" id="toc-scatter-plot" class="nav-link" data-scroll-target="#scatter-plot"><span class="header-section-number">1.2.1</span> Scatter plot</a></li>
-  <li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots"><span class="header-section-number">1.2.2</span> Boxplots</a></li>
-  <li><a href="#line-plots" id="toc-line-plots" class="nav-link" data-scroll-target="#line-plots"><span class="header-section-number">1.2.3</span> Line plots</a></li>
-  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="header-section-number">1.2.4</span> Histograms</a></li>
-  <li><a href="#bar-graphs" id="toc-bar-graphs" class="nav-link" data-scroll-target="#bar-graphs"><span class="header-section-number">1.2.5</span> Bar graphs</a></li>
+<li><a href="#boxplots" id="toc-boxplots" class="nav-link" data-scroll-target="#boxplots"><span class="header-section-number">1.2.1</span> Boxplots</a></li>
+  <li><a href="#line-plots" id="toc-line-plots" class="nav-link" data-scroll-target="#line-plots"><span class="header-section-number">1.2.2</span> Line plots</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="header-section-number">1.2.3</span> Histograms</a></li>
+  <li><a href="#bar-graphs" id="toc-bar-graphs" class="nav-link" data-scroll-target="#bar-graphs"><span class="header-section-number">1.2.4</span> Bar graphs</a></li>
   </ul>
 </li>
   <li>
@@ -204,9 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">
-<span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Practical 1: R recap</span>
-</h1>
+<h1 class="title"><span id="sec-P1" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">R recap</span></span></h1>
 </div>
 
 
@@ -225,6 +228,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>First, the best way to get a ‘gut’ feel for your dataset is to look at it graphically. Examining data graphically enables you to identify any outliers (suspicious observations which could be errors). It will also help you to select the most appropriate inferential statistical model (more on this through the course).</p>
 <p>Second, visualizations are used to impart information as clearly as possible to ‘the reader’, drawing attention to the most interesting aspects of your data. Graphics that are confusing, either through a lack of detail (e.g.&nbsp;no labels) or that contain too much information will fail in this central objective.</p>
 <p>As you create graphics, keep in mind that they may be viewed on different machines or printed in grey scale. Importantly, some colour combinations may be difficult for colour-blind or visually impaired readers. Colour scales such as those available from <a href="https://colorbrewer2.org">ColorBrewer</a> or <a href="https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html">viridis</a> are designed with this in mind.</p>
+<p>It’s best practice to load necessary packages at the top of your document. Today we’ll use the <em>tidyverse</em> package, which is actually a collection of packages. First, you’ll need to install it with <code>install.packages("tidyverse")</code>. Installation needs to be done once per machine, but loading is needed each time you re-open R.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span> <span class="co"># installed with tidyverse, but not loaded in library(tidyverse)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <hr>
 <section id="basic-data-exploration" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="basic-data-exploration">
 <span class="header-section-number">1.1</span> Basic data exploration</h2>
@@ -233,26 +241,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We will mostly work with dataframes. A dataframe is a 2D rectangular structure with columns and rows. In a tidy dataset, each row represents an ‘observation’ and each column represents a ‘variable’. R (and often packages) contains several built-in dataframes.</p>
 <p>The dataframe <code>cars</code> gives the max speeds and stopping distances for cars built in the early 20th century. We are going to use <code>cars</code> to demonstrate a few basic concepts in relation to R programming and statistical analysis.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># functions for basic details of objects</span></span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># functions for basic details of objects</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  speed dist
 1     4    2
 2     4   10</code></pre>
 </div>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">cars</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">tail</a></span><span class="op">(</span><span class="va">cars</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   speed dist
 49    24  120
 50    25   85</code></pre>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># what are the last 10 rows?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># what are the last 10 rows?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="subsetting-renaming-and-rearranging" class="level3" data-number="1.1.2"><h3 data-number="1.1.2" class="anchored" data-anchor-id="subsetting-renaming-and-rearranging">
 <span class="header-section-number">1.1.2</span> Subsetting, renaming, and rearranging</h3>
@@ -262,19 +270,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Use <code>.[rows,columns]</code> to extract a block</li>
 </ul>
 <div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span> <span class="co"># whole column</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span> <span class="co"># whole column</span></span>
 <span><span class="va">cars</span><span class="op">[[</span><span class="st">"speed"</span><span class="op">]</span><span class="op">]</span> <span class="co"># whole column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">]</span> <span class="co"># row 1, column 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">[</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">]</span> <span class="co"># row 1, column 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">]</span> <span class="co"># rows 1-5, column 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">]</span> <span class="co"># rows 1-5, column 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4 4 7 7 8</code></pre>
 </div>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="op">]</span> <span class="co"># leaving the 'columns' space blank returns all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">3</span>, <span class="op">]</span> <span class="co"># leaving the 'columns' space blank returns all columns</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  speed dist
 1     4    2
@@ -284,73 +292,73 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>We can also change column names. For illustration, let’s make a copy of the dataframe to do that.</p>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars2</span> <span class="op">&lt;-</span> <span class="va">cars</span> </span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars2</span> <span class="op">&lt;-</span> <span class="va">cars</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "speed" "dist" </code></pre>
 </div>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"speed_mph"</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"speed_mph"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "speed_mph" "dist"     </code></pre>
 </div>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"speed_mph"</span>, <span class="st">"dist_ft"</span><span class="op">)</span> <span class="co"># change both column names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"speed_mph"</span>, <span class="st">"dist_ft"</span><span class="op">)</span> <span class="co"># change both column names</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Rearranging and duplicating columns is also easy.</p>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars2</span>, <span class="fl">2</span><span class="op">)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars2</span>, <span class="fl">2</span><span class="op">)</span>  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  speed_mph dist_ft
 1         4       2
 2         4      10</code></pre>
 </div>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars2</span> <span class="op">&lt;-</span> <span class="va">cars2</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">1</span><span class="op">]</span> <span class="co"># rearrange columns </span></span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars2</span> <span class="op">&lt;-</span> <span class="va">cars2</span><span class="op">[</span>, <span class="fl">2</span><span class="op">:</span><span class="fl">1</span><span class="op">]</span> <span class="co"># rearrange columns </span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars2</span>, <span class="fl">2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  dist_ft speed_mph
 1       2         4
 2      10         4</code></pre>
 </div>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars3</span> <span class="op">&lt;-</span> <span class="va">cars2</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">]</span> <span class="co"># duplicate a column</span></span>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars3</span> <span class="op">&lt;-</span> <span class="va">cars2</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">]</span> <span class="co"># duplicate a column</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars3</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  speed_mph dist_ft dist_ft.1
 1         4       2         2
 2         4      10        10</code></pre>
 </div>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars3</span> <span class="op">&lt;-</span> <span class="va">cars3</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="co"># remove the duplicated column</span></span>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars3</span> <span class="op">&lt;-</span> <span class="va">cars3</span><span class="op">[</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">]</span> <span class="co"># remove the duplicated column</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars3</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  speed_mph dist_ft
 1         4       2
 2         4      10</code></pre>
 </div>
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars3</span><span class="op">$</span><span class="va">dist_x_speed</span> <span class="op">&lt;-</span> <span class="va">cars3</span><span class="op">$</span><span class="va">dist_ft</span> <span class="op">*</span> <span class="va">cars3</span><span class="op">$</span><span class="va">speed_mph</span> <span class="co"># create a new column</span></span>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars3</span><span class="op">$</span><span class="va">dist_x_speed</span> <span class="op">&lt;-</span> <span class="va">cars3</span><span class="op">$</span><span class="va">dist_ft</span> <span class="op">*</span> <span class="va">cars3</span><span class="op">$</span><span class="va">speed_mph</span> <span class="co"># create a new column</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars3</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  speed_mph dist_ft dist_x_speed
 1         4       2            8
 2         4      10           40</code></pre>
 </div>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">cars3</span><span class="op">)</span> <span class="co"># remove the dataframe 'cars3'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/rm.html">rm</a></span><span class="op">(</span><span class="va">cars3</span><span class="op">)</span> <span class="co"># remove the dataframe 'cars3'</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>You can also subset based on criteria. Say we only want rows where the speed is <span class="math inline">\(&gt;\)</span> 20 mph:</p>
 <div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fast_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span> <span class="op">&gt;</span> <span class="fl">20</span><span class="op">)</span> </span>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fast_i</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span> <span class="op">&gt;</span> <span class="fl">20</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">fast_i</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> int [1:7] 44 45 46 47 48 49 50</code></pre>
 </div>
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars_fast</span> <span class="op">&lt;-</span> <span class="va">cars2</span><span class="op">[</span><span class="va">fast_i</span>, <span class="op">]</span> <span class="co"># or: cars2[which(cars2$speed_mph &gt; 20), ]</span></span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cars_fast</span> <span class="op">&lt;-</span> <span class="va">cars2</span><span class="op">[</span><span class="va">fast_i</span>, <span class="op">]</span> <span class="co"># or: cars2[which(cars2$speed_mph &gt; 20), ]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">cars_fast</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "data.frame"</code></pre>
 </div>
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">cars_fast</span><span class="op">)</span>  <span class="co"># and how many *rows* are there?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">cars_fast</span><span class="op">)</span>  <span class="co"># and how many *rows* are there?</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars_fast</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">cars_fast</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   dist_ft speed_mph
 44      66        22
@@ -362,15 +370,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>When you import data, you should check for missing values. These are represented as <code>NA</code>.</p>
 <p>We can check each element of a vector using <code><a href="https://rdrr.io/r/base/NA.html">is.na()</a></code>, which will return <code>TRUE</code> if an element <em>is</em> <code>NA</code>, and <code>FALSE</code> if an element <em>is not</em> <code>NA</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>R converts a logical vector (i.e., <code>TRUE</code>/<code>FALSE</code>) to numeric (i.e., <code>1</code>/<code>0</code>) automatically. This is handy, but dangerous if you don’t realize it.</p>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0</code></pre>
 </div>
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">carsNA</span> <span class="op">&lt;-</span> <span class="va">cars2</span></span>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">carsNA</span> <span class="op">&lt;-</span> <span class="va">cars2</span></span>
 <span><span class="va">carsNA</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">10</span><span class="op">)</span>, <span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="cn">NA</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">carsNA</span><span class="op">$</span><span class="va">dist_ft</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -379,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Another very useful check is <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     speed           dist       
  Min.   : 4.0   Min.   :  2.00  
@@ -391,7 +399,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">carsNA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">carsNA</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Once you have assured yourself that your dataframe looks sensible, that it contains the data you expect, and that you know what the data-types are, you can start to explore and summarise your data.</p>
 <p>There are many graphical methods for data exploration. The appropriate method depends on the nature of the data and what you wish to communicate to the reader.</p>
@@ -399,74 +407,86 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span class="header-section-number">1.2</span> Graphical methods for displaying data</h2>
 <p>Always keep in mind that the primary reason for data visualization is to impart information concisely and accurately to your reader.</p>
 <p>Graphics must be clear, concise and easy to understand. Brightspace contains some examples of bad graphics (‘Learning resources&gt;Lecture support material&gt;Introduction (Lectures 1-3)&gt;Graphics’).</p>
-<p>In addition to poor design choices for effective communication (Fig. @ref(fig:bad1)), graphics can also be deliberately misleading (Fig. @ref(fig:bad2)).</p>
-<section id="scatter-plot" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="scatter-plot">
-<span class="header-section-number">1.2.1</span> Scatter plot</h3>
+<div id="fig-bad1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="figs/bad_fig_1.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.1: An example of a terrible graphic, as published in a Scottish government report.</figcaption></figure>
+</div>
+<p>In addition to poor design choices for effective communication (<a href="#fig-bad1">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bad1</span></a>), graphics can also be deliberately misleading (<a href="#fig-bad2">Figure&nbsp;<span class="quarto-unresolved-ref">fig-bad2</span></a>).</p>
+<div id="fig-bad2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="figs/bad_fig_2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.2: A misleading graphic. What type of plot is this and how is it misleading?</figcaption></figure>
+</div>
 <p>The scatter plot is used to plot two continuous variables against each other. It is commonly used for analyses like correlation or linear regression.</p>
-<div class="cell" data-fig.dim="c(6,2.5)">
+<div class="cell">
 <div class="cell-output-display">
-<p><img src="P1_R_recap_files/figure-html/unnamed-chunk-12-1.png" style="width:100.0%;height:100.0%"></p>
+<div id="fig-pch" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-pch-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.3: Symbol options.</figcaption></figure>
+</div>
 </div>
 </div>
 <p><em>Q1. Search the <code>plot</code> help page for ‘title’, then add an appropriate title to your plot.</em></p>
 <p><em>Q2. <code><a href="https://rdrr.io/r/graphics/points.html">?points</a></code> opens the help page for points. Search the help page for ‘pch’ and change the symbol of your plot</em></p>
 <p><em>Q3. With the <code>cars</code> dataset, plot stopping distance by speed for only those cars with a speed greater than 20.</em></p>
-<div class="cell" data-fig.dim="c(3.5,4)">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">[</span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span> <span class="op">&gt;</span> <span class="fl">20</span>, <span class="op">]</span>, </span>
+<div class="cell">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">dist</span> <span class="op">~</span> <span class="va">speed</span>, data<span class="op">=</span><span class="va">cars</span><span class="op">[</span><span class="va">cars</span><span class="op">$</span><span class="va">speed</span> <span class="op">&gt;</span> <span class="fl">20</span>, <span class="op">]</span>, </span>
 <span>     xlab<span class="op">=</span><span class="st">"Speed (mph)"</span>, ylab<span class="op">=</span><span class="st">"Distance (ft)"</span>, pch<span class="op">=</span><span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P1_R_recap_files/figure-html/unnamed-chunk-14-1.png" style="width:40.0%;height:40.0%"></p>
+<div id="fig-speed_dist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-speed_dist-1.png" class="img-fluid figure-img" width="336"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.4: Stopping distance by speed.</figcaption></figure>
 </div>
 </div>
-</section><section id="boxplots" class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="boxplots">
-<span class="header-section-number">1.2.2</span> Boxplots</h3>
+</div>
+<section id="boxplots" class="level3" data-number="1.2.1"><h3 data-number="1.2.1" class="anchored" data-anchor-id="boxplots">
+<span class="header-section-number">1.2.1</span> Boxplots</h3>
 <p>Box plots are used to summarise a continuous variable by levels of a factor. We will use the <code>mtcars</code> dataset to illustrate this.</p>
 <p>Explore the dataframe using the strategies covered above. Which variables are categorical? Which are continuous?</p>
 <div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">mtcars</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>              mpg cyl disp  hp drat    wt  qsec vs am gear carb
 Mazda RX4      21   6  160 110  3.9 2.620 16.46  0  1    4    4
 Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 </div>
 </div>
-<div class="cell" data-fig.dim="c(4,4)">
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/mplcyl-plot-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Boxplot showing miles per litre vs.&nbsp;number of carburetors</figcaption></figure>
+<div id="fig-mpl_cyl" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-mpl_cyl-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.5: Boxplot showing miles per litre vs.&nbsp;number of carburetors</figcaption></figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">boxplot</span></span>
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">?</span><span class="va">boxplot</span></span>
 <span><span class="co"># See examples at bottom of the help page</span></span>
 <span><span class="co"># Produce a box plot with axes labels and a title</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Reproduce the plot shown in Fig. @ref(fig:mplcyl-plot) (assume 1 gallon = 4.5 L). Remember you can learn about these data with <code><a href="https://rdrr.io/r/datasets/mtcars.html">?mtcars</a></code>. You will need to generate a new variable (miles per litre) and label your box plot appropriately. You can limit the extent of the y-axis by adding the argument <code>ylim=c(a, b)</code> where <code>a</code> and <code>b</code> are the limits you want (e.g., <code>ylim=c(0, 100)</code>).</p>
-<p><em>Q4. Use <code><a href="https://rdrr.io/r/graphics/boxplot.html">?boxplot</a></code> to investigate what the box and whiskers in the box plot actually represent. Check you can reproduce the upper and lower adjacent values manually (see Chapter</em> @ref(appendix)<em>)</em></p>
-<p>Note that box plots are not the most visually intuitive. Packages like <code>ggplot2</code> (and extensions) make alternatives like those in Fig. @ref(fig:mplcyl-ggplot) simple to produce. We will cover some of these later.</p>
-<div class="cell" data-fig.dim="c(8,4)">
+<p>Reproduce the plot shown in <a href="#fig-mpl_cyl">Figure&nbsp;<span class="quarto-unresolved-ref">fig-mpl_cyl</span></a> (assume 1 gallon = 4.5 L). Remember you can learn about these data with <code><a href="https://rdrr.io/r/datasets/mtcars.html">?mtcars</a></code>. You will need to generate a new variable (miles per litre) and label your box plot appropriately. You can limit the extent of the y-axis by adding the argument <code>ylim=c(a, b)</code> where <code>a</code> and <code>b</code> are the limits you want (e.g., <code>ylim=c(0, 100)</code>).</p>
+<p><em>Q4. Use <code><a href="https://rdrr.io/r/graphics/boxplot.html">?boxplot</a></code> to investigate what the box and whiskers in the box plot actually represent. Check you can reproduce the upper and lower adjacent values manually (see Chapter</em> <em>)</em></p>
+<p>Note that box plots are not the most visually intuitive. Packages like <code>ggplot2</code> (and extensions) make alternatives like those in <a href="#fig-mpl_cyl_ggplot">Figure&nbsp;<span class="quarto-unresolved-ref">fig-mpl_cyl_ggplot</span></a> simple to produce. We will cover some of these later.</p>
+<div class="cell">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/mplcyl-ggplot-1.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Alternatives to boxplots</figcaption></figure>
+<div id="fig-mpl_cyl_ggplot" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-mpl_cyl_ggplot-1.png" class="img-fluid figure-img" width="960"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.6: Alternatives to boxplots</figcaption></figure>
 </div>
 </div>
 </div>
-</section><section id="line-plots" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="line-plots">
-<span class="header-section-number">1.2.3</span> Line plots</h3>
+</section><section id="line-plots" class="level3" data-number="1.2.2"><h3 data-number="1.2.2" class="anchored" data-anchor-id="line-plots">
+<span class="header-section-number">1.2.2</span> Line plots</h3>
 <p>Line plots are most often seen in time-series plots with time on the x-axis and the response on the y-axis. Line plots typically involve joining points with a line, which indicates that you have made assumptions about the value of the response variable between successive measurements.</p>
 <p>We will examine these plots using the dataset <code>lynx</code>, which consists of the number of Canadian lynx pelts sold per year between 1821 - 1934. It is a ‘classic’ dataset as it shows a cyclical ‘boom-and-bust’ lynx population (demonstrating predator-prey interactions).</p>
 <p>First, we will create a variable <code>Year</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">lynx</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">lynx</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Time-Series [1:114] from 1821 to 1934: 269 321 585 871 1475 ...</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">lynx</span><span class="op">)</span> <span class="co"># ts = time-series</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">lynx</span><span class="op">)</span> <span class="co"># ts = time-series</span></span>
 <span><span class="va">lynx2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html">as.data.frame</a></span><span class="op">(</span><span class="va">lynx</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">lynx2</span>, <span class="fl">2</span><span class="op">)</span> </span>
@@ -475,40 +495,40 @@ Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 <p>In R, we use <em>functions</em> to perform actions on <em>objects</em>. Functions have arguments, taking the form <code>functionName(arg1=..., arg2=...)</code>. If you do not name the arguments, the function will assume that you are listing the arguments in order. See the help file for a function with <code>?</code> to see the argument order (e.g., <code><a href="https://rdrr.io/r/base/seq.html">?seq</a></code>).</p>
 <p><em>Q5. Using <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, write a piece of code which generates odd numbers between 1 and 20 with and without specifying <code>by</code>.</em></p>
 <div class="cell">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># change the name of the 1st column to 'Trappings'</span></span>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># change the name of the 1st column to 'Trappings'</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Trappings"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">)</span></span>
 <span><span class="va">lynx2</span><span class="op">$</span><span class="va">Trappings</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">$</span><span class="va">Trappings</span><span class="op">)</span> <span class="co"># Time-Series is complicated.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use <code><a href="https://rdrr.io/r/graphics/plot.default.html">?plot</a></code> to investigate options for plotting. Find the <code>type=</code> argument for plotting both the points and a connecting line. This might be the best option in this case. Why?</p>
-<p><em>Q6. Using the R plot function, produce a line plot of the Trappings data, as per Figure</em> @ref(fig:lynx-plot)<em>.</em></p>
+<p><em>Q6. Using the R plot function, produce a line plot of the Trappings data, as per Figure</em> <a href="#fig-lynx_1">Figure&nbsp;<span class="quarto-unresolved-ref">fig-lynx_1</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/lynx-plot-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">The number of lynx trapped in Canada (1820-1934)</figcaption></figure>
+<div id="fig-lynx_1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-lynx_1-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.7: The number of lynx trapped in Canada (1820-1934)</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Change the plot to show only the years up to 1900, then plot the Trappings on the log scale.</p>
-</section><section id="histograms" class="level3" data-number="1.2.4"><h3 data-number="1.2.4" class="anchored" data-anchor-id="histograms">
-<span class="header-section-number">1.2.4</span> Histograms</h3>
+</section><section id="histograms" class="level3" data-number="1.2.3"><h3 data-number="1.2.3" class="anchored" data-anchor-id="histograms">
+<span class="header-section-number">1.2.3</span> Histograms</h3>
 <p>Histograms are used to illustrate the distribution of <strong>continuous</strong> data. In histograms the bars are adjacent (no gap) and this indicates that there is a continuum (i.e.&nbsp;that the data are not discrete).</p>
-<div class="cell" data-fig.dim="c(4,3)">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># this gives very different information.</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># this gives very different information.</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">$</span><span class="va">Trappings</span>, main<span class="op">=</span><span class="st">"Lynx trapping"</span>, xlab<span class="op">=</span><span class="st">"Trapped lynx per year"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/lynx-hist-default-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Lynx pelts per year with default settings.</figcaption></figure>
+<div id="fig-lynx_hist_default" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-lynx_hist_default-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.8: Lynx pelts per year with default settings.</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Which range of values was most common across years?</p>
 <p>Be aware that histograms can be quite sensitive to the bins that you use.</p>
-<div class="cell" data-fig.dim="c(6,3)">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># panels for the plotting window</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># panels for the plotting window</span></span>
 <span><span class="co"># R takes the number of breaks as a suggestion</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">$</span><span class="va">Trappings</span>, main<span class="op">=</span><span class="st">"Lynx trapping"</span>, xlab<span class="op">=</span><span class="st">"Trapped lynx per year"</span>,</span>
 <span>     breaks<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span>
@@ -517,14 +537,14 @@ Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 <span>     main<span class="op">=</span><span class="st">"Lynx trapping"</span>, xlab<span class="op">=</span><span class="st">"Trapped lynx per year"</span>,</span>
 <span>     breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">500</span>, <span class="fl">1000</span>, <span class="fl">2000</span>, <span class="fl">5000</span>, <span class="fl">10000</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/lynx-hist-b1-1.png" style="width:80.0%;height:80.0%" class="figure-img"></p>
-<figcaption class="figure-caption">Lynx pelts per year with breaks=5 (left) and a vector of breaks (right).</figcaption></figure>
+<div id="fig-lynx_hist_b1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-lynx_hist_b1-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.9: Lynx pelts per year with breaks=5 (left) and a vector of breaks (right).</figcaption></figure>
 </div>
 </div>
 </div>
-<div class="cell" data-fig.dim="c(6,4)">
-<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># plot panels (2 rows x 2 columns)</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="co"># plot panels (2 rows x 2 columns)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="co"># change the plot margins</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">$</span><span class="va">Trappings</span>, main<span class="op">=</span><span class="st">"bin width: 100"</span>, xlab<span class="op">=</span><span class="st">"Trapped lynx per year"</span>, </span>
 <span>     breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">10000</span>, by<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">)</span></span>
@@ -535,21 +555,24 @@ Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">lynx2</span><span class="op">$</span><span class="va">Trappings</span>, main<span class="op">=</span><span class="st">"bin width: 2000"</span>, xlab<span class="op">=</span><span class="st">"Trapped lynx per year"</span>, </span>
 <span>     breaks<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from<span class="op">=</span><span class="fl">0</span>, to<span class="op">=</span><span class="fl">10000</span>, by<span class="op">=</span><span class="fl">2000</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P1_R_recap_files/figure-html/lynx-hist-panels-1.png" style="width:80.0%;height:80.0%"></p>
+<div id="fig-lynx_hist_panels" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-lynx_hist_panels-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.10: Histograms of lynx pelts per year with different breaks</figcaption></figure>
+</div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># reset the par setting.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="co"># reset the par setting.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Which of these plots is the most useful? There is no definitive answer to this, but the first is very busy and the last fails to show relevant detail near 0. Setting the bin width to 500 or 1000 communicates the patterns in the data most clearly.</p>
 <p>As a general guideline, 5-15 breaks usually work well in a histogram.</p>
-</section><section id="bar-graphs" class="level3" data-number="1.2.5"><h3 data-number="1.2.5" class="anchored" data-anchor-id="bar-graphs">
-<span class="header-section-number">1.2.5</span> Bar graphs</h3>
+</section><section id="bar-graphs" class="level3" data-number="1.2.4"><h3 data-number="1.2.4" class="anchored" data-anchor-id="bar-graphs">
+<span class="header-section-number">1.2.4</span> Bar graphs</h3>
 <p>When you create a <code>data.frame</code> it defaults to naming the rows 1…n, where n is the number of rows. You may occasionally come across a <code>data.frame</code> with row names. Converting between data types may lose this information. Consequently, <strong>it is better practice to store relevant information in a column</strong>.</p>
 <p>Bar graphs are used to plot counts of categorical or discrete variables. We’ll be using the <code>islands</code> dataset (which has data stored as row names).</p>
 <p>Working with data involves a lot of time spent tidying the datasets: cleaning, checking, and reshaping into useful formats. We will cover a more modern set of methods for this later in the course using the <em>tidyverse</em> package. For now, we’ll stay with base R. First, we need to tidy the <code>islands</code> data.</p>
 <div class="cell">
-<div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">islands</span><span class="op">)</span> </span>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">islands</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">islands</span><span class="op">)</span> <span class="co"># this is a named numeric vector</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">islands</span><span class="op">)</span></span>
 <span></span>
@@ -558,7 +581,7 @@ Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">islands.df</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># put the row names into a new column</span></span>
+<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># put the row names into a new column</span></span>
 <span><span class="va">islands.df</span><span class="op">$</span><span class="va">LandMass</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">islands.df</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -566,7 +589,7 @@ Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4</code></pre>
 Africa       11506     Africa
 Antarctica    5500 Antarctica</code></pre>
 </div>
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># set row names to the row number</span></span>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># set row names to the row number</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/row.names.html">row.names</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">)</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/names.html">names</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">)</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"Area"</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">islands.df</span>, <span class="fl">2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -575,7 +598,7 @@ Antarctica    5500 Antarctica</code></pre>
 1 11506     Africa
 2  5500 Antarctica</code></pre>
 </div>
-<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># reorder by area</span></span>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># reorder by area</span></span>
 <span><span class="va">islands.df</span> <span class="op">&lt;-</span> <span class="va">islands.df</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/order.html">order</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span>, decreasing<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">islands.df</span>, <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -586,55 +609,55 @@ Antarctica    5500 Antarctica</code></pre>
 </div>
 </div>
 <p>We can use the function <code><a href="https://rdrr.io/r/graphics/barplot.html">barplot()</a></code> to plot the vector of island areas.</p>
-<div class="cell" data-fig.dim="c(6,2.5)">
-<div class="sourceCode" id="cb65"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="co"># change the margin sizes</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">0</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="co"># change the margin sizes</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/island-1-1.png" style="width:80.0%;height:80.0%" class="figure-img"></p>
-<figcaption class="figure-caption">Island areas with barplot defaults</figcaption></figure>
+<div id="fig-island_1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-island_1-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.11: Island areas with barplot defaults</figcaption></figure>
 </div>
 </div>
 </div>
 <p>The whole dataset includes a lot of very small areas, so let’s cut it down to just the 10 largest. Since the dataset is already sorted, we can take rows <code>1:10</code>.</p>
-<div class="cell" data-fig.dim="c(4,4)">
-<div class="sourceCode" id="cb66"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/island-2-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Top 10 island areas</figcaption></figure>
+<div id="fig-island_2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-island_2-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.12: Top 10 island areas</figcaption></figure>
 </div>
 </div>
 </div>
 <p>And the next step is to add some names to the x-axis…</p>
-<div class="cell" data-fig.dim="c(4,4)">
-<div class="sourceCode" id="cb67"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, names<span class="op">=</span><span class="va">islands.df</span><span class="op">$</span><span class="va">LandMass</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, names<span class="op">=</span><span class="va">islands.df</span><span class="op">$</span><span class="va">LandMass</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/island-3-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Top 10 island areas with names</figcaption></figure>
+<div id="fig-island_3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-island_3-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.13: Top 10 island areas with names</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Which of course are unreadable. The <code>las</code> argument (<code><a href="https://rdrr.io/r/graphics/par.html">?par</a></code>) controls how the axis labels relate to the axis line, so we can try adjusting that…</p>
-<div class="cell" data-fig.dim="c(4,4)">
-<div class="sourceCode" id="cb68"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, names<span class="op">=</span><span class="va">islands.df</span><span class="op">$</span><span class="va">LandMass</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, las<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, names<span class="op">=</span><span class="va">islands.df</span><span class="op">$</span><span class="va">LandMass</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span>, las<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/island-4-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Top 10 island areas with names rotated</figcaption></figure>
+<div id="fig-island_4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-island_4-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.14: Top 10 island areas with names rotated</figcaption></figure>
 </div>
 </div>
 </div>
 <p>Maybe we just need to make the bars horizontal. To do this, we should adjust the margins again with <code>par(mar=...))</code>, set <code>horiz=TRUE</code>, and <code>las=1</code>, and use <code>[10:1]</code> so the largest is on top.</p>
-<div class="cell" data-fig.dim="c(4,3)">
-<div class="sourceCode" id="cb69"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">10</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mar<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">10</span>, <span class="fl">0</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="va">islands.df</span><span class="op">$</span><span class="va">Area</span><span class="op">[</span><span class="fl">10</span><span class="op">:</span><span class="fl">1</span><span class="op">]</span>, names<span class="op">=</span><span class="va">islands.df</span><span class="op">$</span><span class="va">LandMass</span><span class="op">[</span><span class="fl">10</span><span class="op">:</span><span class="fl">1</span><span class="op">]</span>, </span>
 <span>        horiz<span class="op">=</span><span class="cn">TRUE</span>, las<span class="op">=</span><span class="fl">1</span>, xlab<span class="op">=</span><span class="st">"Area (km2)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="P1_R_recap_files/figure-html/island-5-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption class="figure-caption">Finally! Did you know Antarctica is bigger than Europe?</figcaption></figure>
+<div id="fig-island_5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-island_5-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.15: Finally! Did you know Antarctica is bigger than Europe?</figcaption></figure>
 </div>
 </div>
 </div>
@@ -646,7 +669,7 @@ Antarctica    5500 Antarctica</code></pre>
 <p><em>Q9. What are three measures of variability?</em></p>
 <p>Measures of central tendency and variability each have pros and cons and you need to be able to apply the most appropriate method to your data. Another summary statistic that you might include is sample size. R is very good at producing summary statistics, and there are myriad ways to produce them. We’ll return to the <code>cars2</code> dataset.</p>
 <div class="cell">
-<div class="sourceCode" id="cb70"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb71"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>    dist_ft         speed_mph   
  Min.   :  2.00   Min.   : 4.0  
@@ -658,21 +681,17 @@ Antarctica    5500 Antarctica</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb72"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">[</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span> <span class="op">&gt;</span> <span class="fl">20</span>, <span class="op">]</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">[</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span> <span class="op">&gt;</span> <span class="fl">20</span>, <span class="op">]</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb73"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># There are several ways to access a column in a dataframe</span></span>
+<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># There are several ways to access a column in a dataframe</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">$</span><span class="va">speed_mph</span><span class="op">)</span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">[</span>, <span class="fl">2</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">[</span>, <span class="st">"speed_mph"</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">cars2</span><span class="op">[</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"speed_mph"</span>, <span class="st">"dist_ft"</span><span class="op">)</span><span class="op">]</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Often you’ll wish to summarise your data across levels of a certain factor. For example, levels of a certain treatment that you are applying. More complex summaries can be made using the <code>dplyr</code> package. We’ll go into more detail later on some of the very powerful ways this package (and its friends in the <em>tidyverse</em>) can be used.</p>
-<p>First, you’ll need to install it. The <em>tidyverse</em> is a collection of packages. Install all of them with <code>install.packages("tidyverse")</code> (see Section @ref(R_intro)).</p>
 <p>We’ll use the built-in dataset <code>InsectSprays</code>. Viewing your raw data can be an important check as well. You can open a spreadsheet-style viewer in R using <code>View(YourDataFrame)</code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb74"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
 <div class="cell">
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">InsectSprays</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -730,8 +749,7 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 <span class="header-section-number">1.3.1</span> Choosing a measure of central tendency</h3>
 <p>The choice of which measure of central tendency to use depends on the nature of the data and objectives of your research. We will use datasets that you downloaded from Brightspace (Practicals &gt; data). Remember to put these into the <em>data</em> folder in your working directory (or modify the file paths in the code accordingly).</p>
 <div class="cell">
-<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span> <span class="co"># installed with tidyverse, but not loaded in library(tidyverse)</span></span>
-<span><span class="co"># this will load the 'Scallop %fat' data sheet from the xlsx spreadsheet.</span></span>
+<div class="sourceCode" id="cb84"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># this will load the 'Scallop %fat' data sheet from the xlsx spreadsheet.</span></span>
 <span><span class="va">scallop_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_1.xlsx"</span>, sheet<span class="op">=</span><span class="st">"Scallop %fat"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">scallop_df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -745,10 +763,13 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 <p><em>Q11. Are these data likely to be continuous or discontinuous?</em></p>
 <p><em>Q12. Create a plot to visualize the distribution of these data.</em></p>
 <p><em>Q13. Do you spot any issues?</em></p>
-<div class="cell" data-fig.dim="c(4,4)">
+<div class="cell">
 <div class="sourceCode" id="cb87"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">scallop_df</span><span class="op">$</span><span class="va">fat_pct</span>, main<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span> <span class="co"># (what does 'main=NULL' do?)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="P1_R_recap_files/figure-html/unnamed-chunk-44-1.png" style="width:30.0%;height:30.0%"></p>
+<div id="fig-scallop_hist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="P1_R_recap_files/figure-html/fig-scallop_hist-1.png" class="img-fluid figure-img" width="384"></p>
+<figcaption class="figure-caption">Figure&nbsp;1.16: Histogram of fat percentage.</figcaption></figure>
+</div>
 </div>
 </div>
 <p>You should have spotted a potential outlier. Data entry errors are very common, and a check against the original data sheet shows that the decimal was typed in the wrong place. The following code helps you ID which data entry is in error. We can now search for the ‘odd’ observation i.e.&nbsp;determine in which row the outlier is located.</p>
@@ -801,11 +822,12 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 <pre><code>[1] 5.6</code></pre>
 </div>
 </div>
-<p>R is excellent at generating well formatted tables such as shown in Table @ref(tab:scallop-table). What is missing from from Table @ref(tab:scallop-table)?</p>
+<p>R is excellent at generating well formatted tables such as shown in <a href="#tbl-scallop">Table&nbsp;<span class="quarto-unresolved-ref">tbl-scallop</span></a>. What is missing from from this table?</p>
 <div class="cell">
 <div class="cell-output-display">
+<div id="tbl-scallop" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Summary statistics with and without an outlier. Note which summary stats are most influenced by the outlier.</caption>
+<caption>Table&nbsp;1.1: Summary statistics with and without an outlier. Note which summary stats are most influenced by the outlier.</caption>
 <colgroup>
 <col style="width: 18%">
 <col style="width: 7%">
@@ -843,7 +865,8 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 </table>
 </div>
 </div>
-<p><em>Q19. How would the patterns seen in Table</em> @ref(tab:scallop-table) <em>influence your choice if you were required to summarise data that you thought might contain data that you weren’t sure about? The three measure of central tendency are influenced to different extents by the ‘shape’ of the data they are used to describe.</em></p>
+</div>
+<p><em>Q19. How would the patterns seen in</em> <a href="#tbl-scallop">Table&nbsp;<span class="quarto-unresolved-ref">tbl-scallop</span></a> <em>influence your choice if you were required to summarise data that you thought might contain data that you weren’t sure about? The three measure of central tendency are influenced to different extents by the ‘shape’ of the data they are used to describe.</em></p>
 <div class="cell">
 <div class="sourceCode" id="cb101"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">hake_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_1.xlsx"</span>, sheet<span class="op">=</span><span class="st">"Hake"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">hake_df</span><span class="op">)</span> <span class="co"># once again, column names made for excel rather than R</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -862,8 +885,9 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 </div>
 <div class="cell">
 <div class="cell-output-display">
+<div id="tbl-hake" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Summary of hake data.</caption>
+<caption>Table&nbsp;1.2: Summary of hake data.</caption>
 <thead><tr class="header">
 <th style="text-align: left;">Year</th>
 <th style="text-align: right;">Mean length (cm)</th>
@@ -885,11 +909,11 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 </table>
 </div>
 </div>
-<p>Try to re-create Table @ref(tab:hake-table).</p>
+</div>
+<p>Try to re-create <a href="#tbl-hake">Table&nbsp;<span class="quarto-unresolved-ref">tbl-hake</span></a>.</p>
 <p>The following ‘settling velocity’ data relates to the settling velocity of salmon faecal material. Shona Magill generated these data.</p>
 <div class="cell">
-<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org">readxl</a></span><span class="op">)</span></span>
-<span><span class="va">fishPoo_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_1.xlsx"</span>, sheet<span class="op">=</span><span class="st">"Settling velocity"</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb104"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fishPoo_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html">read_excel</a></span><span class="op">(</span><span class="st">"data/practical_1.xlsx"</span>, sheet<span class="op">=</span><span class="st">"Settling velocity"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">fishPoo_df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tibble [200 × 1] (S3: tbl_df/tbl/data.frame)
@@ -901,14 +925,15 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 <p><em>Q25. Sketch the distribution and indicate the relative positions of the mean and median.</em></p>
 <p><em>Q26. Generate a new column of the log-transformed settling velocity data and plot these data.</em></p>
 <p><em>Q27. What measures of central tendency and variability could be applied to the log-transformed data? Selecting the preferable measure of central tendency and variability in a dataset is not necessarily straightforward.</em></p>
-<p>Table 1.3 gives some indication of what issues you might consider.</p>
+<p><a href="#tbl-metric">Table&nbsp;<span class="quarto-unresolved-ref">tbl-metric</span></a> gives some indication of what issues you might consider.</p>
 <div class="cell">
 <div class="cell-output-display">
+<div id="tbl-metric" class="anchored">
 <table class="table table-sm table-striped small">
-<caption>Appropriate measures of central tendency and variability according to the underlying data distribution.</caption>
+<caption>Table&nbsp;1.3: Appropriate measures of central tendency and variability according to the underlying data distribution.</caption>
 <colgroup>
 <col style="width: 39%">
-<col style="width: 30%">
+<col style="width: 29%">
 <col style="width: 30%">
 </colgroup>
 <thead><tr class="header">
@@ -918,42 +943,28 @@ $ spray &lt;fct&gt; A, A, A, A, A, A, A, A, A, A, A, A, B, B, B, B, B, B, B, B, 
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">Continuous,</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">unimodal, symmetric</td>
+<td style="text-align: left;">Continuous, unimodal, symmetric</td>
 <td style="text-align: left;">Mean</td>
 <td style="text-align: left;">Variance or sd</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: left;">Continuous, skewed</td>
 <td style="text-align: left;">Median</td>
 <td style="text-align: left;">Interquartile range</td>
 </tr>
-<tr class="even">
-<td style="text-align: left;">Continuous,</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
 <tr class="odd">
-<td style="text-align: left;">multimodal</td>
+<td style="text-align: left;">Continuous, multimodal</td>
 <td style="text-align: left;">None; state modes</td>
-<td style="text-align: left;">None; summarise by</td>
+<td style="text-align: left;">None; summarise by group</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">group</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">Discontinuous</td>
 <td style="text-align: left;">None; data-dependent</td>
 <td style="text-align: left;">Range?</td>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <hr></section></section><section id="conclusions" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="conclusions">
@@ -1194,13 +1205,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
+      <a href="./P0_R_setup.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">R setup</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./P2_binomial_poisson.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Practical 2: Binomial and Poisson Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Binomial and Poisson Distributions</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
