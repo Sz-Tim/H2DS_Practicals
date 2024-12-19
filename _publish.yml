@@ -1,0 +1,4 @@
+- source: project
+  quarto-pub:
+    - id: f326523d-0fd4-409c-a13d-cf88768c83dd
+      url: 'https://sz-tim.quarto.pub/h2-data-science-practicals'

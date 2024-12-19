@@ -271,7 +271,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><em>Q33. Write down the model specification in the standard notation (with parameters)</em></p>
 <p><em>Q34. Calculate the expected proportions of clutches of eggs that contain (a) two fertile, (b) two infertile, and (c) one of each.</em></p>
 <p>Often we are faced with more than two events and the quadratic expansion approach you used above is no longer convenient. In such circumstances you use the binomial expression.</p>
-<p><em>Q35. Copy down the binomial probability mass function (from Chapter</em> <a href="P7_appendix.html"><span>Chapter&nbsp;7</span></a><em>) and use it as an alternative method for calculating the fertility proportions for two eggs (a, b, c above).</em></p>
+<p><em>Q35. Using the binomial probability mass function from</em> <a href="P7_appendix.html"><span>Chapter&nbsp;7</span></a><em>, calculate the fertility proportions for two eggs (Q34 a, b, c).</em></p>
 <p>Oozle birds are much more sensible than Wongles and always have broods of eight offspring and all of them hatch. We are interested in modelling the probabilities of the proportion of male and female offspring in broods of eight eggs.</p>
 <p><em>Q36. What is the Bernoulli event here? (What has two mutually exclusive outcomes?)</em></p>
 <p><em>Q37. What are the theoretical limits to your outcomes (i.e, max numbers of each)?</em></p>
@@ -624,7 +624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Mean: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">", variance: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Mean: 5, variance: 4.96"</code></pre>
+<pre><code>[1] "Mean: 5.01, variance: 4.97"</code></pre>
 </div>
 </div>
 <p><em>Q69. What do you notice about the mean and variance in the Poisson model?</em></p>

@@ -78,7 +78,7 @@ Wongles always lay two eggs in a clutch but 50% of the eggs are infertile and do
 
 Often we are faced with more than two events and the quadratic expansion approach you used above is no longer convenient. In such circumstances you use the binomial expression.
 
-*Q35. Copy down the binomial probability mass function (from Chapter* @sec-appendix*) and use it as an alternative method for calculating the fertility proportions for two eggs (a, b, c above).*
+*Q35. Using the binomial probability mass function from* @sec-appendix*, calculate the fertility proportions for two eggs (Q34 a, b, c).*
 
 Oozle birds are much more sensible than Wongles and always have broods of eight offspring and all of them hatch. We are interested in modelling the probabilities of the proportion of male and female offspring in broods of eight eggs.
 
