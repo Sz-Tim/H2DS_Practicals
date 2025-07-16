@@ -1,11 +1,13 @@
+![](figs/beach_sine.png){fig-align="center" width="100%"}
+
 # Preface {#sec-preface .unnumbered}
 
 ## Practical sessions
 
-In these practicals, you will apply concepts you learn throughout the H2 Data Science course. The questions you answer by hand are useful for learning and revision, while producing appropriate graphics and correctly describing results are essential parts of the scientific process. Expertise in these core skills is essential to do well in future courses and scientific projects. H2 Data Science is truly one of the most important courses you'll take!
+In these practicals, you will apply concepts you learn throughout the H2 Data Science course. The questions throughout are useful for learning and revision, while producing appropriate graphics and correctly describing results are essential parts of the scientific process. Expertise in these core skills is essential to do well in future courses and scientific projects. H2 Data Science is truly one of the most important courses you'll take!
 
 You will use datasets provided on Brightspace, datasets included in R, and datasets you simulate yourself.
 
-Please read through the practical before the class. Each session is scheduled for 3.5h with a break in the middle. You will work through a series of coding exercises and questions which are not assessed or marked, but may appear in the assessments. You should complete all the material in each practical.
+Please read through the practical before the class. Each session is scheduled for 3.5h with a recommended break in the middle. You will work through a series of coding exercises and questions which are not assessed or marked, but may appear in the assessments. You should complete all the material in each practical.
 
-Throughout the sessions, we will alternate between individual work and short re-caps as a class. If you find yourself racing ahead, all well and good. If you find yourself falling behind, then try some additional study ahead of the next session.
+The practical booklet is provided [online](https://sz-tim.quarto.pub/h2ds-practicals/) and as a pdf on Brightspace. The web version has additional features that are not possible with pdfs and is the recommended interface. The underlying files (lightly edited) are available on Brightspace.

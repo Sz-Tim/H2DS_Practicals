@@ -1,23 +1,24 @@
 # Binomial and Poisson Distributions {#sec-P2}
 
-The role of statisticians is often to determine the probability of events occurring in nature given our current understanding of the processes that are involved (normally on the basis of previous data). This requires a mathematical description of a theoretical relationship. We refer to this as a statistical model. Statistical models are like any model in that they can be a useful simplification of reality. However, as George Box said, ‘all models are wrong but some are useful’. We will come back to this concept again and again throughout this course.
+We often wish to determine the probability of events occurring given our current understanding of the processes that are involved. This requires a mathematical description of a theoretical relationship. We refer to this as a statistical model. Models are simplified representations of reality. As George Box said, ‘All models are wrong but some are useful’.
 
 Two models, the binomial and Poisson distributions, often provide excellent approximations of real-world events. This means that they can be used to determine the likelihood of events or series of events given certain ‘reasonable’ assumptions. In terms of planning, e.g. in the insurance industry, this is extremely useful.
 
-Examples of the questions addressed using the binomial and Poisson models include:
+For example, the binomial or Poisson distributions can be used to answer:
 
--   How likely is it that four hurricanes hit the US in a single season based on historic data?
--   How likely is it that a ‘50-year’ wave will hit in the next ten years? A 50 year wave is one of such size that it only occurs, on average, once in 50 years.
--   Is a river flooding now more than it used to? Is there a change in flooding frequency?
--   What proportion of clutches of fish eggs will contain all males?
+-   How likely is it that four hurricanes hit the US in one season based on historic data?
+-   How likely is it that a ‘50-year’ wave will hit in the next ten years?
+-   Is a river flooding more frequently now than it used to?
+-   What proportion of egg clutches in a fish population will be all males?
 
-This practical gives you the opportunity to practice using these distributions. In the first part of this class you will conduct a number of short exercises to familiarize yourselves with the necessary commands in R to study probability using the binomial and Poisson distributions.
+This practical gives you the opportunity to practice using these distributions.
 
 ```{r}
 #| message: false
 #| warning: false
 
 library(tidyverse)
+set.seed(2025)
 ```
 
 ------------------------------------------------------------------------
@@ -26,87 +27,119 @@ library(tidyverse)
 
 ### Bernoulli trials
 
-A Bernoulli trial is a single event with a *binary* outcome (i.e., a success or a failure). Binary outcomes include:
+A Bernoulli trial is a single event with a *binary* outcome (i.e., two categories that are mutually exclusive). Binary outcomes include:
 
--   Alive / dead
--   Pregnant / not pregnant
--   Guilty / not guilty
--   Heads / tails
--   Win / lose
+-   Alive vs. dead
+-   Reproductive vs. not reproductive
+-   Present vs. absent
 
-Things that can have more than two outcomes can be re-coded into two categories. This concept can be extended to numerous situations, such as:
+Other variables can be re-coded into a binary outcome. For example:
 
--   Income greater than £100,000 vs. less than £100,000
--   Flower colour (blue vs. not blue; red vs. not red)
+-   Flower colour (blue vs. not blue)
+-   Income ($\geq$ £100,000 vs. $<$ £100,000)
 
-by definition, each Bernoulli trial is independent of all previous trials.
+By definition, each Bernoulli trial is independent of all previous trials.
 
-*Q28. If you tossed a fair coin 99 times and each time it landed heads, what is the probability of obtaining a head on the next toss of the coin?*
+::: Q.
+A fair coin has been heads in 99 consecutive flips. What is the probability of heads on the next flip?
+:::
 
-This is a different question from asking whether 100 heads or (99 heads + 1 tails) is more likely in a throw of 100 coins. This is different because these events are independent.
+This is different to asking whether (100 heads) or (99 heads + 1 tails) is more likely in a throw of 100 coins. This is different because each flip is independent.
 
 ### The binomial distribution
 
-The binomial distribution is a discrete probability distribution that applies to a series of Bernoulli trials. For example, if you had 10 eggs under a (big) chicken and they were all female, you might wonder how likely this was by chance. If this kept happening, you might question whether something was somehow making the eggs female. Here, the outcome can be female or male, and the trial size is 10 (each egg is a ‘trial’ with a binary outcome). You may question the assumption that the ratio female to male was 50:50 and favour an alternative hypothesis that the ratio was more female : less male. The binomial distribution allows you to quantify the probability of getting $x$ females from $n$ eggs for any given probability $p=P(female)$. That is, we are not restricted to 50:50.
+The binomial distribution is a discrete probability distribution that applies to a series of Bernoulli trials.
+
+For example, if a chicken laid 4 eggs and they were all female, you might wonder how likely this was by chance. Here, the outcome can be female or male, and the number of trials is 4: each egg is a ‘trial’ or 'event' with a binary outcome. You may question the assumption that the ratio of female:male was 50:50 and favour an alternative hypothesis that females are more likely. The binomial distribution allows you to quantify the probability of getting $x$ females from $n$ eggs for any given probability $p=P(female)$. That is, we are not restricted to 50:50.
 
 You need to know two things to use the binomial distribution. These are:
 
--   the number of trials ($n$, or sometimes $k$)
--   probability of success ($p$)
+-   The number of trials ($n$, or sometimes $k$)
+-   The probability of success ($p$)
 
 From *p*, we can calculate the probability of failure as $q = (1-p)$, since the two probabilities must sum to 1.
 
-The distribution of a binomially distributed variable $y$ is specified $y \sim Binom(n,p)$. We denote $P(x)$ as the probability of getting $x$ successes where $x$ is an integer $0:n$.
+The distribution of a binomially distributed variable $y$ is specified as $y \sim Binom(n,p)$. We denote $P(x)$ as the probability of getting $x$ successes where $x$ is an integer from $0$ to $n$.
 
-The **mean of a binomial distribution** is $n*p$. This gives you the *expected* outcome. For example, if $P(female)=0.5$ and $n=10$ eggs the expected number of females is $10*0.5=5$.
+The **mean of a binomial distribution** is $n*p$. This gives you the *expected* outcome. For example, if $P(female)=0.5$ and $n=4$ eggs the expected number of females is $4*0.5=2$.
 
 ### Binomial distributions by hand
 
-Wongles always lay two eggs in a clutch but 50% of the eggs are infertile and don't hatch. We are interested in the proportions that we can expect to hatch from one clutch (two eggs).
+Wongles always lay two eggs in a clutch but 50% of the eggs are infertile and don't hatch. We are interested in the proportion that we expect to hatch from one clutch (two eggs).
 
-*Q29. What is the event here?*
+::: Q.
+What is the event?
+:::
 
-*Q30. What is the probability of success?*
+::: Q.
+What is $p$?
+:::
 
-*Q31. What is the number of trials?*
+::: Q.
+What is the number of trials?
+:::
 
-*Q32. How many possible outcomes are there and what are they?*
+::: Q.
+How many possible outcomes are there for a clutch? What are they?
+:::
 
-*Q33. Write down the model specification in the standard notation (with parameters)*
+::: Q.
+Write down the model specification (with parameters).
+:::
 
-*Q34. Calculate the expected proportions of clutches of eggs that contain (a) two fertile, (b) two infertile, and (c) one of each.*
+::: Q.
+Calculate the expected proportions of clutches that contain (a) two fertile, (b) two infertile, and (c) one of each. Use a probability tree if needed.
+:::
 
-Often we are faced with more than two events and the quadratic expansion approach you used above is no longer convenient. In such circumstances you use the binomial expression.
+::: Q.
+Using the binomial probability mass function from @sec-appendix, calculate the expected proportions for two eggs.
+:::
 
-*Q35. Using the binomial probability mass function from* @sec-appendix*, calculate the fertility proportions for two eggs (Q34 a, b, c).*
+In practice, it is much more convenient to use the binomial expression.
 
-Oozle birds are much more sensible than Wongles and always have broods of eight offspring and all of them hatch. We are interested in modelling the probabilities of the proportion of male and female offspring in broods of eight eggs.
+Unlike Wongles, Oozles always have broods of eight offspring and all of them hatch. We are interested in modelling the probabilities of the number of male and female offspring in these broods of eight eggs.
 
-*Q36. What is the Bernoulli event here? (What has two mutually exclusive outcomes?)*
+::: Q.
+What is the Bernoulli event?
+:::
 
-*Q37. What are the theoretical limits to your outcomes (i.e, max numbers of each)?*
+::: Q.
+What are the theoretical limits to your outcomes (i.e, max numbers of each)?
+:::
 
-*Q38. What are the possible outcomes, and what is the total number of possible outcomes?*
+::: Q.
+What are the possible outcomes? What is the number of possible outcomes?
+:::
 
-*Q39. Write down the model for Oozle egg sex (*$y \sim Binom(n,p)$*).*
+::: Q.
+Write down the model for Oozle egg sex: $y \sim Binom(n,p)$.
+:::
 
-We will assume that the probability ($p$) of any offspring being female is 0.5 and being male ($q$) is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting $n$ females in a brood of size $n$ is equal to $p^n$.
+We will assume that the probability $p$ of any offspring being female is 0.5 and being male $q$ is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting $n$ females in a brood of size $n$ is equal to $p^n$.
 
-*Q40. Calculate the probability of obtaining eight male offspring.*
+::: Q.
+Calculate the probability of obtaining eight male offspring.
+:::
 
-*Q41. What is the mean number of females you would expect in Oozle broods?*
+::: Q.
+What is the mean number of females you would expect in Oozle broods?
+:::
 
 It gets more complicated when you want to know the probability of getting, say, 1 male and 7 females from your clutch of eight eggs.
 
-*Q42. Given that* $p=q$*, what shape would expect the distribution to be?*
+::: Q.
+Given that $p=q$, what shape would expect the distribution to be?
+:::
 
-*Q43. Use the binomial expression to calculate the probability of obtaining 0, 1, 2, 3, 4, 5, 6, 7 and 8 male offspring (note that the distribution is symmetrical).*
+::: Q.
+Use the binomial expression to calculate the probability of obtaining 0, 1, 2, 3, 4, 5, 6, 7 and 8 male offspring (note that the distribution is symmetric).
+:::
 
 It is much easier, of course, to do this using R.
 
 ### Binomial distributions in R
 
-You can get probabilities for specific outcomes from a massive array of theoretical probability distributions from R. The binomial is just one of them.
+R can calculate probabilities for specific outcomes from a massive array of theoretical probability distributions. The binomial is just one of them.
 
 ```{r}
 num_female <- 4 # note that 4 is assigned to the variable called num_female
@@ -127,7 +160,11 @@ paste0("P(", num_female, " female | ", num_trials, " eggs) = ",
        dbinom(num_female, num_trials, p_female))
 ```
 
-Often we want to know cumulative probabilities. This allows us to answer questions like 'what is the probability of obtaining \< 4 females in a brood of 8 eggs?' Here, \<4 equates to the cumulative probability P(0) + P(1) + P(2) + P(3).
+The function `dbinom()` gives the probability of a single outcome.
+
+Often we want to know cumulative probabilities instead. This allows us to answer questions like *"What is the probability of obtaining \< 4 females in a brood of 8 eggs?"* Here, \<4 equates to the cumulative probability P(0) + P(1) + P(2) + P(3).
+
+For these calculations, we can use `pbinom(...)` instead of `sum(dbinom(...))`.
 
 ```{r}
 # pbinom gives the cumulative probability
@@ -135,36 +172,66 @@ paste("The cumulative probability is",
       max(pbinom(0:num_female - 1, num_trials, p_female)))
 ```
 
-*Q44. Why do we parameterise `pbinom()` with `num_female-1` rather than `num_female`?*
+::: Q.
+Why do we parameterise `pbinom()` with `num_female-1` rather than `num_female`?
+:::
 
-*Q45. Would this change if the question was* $P( \leq 4)$*?*
+::: Q.
+Would this change if the question was $P( \leq 4)$?
+:::
 
-*Q46. Take the ’max’ out of the above line and run again. You should see 5 cumulative probabilities. Why is the first cumulative probability zero?*
+::: Q.
+Take `max` out of the above line and run again. You should see 5 cumulative probabilities. Why is the first cumulative probability zero?
+:::
 
-*Q47. Calculate P(\< 4 females \| 8 eggs) using `dbinom()` instead of `pbinom()`.*
+Note that R has vectorized the calculation, returning the probability for each value in vector from `0:num_female - 1`.
+
+::: Q.
+Calculate P(\< 4 females \| 8 eggs) using `dbinom()` instead of `pbinom()`.
+:::
+
+The above code has a bug in it. You can check what R is doing by running parts of the code:
 
 ```{r}
-# You can check what R is doing by running parts of code:
 0:num_female - 1 # Oops! Is this what you expected?
 0:(num_female - 1) # this is actually what we want.
-# Correct the code above. Why did this bug have no effect?
 ```
 
-*Q48. What is the probability of getting 3 females?*
+::: Q.
+Correct the code above. Why did this bug have no effect?
+:::
 
-*Q49. What is the probability of getting 8 females?*
+::: Q.
+What is the probability of getting 3 females?
+:::
 
-*Q50. What cumulative probabilities would you need to consider to answer the question ‘What is the probability of getting fewer than three females?’*
+::: Q.
+What is the probability of getting 8 females?
+:::
 
-*Q51. Write down the model that describes this random process (number of females per eight eggs). Your answer should be like this:* $y \sim Binom(n, p)$*.*
+::: Q.
+What cumulative probabilities would you need to consider to answer the question *"What is the probability of getting fewer than three females?"*
+:::
 
-*Q52. What is the probability of getting \< 4 females?*
+::: Q.
+Review your model that describes this random process (number of females per eight eggs) that you wrote above: $y \sim Binom(n, p)$.
+:::
 
-*Q53. What is the probability of getting* $\leq$ 4 females?
+::: Q.
+What is the probability of getting \< 4 females?
+:::
 
-*Q54. What is the probability of getting \> than 8 females?*
+::: Q.
+What is the probability of getting $\leq$ 4 females?
+:::
 
-*Q55. What is the probability of getting* $\geq$ than 2 females?
+::: Q.
+What is the probability of getting \> than 8 females?
+:::
+
+::: Q.
+What is the probability of getting $\geq$ than 2 females?
+:::
 
 Let's visualize these distributions in order to better understand them.
 
@@ -177,13 +244,13 @@ Let's visualize these distributions in order to better understand them.
 # Run this, then explore values of p_female
 # Note: 'success' and 'failure' is arbitrary. Just make sure you're calculating
 # what you think. How would you calculate the probabilities for males instead?
-num_female <- seq(0, 8) 
+num_female <- 0:8 
 p_female <- 0.5 # what are the limits of p_female?
-prFemale_df <- data.frame(num_female = num_female, 
-                          prob = dbinom(num_female, max(num_female), p_female)) 
+prFemale_df <- data.frame(num_female=num_female, 
+                          prob=dbinom(num_female, max(num_female), p_female)) 
 prFemale_df 
-barplot(prFemale_df$prob, names = prFemale_df$num_female, 
-        xlab = "Number of females", ylab = "Probability")
+barplot(prFemale_df$prob, names=prFemale_df$num_female, 
+        xlab="Number of females", ylab="Probability")
 ```
 
 ```{r}
@@ -193,43 +260,53 @@ barplot(prFemale_df$prob, names = prFemale_df$num_female,
 #| fig-height: 3
 
 prFemale_df$cumul_prob <- cumsum(prFemale_df$prob)
-barplot(prFemale_df$cumul_prob, names = prFemale_df$num_female, 
-        xlab = "Enter the correct label!", ylab = "Enter the correct label!")
+barplot(prFemale_df$cumul_prob, names=prFemale_df$num_female, 
+        xlab="Enter the correct label!", ylab="Enter the correct label!")
 ```
 
 Try re-plotting so that the two panels appear side by side (hint: `par(mfrow=c(...))`).
 
-Note $P(y_i=x)$ is read as 'the probability that a random observation $y_i$ equals $x$'. Sometimes this includes conditions: $P(y_i=x|n,p)$, which is read as the probability that $y_i$ equals $x$ given $n$ and $p$. You may see $P()$, $Pr()$, $p()$, or $Prob()$, which all mean the same thing.
+Note $P(y_i=x)$ is read as 'the probability that a random observation y sub i equals x'. Sometimes this includes conditions: $P(y_i=x|n,p)$, which is read as the probability that $y_i$ equals $x$ given $n$ and $p$. You may see $P()$, $Pr()$, $p()$, or $Prob()$, which all mean the same thing.
 
-The interpretation of $P(y_i=8\ |\ n=8,\ p=0.5) = 0.00391$ is that the probability of 8 female offspring in a clutch of 8 eggs is 0.00391.
+The interpretation of $P(y_i=8\ |\ n=8,\ p=0.5) = 0.00391$ is that the probability of 8 female offspring in a clutch of 8 eggs where each egg has 50% probability of being female is 0.00391.
 
 In other words, if we have 500 broods, each with 8 eggs, we expect $500 * 0.00391 = 1.95 \approx 2$ broods to be all female. Is there something strange about our Oozle or is it just one of the 2/500 by chance?
 
-*Q56. Why is a bar graph the appropriate plot here?*
+::: Q.
+Why is a bar graph the appropriate plot here?
+:::
 
-*Q57. What do you notice about the shape of the distribution when* $p=q=0.5$?
+::: Q.
+What do you notice about the shape of the distribution when $p=q=0.5$
+:::
 
-*Q58. Re-run the analysis with the probability of female as 0.8. Plot the results.*
-
-*Q59. What is the shape of the distribution now?*
+::: Q.
+Re-run the analysis with the probability of female as 0.8 and plot the results. How has the shape of the distribution changed?
+:::
 
 ------------------------------------------------------------------------
 
 ## The Poisson distribution
 
-The Poisson distribution is another probability distribution that describes discrete events that occur in space and/or time. The Poisson distribution is used to model (predict) the distribution of events that are rare, random, and independent. This can include events like earthquakes, storms, or the number of bends arriving at the SAMS recompression facility.
+The Poisson distribution is another probability distribution that describes discrete events that occur in space and/or time. The Poisson distribution is used to model (predict) the distribution of events that are rare, random, and independent. This can include events like earthquakes, storms, or the number of whales spotted on a cruise.
 
 The Poisson distribution takes a single parameter: the mean. If a variable is Poisson distributed, its variance will equal its mean. This is a diagnostic feature of the distribution. The Poisson distribution is a discrete probability distribution, but its parameter, the mean, is continuous (similar to continuous $p$ for the discrete binomial distribution).
 
-The Poisson formula is simple - find it in @sec-appendix . Here, $\bar{y}$ is the mean, $x$ is the outcome of interest, $e$ is Euler's number, and $!$ is factorial. Note that here, we use $\bar{y}$ as our stand-in for the population parameter $\lambda = \mu = \sigma$ which defines the poisson distribution. Translate this formula into an R function by completing this code:
+Find the formula for the Poisson distribution in @sec-appendix.
+
+Here, $\bar{y}$ is the mean, $x$ is the outcome of interest, $e$ is Euler's number, and $!$ is factorial. Note that here, we use $\bar{y}$ as our stand-in for the population parameter $\lambda = \mu = \sigma$ which defines the Poisson distribution.
+
+::: Q.
+Translate the Poisson formula into an R function by completing the following code.
+:::
 
 ```{r}
 #| eval: false
 
-# hint: exp(2) = e^2
-# hint: factorial(3) = 3!
+# hint: e^2 = exp(2)
+# hint: 3! = factorial(3)
 calc_poisson_prob <- function(x, y_bar) {
-  
+  # Translate the formula here using x and y_bar
 }
 ```
 
@@ -243,9 +320,9 @@ calc_poisson_prob <- function(x, y_bar) {
 
 ### Poisson distributions by hand
 
-These problems usually start by asking you to calculate the mean number of observations made per unit of space or time. This is the Poisson parameter, and is referred to as the *rate* or as *lambda* ($\lambda$). The unit could be spatial (e.g., per $m^2$) or temporal (e.g., per hour).
+The first step is to calculate the mean number of observations per unit. This is the Poisson parameter, and is referred to as the *rate* or as *lambda* ($\lambda$). The unit could be spatial (e.g., per $m^2$) or temporal (e.g., per hour).
 
-Consider randomly throwing a 1$m^2$ quadrat repeatedly on a sandy beach covered in worm casts @fig-wormcasts. You then count the number of casts in each quadrat.
+Last weekend, I randomly threw a 1$m^2$ quadrat repeatedly on a sandy beach covered in worm casts @fig-wormcasts. In each quadrat, I counted the number of casts.
 
 ![Worm casts on a sandy beach with 1x1 m quadrats.](figs/worm_casts.png){#fig-wormcasts}
 
@@ -260,46 +337,53 @@ worm_df <- data.frame(num_worms = c(0, 1, 2, 3, 4, 5, 6),
 
 The code below generates a dataframe from which you can determine that the mean number of worms per quadrat is `r with(worm_df, sum(num_worms * num_quadrats) / sum(num_quadrats))`. We wish to predict the proportion of quadrats that would contain 0, 1, 2, 3, 4, and 5 worms, assuming that the worms are independently distributed across space (i.e., random: one worm's location has no effect on another worm's location, and there is no relevant environmental variation).
 
-We thus wish to determine the probability of observing our data assuming that the worms casts are randomly distributed. To do this, we need to know the probability of observing each count (zero to infinity), given the mean count per quadrat.
+We will then compare our observations to the expectations from the theoretical Poisson distribution. To do this, we need to know the probability of observing each count, given the mean count per quadrat.
 
 ```{r}
 # num_worms is the number of worms per quadrat
-# num_quadrats is numbers of quadrats observed containing that number of worms
-# this dataset is summarised. Raw data might have columns: quadrat_id, num_worms
-worm_df <- data.frame(num_worms = c(0, 1, 2, 3, 4, 5, 6),
-                      num_quadrats = c(35, 28, 15, 10, 7, 5, 0))
-worm_df # display dataframe
+# num_quadrats is number of quadrats that contained each number of worms
+# This dataset is summarised. Raw data might have columns: quadrat_id, num_worms
+worm_df <- data.frame(num_worms=c(0, 1, 2, 3, 4, 5, 6),
+                      num_quadrats=c(35, 28, 15, 10, 7, 5, 0))
+worm_df
 ```
 
-As the number of worms per quadrat is low compared to the number of worms that could exist within a quadrat we consider these are rare events and hence can be reasonably described by a Poisson distribution (assuming worms occur independently).
+As the number of worms per quadrat is relatively small, the occurrences are rare enough to be reasonably described by a Poisson distribution if worms occur independently.
 
-From just the mean, we can calculate the expected frequency of observing different numbers of worms in any quadrat (assuming the model assumptions are met - remind yourself what these assumptions are). The number of worms per quadrat ($y$) is discrete; it can only take integers greater or equal to zero.
+From the mean, we can calculate the expected frequency of observing different numbers of worms in any quadrat (assuming the model assumptions are met: What are the assumptions?). The number of worms per quadrat ($y$) is discrete; it can only take integers greater or equal to zero.
 
-Probability questions often includes terms such as $P(y_i \leq a)$. That is, the probability that an observation $i$ of the random variable $y$ is less than or equal to $a$. For example, in this context you might get asked for $P(y_i \leq 1)$ which asks what is the probability of a random quadrat being thrown ($y_i$) containing 1 or fewer worm casts ($a$, an integer value). To be fully complete, we might even write $P(y_i \leq 1 | \lambda)$, which acknowledges that we know the (sample) mean.
+We are often interested in probabilities such as $P(y_i \leq a)$. That is, the probability that an observation $i$ of the random variable $y$ is less than or equal to $a$. For example, you may need to calculate $P(y_i \leq 1)$, which is the probability that a random quadrat ($y_i$) contains 1 or fewer worm casts ($a$, an integer value). To be fully complete, we might even write $P(y_i \leq 1 | \bar{y})$, which acknowledges that we know the (sample) mean.
 
-So, if you are interested in predicting the probability of obtaining 1 or fewer worms per quadrat, you would start your calculation by writing $P(y_i = 0) + P(y_i=1) = \dots$.
+So, to calculate the probability of obtaining 1 or fewer worms per quadrat, you could start by writing $P(y_i = 0) + P(y_i=1) = \dots$.
 
-*Q60. Use your `calc_poisson_prob()` function to calculate the expected frequency of 0, 1 & 2 worms per quadrat.*
+::: Q.
+Use your `calc_poisson_prob()` function to calculate the expected frequency of 0, 1 & 2 worms per quadrat.
+:::
 
-*Q61. What calculation would you need to conduct to determine* $P(y_i \geq 1)$*?*
+::: Q.
+What calculation would you need to conduct to determine $P(y_i \geq 1)$? What is the theoretical upper limit of the Poisson distribution?
+:::
 
 R has built-in functions for calculating these, but it is important to know what you are asking them to calculate.
 
-### Poisson distributions in R
+### Poisson distributions using \*pois() functions
 
 You can determine the expected probabilities for each worm count per quadrat once you have determined the mean count of worms per quadrat. Since we have a summarised dataset (i.e., the number of observations `num_quadrats` for each number of worms `num_worms`, rather than the raw data with a row for each quadrat), we need to do some calculations. The mean number of worms per quadrat = (total number of worms) / (total number of quadrats).
 
 ```{r}
 sum(worm_df$num_quadrats) # total number of quadrats
+sum(worm_df$num_quadrats * worm_df$num_worms) # total number of worms
 lambda_worms <- with(worm_df, sum(num_worms * num_quadrats) / sum(num_quadrats))
-lambda_worms # the mean worms per quadrat"
+lambda_worms # the mean number of worms per quadrat
 ```
 
-Given this, we can find $P(y_i \leq 5)$ (that is, the probability of a random quadrat ($y_i$) containing five or fewer worms). With a mean of 1.41 worms per quadrat, $P(y_i \leq 5) = 0.997$ (3 sf). This means that, if your data are Poisson distributed, it is highly likely that there will be fewer than five worms in your quadrat if $\lambda = 1.41$.
+Given this, we can find $P(y_i \leq 5)$: the probability of a random quadrat containing five or fewer worms. With a mean of 1.41 worms per quadrat, $P(y_i \leq 5) = 0.997$ (3 sf). This means that if your data are Poisson distributed with $\lambda = 1.41$, it is highly unlikely to find more than five worms in a quadrat.
 
-*Q62. If the mean number of worms was 3 per quadrat, would you be more or less likely to get five worms in your quadrat?*
+::: Q.
+If the mean number of worms was 3 per quadrat, would you be more or less likely to get five worms in your quadrat?
+:::
 
-To do this in R, we use `dpois()` and `ppois()`:
+To do these calculation in R, we can use `dpois()` and `ppois()`:
 
 ```{r}
 # ?dpois 
@@ -313,18 +397,24 @@ dpois(a, lambda) # probability of observing 'a' worms per quadrat: dpois()
 1-ppois(a-1, lambda) # probability of observing >= 'a' worms: ppois()
 ```
 
+::: Q.
+Why is `a-1` used in the `ppois()` function above? When would you use `a` instead?
+:::
+
 ```{r}
 #| label: fig-worm_poisson
 #| fig-cap: "Poisson probability distribution."
 
-ppois(0:a, lambda) # what does 0:a mean? What's another way to do this? 
+ppois(0:a, lambda) # what does 0:a mean? What's another way to make this vector? 
 signif(ppois(0:a, lambda), 3) # round with ?signif
 barplot(dpois(0:a, lambda),
         ylab = "Probability", xlab = "Number of worms",
         space = 0.2, ylim = c(0, 0.5), names.arg = 0:a)
 ```
 
-Now change the plot so that the cumulative probabilities are plotted. You will need to change the code to use `ppois()` instead of `dpois()`, as well as the y-axis limits (`ylim`).
+::: Q.
+Change the code to plot the cumulative probabilities. You will need to use `ppois()` instead of `dpois()` and adjust the y-axis limits (`ylim`).
+:::
 
 ```{r}
 # create new columns in worm_df for the probabilities
@@ -342,40 +432,46 @@ worm_df$cumul_prob <- cumsum(worm_df$prob)
 knitr::kable(worm_df, digits=5) 
 ```
 
-*Q64. Format the probabilities in the table to 3 decimal places.*
+::: Q.
+Format the probabilities in @tbl-worm_table to 3 decimal places.
+:::
 
-If individual probability values (not cumulative probability) are multiplied by the total number of quadrats thrown (100), we generate the expected frequency distribution for comparison with the observed results above.
+If individual probability values (not cumulative probability) are multiplied by the total number of quadrats thrown (n=100), we generate the expected frequency distribution for comparison with the observed results above.
 
-*Q65. Write the appropriate code to add a column(called `num_quadrats_expected`) to ‘worm_df’ that is the expected number of quadrats (given 100 quadrats total).*
+::: Q.
+Write the appropriate code to add a column (called `num_quadrats_expected`) to `worm_df` that is the expected number of quadrats (given 100 quadrats total).
+:::
 
 This is the number of quadrats that you would expect to contain 0, 1, ..., 5 worms, given that the mean density of worms is 1.41 per m$^2$. Note that the number of worms per quadrat is a discrete variable, but you can have non-integer ‘expectations’ (i.e. means).
 
-*Q66. Add another column that is the difference in the observed number of quadrats and `num_quadrats_expected`.*
+::: Q.
+Add another column that is the difference in the observed number of quadrats and `num_quadrats_expected`.
+:::
 
-*Q67. Produce a bar graph of this difference.*
+::: Q.
+Produce a bar graph of this difference.
+:::
 
 ------------------------------------------------------------------------
 
 ## The Poisson approximation of the binomial model
 
-Where the number of trials is large and the probability of success is small, the Poisson distribution can be used as an approximation of the binomial distribution. Under these circumstances you can calculate the mean of a variable that has a binomial distribution (number of trials x probability of success; $n*p$) and use that as an estimate of $\lambda$ in the Poisson model. The reason why you may wish to do this is because the Poisson model is much easier to use than the binomial model when $n$ is large.
+When the number of trials $n$ is large and the probability of success $p$ is small, the Poisson distribution can be used as an approximation of the binomial distribution. Under these circumstances you can calculate the mean of a variable that has a binomial distribution ($n*p$) and use that to approximate $y \sim Pois(\lambda = np)$. Using the Poisson distribution is computationally more efficient in these cases. There is no settled threshold, but as $n$ increases and $p$ decreases, the approximation gets better.
 
-There are several rules of thumb that apply here. Some say that when $p<0.1$, the Poisson approximation may be preferable to the binomial, other texts state that $n$ should be \> 50 and $p<0.05$ (so $n * p = \lambda = 2.5$) whilst others state $n>100$ and $n*p<10$. The point is that as $n$ increases and $p$ decreases, the approximation gets better.
-
-There are an infinite number of ways of multiplying two numbers together to get 5. Call our numbers $p$ and $k$. For example, when $p=0.5$, $n=10$ OR when $p=0.05$, $n=100$, $n*p=5$. We can use this to illustrate the Poisson approximation of the binomial distribution.
+If we set the mean $\lambda = np = 5$, we can visualize the distributions with different combinations of $n$ and $p$ (e.g., $p=0.5, n=10$; $p=0.05, n=100$, etc). We can use this to illustrate how the binomial distribution converges to the Poisson distribution as $n$ gets larger.
 
 ```{r}
 #| message: false
 #| warning: false
+#| code-fold: true
 
 # generate dataframe with probability for 0:16 'successes' from different 
 # distributions but where mean is 5.
 # note that in y ~ Binom(10,0.5), probability of >10 successes is zero.
-# We're going to leverage the power of the tidyverse here
-y_seq <- 0:16
-binom_df <- tibble(y=rep(y_seq, times=3), # ?rep
-                   n=rep(c(10, 20, 100), each=length(y_seq)),
-                   p=rep(c(0.5, 0.25, 0.05), each=length(y_seq))) |>
+y_seq <- 0:13
+binom_df <- tibble(y=rep(y_seq, times=4), # ?rep
+                   n=rep(c(10, 20, 100, 500), each=length(y_seq)),
+                   p=rep(c(0.5, 0.25, 0.05, 0.01), each=length(y_seq))) |>
     mutate(mean=n*p,
            prob=dbinom(y_seq, n, p),
            label=paste0("y ~ Binom(", n, ", ", p, ")"))
@@ -385,13 +481,8 @@ pois_df <- tibble(y=y_seq,
                   mean=5) |>
     mutate(prob=dpois(y_seq, mean),
            label=paste0("y ~ Pois(", mean, ")"))
-PDF_df <- bind_rows(binom_df, pois_df) |>
+distr_df <- bind_rows(binom_df, pois_df) |>
   mutate(label=factor(label, levels=unique(label)))
-```
-
-```{r}
-head(binom_df, 2)
-head(pois_df, 2)
 ```
 
 ```{r}
@@ -401,32 +492,44 @@ head(pois_df, 2)
 #| fig-height: 3
 #| warning: false
 #| message: false
+#| code-fold: true
 
-ggplot(PDF_df, aes(y, prob, fill=label)) +  # ggplot(data, aes(xVar, yVar))
+ggplot(distr_df, aes(y, prob, fill=label)) +  # ggplot(data, aes(xVar, yVar))
   geom_bar(stat="identity", position="dodge", colour="grey30") +  # ?geom_bar
-  scale_fill_brewer("Distribution", palette="Purples") + # from colorbrewer2.org
+  scale_fill_brewer("Distribution", palette="PuBu") + # from colorbrewer2.org
   labs(x="Number of successes with mean = 5", y="Probability") +
+  scale_x_continuous(breaks=y_seq) +
   theme_classic() + 
   theme(legend.position=c(0.85, 0.85))
 ```
 
-*Q68. What is the modal value in these distributions?*
+::: Q.
+What is the modal value in each of these distributions?
+:::
 
-Generate some random numbers from the distributions in @fig-binom_pois_approx and calculate their mean and variance. Here is $y \sim Pois(\lambda=5)$:
+::: Q.
+Generate some random numbers from the distributions in @fig-binom_pois_approx and calculate their mean and variance.
+:::
+
+Here is $y \sim Pois(\lambda=5)$:
 
 ```{r}
 y <- rpois(10000, 5)
 paste0("Mean: ", signif(mean(y), 3), ", variance: ", signif(var(y), 3))
 ```
 
-*Q69. What do you notice about the mean and variance in the Poisson model?*
+::: Q.
+What do you notice about the mean and variance in the Poisson model?
+:::
 
-*Q70. What do you notice about the mean and variance in the binomial models as* $n$ *increases and* $p$ *decreases? When is it more similar to the Poisson? Is this what you expected?*
+::: Q.
+What do you notice about the mean and variance in the binomial models as $n$ increases and $p$ decreases? When is it more similar to the Poisson? Is this what you expected?
+:::
 
 ------------------------------------------------------------------------
 
 ## Conclusions
 
-The binomial distribution is a discrete probability distribution that models situations where the outcome of an observation or experiment is binary (i.e., two possibilities) or can be coded as such. The binomial model enables us to predict the probability of making our observation or series of independent observations for any given probability of a success ($p$). This enables us to quantify how likely our observation is to have occurred, by chance. If the chance of our observation is very low, we can challenge the hypothesis with regard the probability of success ($p$) and suggest a different value.
+The binomial distribution is a discrete probability distribution that models situations where the outcome of an observation or experiment is binary (i.e., two possibilities) or is coded as such. The binomial model enables us to predict the probability of making our observation or series of independent observations for any given probability of a success ($p$) in a known number of trials. This enables us to quantify how likely our observation is to have occurred by chance. If the chance of our observation is very low, we can challenge the hypothesis with regard to the probability of success ($p$) and suggest a different value.
 
-The Poisson distribution is another discrete probability distribution that is used to predict the chance occurrence of observations that are rare, independent and randomly distributed with mean = variance = $\lambda$. The Poisson distribution can be used as an approximation of the binomial distribution where the number of trials ($n$) is large and the probability of success ($p$) is small. This approximation is useful as, unlike the Poisson distribution, the binomial calculation requires the handling of massive numbers (from large factorials).
+The Poisson distribution is another discrete probability distribution that is used to predict the probability of counts that are rare, independent and randomly distributed with mean = variance = $\lambda$. The Poisson distribution can be used as an approximation of the binomial distribution where the number of trials ($n$) is large and the probability of success ($p$) is small. This approximation is useful as, unlike the Poisson distribution, the binomial calculation requires the handling of massive numbers (from large factorials).

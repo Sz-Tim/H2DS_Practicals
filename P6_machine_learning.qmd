@@ -1,12 +1,26 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
 # Machine Learning {#sec-P6}
 
-So far, every model we've used has had a single response variable. Multivariate analyses expand this to allow the analysis of, for example, counts of each species within a community. Statistical routines for multivariate analysis are relatively new and have co-evolved with computational capacity over the last 50 years or so. Multivariate data typically take the form of a matrix of samples (each row is a sample) v ‘features’ (columns). Features may include things like faunal counts, chemical concentrations, or environmental conditions.
+## Multivariate analysis
 
-Multivariate analysis typically includes three stages: 1) data transformation or standardisation, 2) generation of a dissimilarity matrix and, 3) ordination (display) of that matrix. Each of these elements has numerous options, with advantages and disadvantages to each. Multivariate analysis are less inferential than most univariate approaches and implementation can feel like a ‘black-art’! Statisticians are still arguing about the best way to approach multivariate analyses.
+So far, every model we've used has had a single response variable. **Multivariate analyses** are techniques that allow the analysis of multiple response variables, such as counts of each species within a community. Statistical routines for multivariate analysis are relatively new and have co-evolved with computational capacity. Multivariate data are typically stored as a matrix of samples (rows) v ‘features’ (columns). Features may include things like faunal counts, chemical concentrations, or environmental conditions.
 
-Multivariate data, such as species inventories, have been recorded for centuries and form a critical resource. Multivariate time series data are particularly important for assessing relative change that might be attributable to man’s activities, for example in relation to climate or land-use change. The ‘internet of things’, the generation of multiple data-streams from the same station (e.g. a glider with CTD), and the development of bioinformatics (e.g. metabarcoding) all lend themselves to multivariate analyses.
+Multivariate analysis typically includes three stages:
 
-More detail on the the material we cover here is given in [Clarke et al. 2014. Change in marine communities: An approach to statistical analysis and interpretation.](https://www.primer-e.com/wp-content/uploads/2018/10/Change-in-Marine-Communities-3rd-ed.pdf). If that link does not work, you can try navigating to the [PRIMER-e downloads page](https://www.primer-e.com/download/), fill out your info to download the Manuals, then select "Change in Marine Communities". Unfortunately, the PRIMER software developed by the authors is not free. Instead, we'll use our gloriously free and open source R.
+1)  Data transformation or standardisation
+2)  Calculation of a dissimilarity matrix
+3)  Ordination (display) of the dissimilarity matrix
+
+Each of these steps has numerous options, with advantages and disadvantages to each. Multivariate analysis are less inferential than most univariate approaches and implementation can feel subjective. Statisticians are still arguing about the best way to approach multivariate analyses.
+
+Multivariate data occur in a number of common situations, including species inventories, multiple data streams from the same station (e.g., a glider with CTD), and in bioinformatics (e.g., metabarcoding). Many are critical resources in understanding relative change through time.
+
+More detail on the the material we cover here is accessible in Clarke et al. (2014) on Brightspace, entitled *Change in marine communities: An approach to statistical analysis and interpretation.*
 
 ```{r}
 #| message: false
@@ -15,15 +29,17 @@ More detail on the the material we cover here is given in [Clarke et al. 2014. C
 library(tidyverse)
 library(readxl)
 library(vegan)
+library(plotly)
+set.seed(2025)
 ```
 
-## Multivariate analysis in R
+## Non-Metric Multidimensional Scaling (NMDS)
 
-For the non-metric NMDS workflow, we’ll start by simulating some data. Then, we’ll transform the data (‘log’ and fourth-root) and generate dissimilarity matrices from this transformed data. Finally, we’ll plot it using NMDS. We'll generate diversity indices with our simulated data, then have a look at some real data (available via the package *vegan*).
+For the NMDS workflow, we’ll work through the above steps (`data |> transform() |> dissimilarity() |> ordination()`) first with two simulated datasets and then with a more complex (real) dataset included in the package *vegan*.
 
-For the PCA workflow, we’ll have a look at some environmental data using PCA. Throughout this practical, we'll illustrate some coding techniques which will help you practice wrangling your data to make it suitable for analysis. As we've discussed, data wrangling is a time-consuming and crucial part of data analysis so familiarity with this is essential.
+Recall that the `^` operator raises each element in a vector to a power. For example, for the vector `obs_values <- c(1, 10, 35)`, we can calculate a fourth-root transformation of the whole vector with `obs_values^(1/4)`. Remember from previous courses that this is identical to `sqrt(sqrt(obs_values))`.
 
-Recall that the `^` operator raises each element in a vector to a power. For example, say we create a vector `obs_values <- c(1, 10, 35)`. We can calculate a fourth-root transformation of the whole vector with `obs_values^(1/4)`. Remember from previous courses that this is identical to `sqrt(sqrt(obs_values))`.
+### 1: Data transformation
 
 ```{r}
 #| message: false
@@ -45,7 +61,11 @@ worm_df_4rt <- worm_df^0.25
 
 Take a look at `worm_df`, `worm_df_log`, and `worm_df_4rt` to be sure they make sense.
 
-Next we use `vegdist()` to generate different distance matrices for the raw and transformed data. See `?vegdist` for more information. We'll use Bray-Curtis for the raw and 4^th^-root transformed data, and alternative Gower for the alt-log transformed data. See the multivariate lecture area on Brightspace for details on these algorithms. Feel free to investigate other combinations of data transformation and dissimilarity matrices.
+### 2: Dissimilarity matrix
+
+A dissimilarity matrix summarises the dissimilarity between each pair of samples. There are many methods of summarising the dissimilarity (or distance), particularly when that dissimilarity occurs across multiple dimensions (here, genera).
+
+The `vegdist()` function can generate distance matrices using many different methods. See `?vegdist` for more information. We'll use Bray-Curtis for the raw and 4^th^-root transformed data, and alternative Gower for the alt-log transformed data. See the help page and Brightspace material for more information on these. Feel free to investigate other combinations of data transformation and dissimilarity matrices.
 
 ```{r}
 vegdist(worm_df, method = "bray")
@@ -53,17 +73,17 @@ vegdist(worm_df_4rt, method = "bray")
 vegdist(worm_df_log, method = "altGower")
 ```
 
-*Q140. How many combinations of transformation and dissimilarity matrix do we have already?*
+::: Q.
+Based on the dissimilarity matrices, which sites are more similar (smaller numbers) and which are more dissimilar (bigger numbers)? Does this align with an ‘eyeballing’ of the data? How has the data transformation changed the resultant dissimilarity matrix?
+:::
 
-*Q141. Examine one or more of the dissimilarity matrices. Which sites are closer (smaller numbers) and which are further apart (bigger numbers)? Does this align with an ‘eyeballing’ of the data? How has the data transformation changed the resultant dissimilarity matrix?*
+### 3: Ordination
 
-Next we want to plot our dissimilarities, so we can easily visualize which sites are more similar/dissimilar to each other. We will use functions from *vegan* to plot the ordinations. Remember that you can run `?packageName` to learn more about any R package, typically with helpful examples and vignettes of the most useful applications of the package.
+Next we want to plot the dissimilarities to visualize which sites are more similar or dissimilar to one another. We will use functions from *vegan*. Remember that you can run `?packageName` to learn more about any R package, typically with helpful examples and vignettes of the most useful applications of the package.
 
 We have numerous options in relation to displaying the dissimilarity matrices. We'll explore non-metric multiple dimensional scaling, abbreviated to NMDS, nMDS, nmMDS, or just MDS.
 
-*Q142. Use `?vegdist` to see what alternative distance measures are available.*
-
-The `metaMDS()` function calculates a dissimilarity matrix (as we did above) and produces an R object with all the information needed for plotting. It expects that samples are in rows and species (or features) are in columns. We can also specify the distance metric, the number of axes, whether to autotransform the data, and many other options. See `?metaMDS` for the default values and other available arguments.
+As you might suspect, there are R functions which combine the three steps, though often it is preferable to separate them. The `metaMDS()` function calculates a dissimilarity matrix (as we did above) and produces an R object with all the information needed for plotting. It expects that samples are in rows and species (features) are in columns. We can also specify the distance metric, the number of axes to project to, whether to autotransform the data, and many other options. See `?metaMDS` for the default values and other available arguments.
 
 ```{r}
 #| label: fig-worm_1
@@ -77,6 +97,8 @@ ordiplot(ord_raw, choices = c(1, 2), display = "sites",
          type = "text", main = "NMDS: raw data, Bray-Curtis")
 ```
 
+Note that `metaMDS()` involves some randomization, and your plot will change each time you run the code. For fully reproducible code, use `set.seed()`.
+
 Compare this with the 4^th^-root transformed data using the same distance metric.
 
 ```{r}
@@ -84,9 +106,13 @@ ord_4rt <- metaMDS(worm_df_4rt, distance = "bray", k = 2,
                    autotransform = FALSE, trace = FALSE)
 ```
 
-*Q143. Plot `ord_4rt`. How has the 4th root changed your data interpretation?*
+::: Q.
+Plot `ord_4rt`. How has the 4th root changed your data interpretation?\*
+:::
 
-*Q144. Examine your ordination(s) and interpret, cross referencing to the raw and transformed data. Are the patterns that you see in the data apparent on the ordination?*
+::: Q.
+Interpret the ordinations, cross referencing to the raw and transformed data. Are the patterns that you see in the data apparent on the ordination?
+:::
 
 You can include on your plot the species ‘locations’ (as determined by their correlation with the axes). This shows where the main associations are occurring.
 
@@ -101,7 +127,9 @@ ordiplot(ord_4rt, choices = c(1, 2), display = c("sites", "species"),
          type = "text", main = "NMDS, 4th-rt trans., Bray-Curtis")
 ```
 
-*Q145. Re-plot the untransformed data, but this time include the species. How has the transformation changed your interpretation of the data?*
+::: Q.
+Re-plot the untransformed data, but this time include the species. How has the transformation changed your interpretation of the data?
+:::
 
 Let’s have a look at another simulated dataset.
 
@@ -127,15 +155,39 @@ ordiplot(ord_comm, choices = c(1, 2),
          display = c("sites", "species"), type = "text")
 ```
 
-*Q146. Have a look at these raw data. What are the main trends? Which sites are more similar?*
+::: Q.
+Have a look at these raw data. What are the main trends? Which sites are more similar?
+:::
 
 These data are still much simpler than most ‘real’ data sets but it is still difficult to summarise the similarities and differences between stations. However, multivariate analyses help you in this process.
 
-*Q147. Now fourth-root transform these data, generate the new dissimilarity matrix and plot it.*
+::: Q.
+Now fourth-root transform these data, generate the new dissimilarity matrix and plot it.
+:::
 
-*Q148. What has the transformation done to your interpretation of differences between the Sites and Site x Species associations?*
+::: {.callout-tip collapse="true"}
+## View solution
 
-*Q149. Add a title to your graph.*
+```{r}
+#| label: fig-comm_ord_4rt
+#| fig-cap: "Ordination for the 4th root transformed data."
+#| fig-width: 5.5
+#| fig-height: 5
+#| code-fold: true
+
+comm_4rt_df <- comm_df^0.25
+ord_comm_4rt <- metaMDS(comm_4rt_df, distance = "bray", k = 2, 
+                        autotransform = FALSE, trace = FALSE)
+ordiplot(ord_comm_4rt, choices = c(1, 2), 
+         display = c("sites", "species"), type = "text")
+```
+:::
+
+
+::: Q.
+What has the transformation done to your interpretation of differences between the Sites and Site x Species associations?
+:::
+
 
 ------------------------------------------------------------------------
 
@@ -145,7 +197,9 @@ Prior to the development of the multivariate techniques you’ll be using today,
 
 We can use the `comm_df` dataset we invented to explore some diversity concepts.
 
-*Q150. Looking at the `comm_df` data (by eye) and given the description above, which of the sites is associated with the lowest and highest diversity?*
+::: Q.
+Looking at the `comm_df` data (by eye) and given the description above, which of the sites is associated with the lowest and highest diversity?
+:::
 
 ```{r}
 #| label: fig-H_examp
@@ -158,19 +212,25 @@ barplot(shannon_H, main = NULL, ylab = "Shannon's H")
 
 Try plotting `richness`.
 
-*Q151. Do the plots correspond to what you expected?*
+::: Q.
+Do the plots correspond to what you expected?
+:::
 
-*Q152. What does `specnumber` do?*
+::: Q.
+What does `specnumber()` do?
+:::
 
-*Q153. Change `comm_df` to introduce some very evenly distributed species across sites and some with extremes or absences and see how this effects diversity and richness.*
+::: Q.
+How could you ‘counter’ any extremes (as in superabundant taxa) in the raw count data that you’ve generated? Try your idea.
+:::
 
-*Q154. How could you ‘counter’ any extremes (as in superabundant taxa) in the raw count data that you’ve generated? Try your idea.*
-
-*Q155. Which description (diversity or richness) is ‘best’ for describing your multivariate data? How does this compare to NMDS?*
+::: Q.
+Which description (diversity or richness) is ‘best’ for describing your multivariate data? How does this compare to NMDS?
+:::
 
 ## NMDS on real data
 
-Now you’ve been introduced to NMDS and diversity indices, with ‘fake’ data, you are in a better position to interpret real data. Using simulated (or at least simple) data to learn new statistical techniques is usually the best approach because it gives you the opportunity to get a better sense for how the algorithms work (and to be sure your code is free from bugs!).
+Using simulated (or at least simple) data to learn new statistical techniques is usually the best approach because it gives you the opportunity to get a better sense for how the algorithms work (and to be sure your code is free from bugs!). Now we will progress to real observations.
 
 Have a look at the `varespec` and `varechem` datasets included in the *vegan* package. I’ve reproduced the examples below:
 
@@ -201,31 +261,31 @@ plot(ef, p.max = 0.1, col = "green") # overlay environmental variables
 plot(ef, p.max = 0.01, col = "blue") # subset based on p
 ```
 
-See how the multivariate analysis has taken all those data, both species and environmental, and ‘communicated’ them in one single figure? You can see numerous relationships (both positive and negative) in this figure, and species-site-environment associations. It also illustrates a potential challenge with multivariate ordinations. It is very easy to get cluttered and overloaded. There is no easy way around this, though there is further help in these packages.
+See how the multivariate analysis has taken all those data, both species and environmental, and ‘communicated’ them in one single figure? You can see numerous relationships (both positive and negative) in this figure, and species-site-environment associations. It also illustrates a potential challenge with multivariate ordinations. It quickly gets cluttered and overloaded. There is no easy way around this, though there is further help in these packages.
 
-You are in charge of the analysis. You can change the emphasis and elements of the message depending on your data transformation, dissimilarity metric, and ordination technique (hence ‘black art’). There is no absolutely ‘correct’ way to go about multivariate stats, so different statisticians will have their favoured approaches and methods.
+You are in charge of the analysis. You can change the emphasis and elements of the message depending on your data transformation, dissimilarity metric, and ordination technique. There is no absolutely ‘correct’ way to go about multivariate stats, so different statisticians will have their favoured approaches and methods.
 
-Note: Some functions (e.g. `metaMDS()`) default to autotransform your data if the function thinks it is necessary. This can be useful but, in scientific reports, you must specify what transformations you used. Here you don’t know what the function applies as it depends on the data, but it could be the square or fourth-root and/or Wisconsin transformation (which is a double standardisation). My advice is only to use transformations that you specify.
+Note: Some functions (e.g. `metaMDS()`) default to autotransform your data if the function thinks it is necessary. This can be useful but, in scientific reports, you must specify what transformations you used. Here you don’t know what the function applies as it depends on the data, but it could be any of several or a combination. My advice is only to use transformations that you specify.
 
 ------------------------------------------------------------------------
 
 ## Principal components analysis (PCA)
 
-PCA is a long-established multivariate technique that is often applied to ‘environmental’ data rather than ‘count’ data. Environmental data is, usually, quite different from species count data in that most environmental parameters (e.g. metal concentrations) are present, at least to some degree. This contrasts to species data where many species are often absent (zeros). These zero counts would lead to problems if analysed using PCA, since PCA would ‘think’ that sites that shared lots of ‘absences’ were more similar, which is not necessarily desirable.
+PCA is a long-established multivariate technique that is often applied to ‘environmental’ data rather than ‘count’ data. Environmental data is, usually, quite different from species count data in that most environmental parameters (e.g. metal concentrations) are present, at least to some degree. This contrasts to species data where many species are often absent (zeros). These zero counts would lead to problems if analysed using PCA, since PCA would consider sites with many shared absences to be more similar, which is often not desirable.
 
-With environmental data, such as temperature, light, and concentration, zeros tend to be less prevalent. However, environmental data (e.g. that describing your sampling location in space and time) might include all manner of different variables on different scales (e.g., radiant flux in lumens, temperature in C, nutrient/contaminant concentrations in mg/l). What you wouldn’t wish to see is your arbitrary choice of measurement unit (e.g., C or K) having any influence on your analysis such that a variable is given more weight simply because the numbers are larger.
+In PCA, it is important that all variables are of a roughly similar magnitude. Environmental data might include all manner of different variables on different scales (e.g., radiant flux in lumens, temperature in C, nutrient/contaminant concentrations in mg/l, coordinates in easting/northing). If used in their raw form, the variables with larger values would have a greater influence on the outcome of the PCA.
 
 Instead, we want all of our variables to be treated ‘equally’. You can do all this by setting `pcomp(..., scale=TRUE)`. Scaling means that each measurement is expressed in units of standard deviation (a Z-score!!). Usually it is desirable to center the data as well by subtracting the mean. Centering and scaling means that each of the environmental variables is of ‘equal importance’ regardless of the magnitude of the raw values.
 
-A basic, and very friendly, introduction to PCA is given in Chapter 4 of [Clarke et al. 2014](https://www.primer-e.com/wp-content/uploads/2018/10/Change-in-Marine-Communities-3rd-ed.pdf).
+A basic, and very friendly, introduction to PCA is given in Chapter 4 of Clarke et al. (2014).
 
-The data set we’ll look at here is from SAMS Professor Tom Wilding's PhD thesis. He set up an experiment to examine the relative leaching of trace metals from concrete, granite, and a control (artificial seawater). Concrete contains cement which is enriched in vanadium and molybdenum, and these elements could leach out in dangerous amounts. Granite, the main constituent of this concrete, might also leach some trace elements. He suspended concrete and granite powder in artificial water, constantly agitated it, and measured the leachate concentrations over 100 days [Wilding and Sayer 2002](https://doi.org/10.1006/jmsc.2002.1267).
+The data set we’ll use is from SAMS Professor Tom Wilding's PhD thesis. He set up an experiment to examine the relative leaching of trace metals from concrete, granite, and a control (artificial seawater). Concrete contains cement which is enriched in vanadium and molybdenum, and these elements could leach out in dangerous amounts. Granite, the main constituent of this concrete, might also leach some trace elements. He suspended concrete and granite powder in artificial water, constantly agitated it, and measured the leachate concentrations over 100 days [Wilding and Sayer 2002](https://doi.org/10.1006/jmsc.2002.1267).
 
 ```{r}
 #| message: false
 #| warning: false
 
-leach_df <- read_excel("data/practical_5.xlsx", sheet = "Leaching") |>
+leach_df <- read_excel("data/H2DS_practicalData.xlsx", sheet = "Leaching") |>
   mutate(Treat_abbr = factor(Treat, # abbreviate for cleaner plotting
                              levels = c("concrete", "control", "granite"),
                              labels = c("conc", "ctrl", "gran")),
@@ -239,13 +299,9 @@ table(leach_df$Conc == 0)
 mean(leach_df$Conc == 0) # recall that R treats T/F as 1/0 
 ```
 
-```{r}
-#| label: fig-leach_hist
-#| fig-cap: "Histogram of leaching data (raw) illustrating the wide range of values and skew."
-
-par(mfrow=c(1,1))
-hist(leach_df$Conc, main = NULL) 
-```
+::: Q.
+Do some exploratory analysis of this dataset. How are the concentrations distributed? Do similar treatments show qualitatively similar distributions? Elements?
+:::
 
 Next, we need to re-organise the data into a wider format so that each element is a column and each row is a sample.
 
@@ -274,9 +330,9 @@ PCA_leach
 str(PCA_leach)
 ```
 
-You can see from the scree plot that the amount variance explained declines with principal component as expected and that there is very little variation left after 3 principal components. That is, nearly all of the variation in the dataset is captured by PC1, PC2, and PC3. In this case, PCA has essentially solved the ‘curse of dimensionality’ by successfully reducing 7 dimensional data to about three.
+You can see from the scree plot that the amount of variance explained declines with principal component as expected, and that there is very little variation left after 3 principal components. That is, nearly all of the variation in the dataset is captured by PC1, PC2, and PC3. In this case, PCA has essentially solved the ‘curse of dimensionality’ by successfully reducing 7D data to about 3D.
 
-Data transformations are critical to PCA analysis, as they are with NMDS. In most PCAs you center and standardize your data so that each column is on the same scale.
+Data transformations are critical to PCA analysis, as they are with NMDS. In most PCAs the data are standardized so that each column is on the same scale.
 
 We can plot our results using `biplot()` which has some helpful defaults including labels for the samples (`Treat_day`) and the correlation strength of each element with PC1 and PC2:
 
@@ -289,26 +345,37 @@ We can plot our results using `biplot()` which has some helpful defaults includi
 biplot(PCA_leach, xlabs = leach_df_wide$Treat_day, cex = 0.75)
 ```
 
-To plot more than 2 dimensions you could use a 3D plot, but these are frankly difficult to interpret since it is reduced *back* to 2D on a page or computer screen. Another option is to use colour for the 3^rd^ axis. Here's an example using `ggplot2`. Adding arrows showing the loadings (see below) is possible, but more work.
+To plot more than 2 dimensions you could use a static 3D plot, but these are often difficult to interpret since it is reduced *back* to 2D on a page. Another option is to use colour for the 3^rd^ axis, or, for digital distribution, a package like *plotly* can produce an interactive 3D plot.
 
 ```{r}
-#| label: fig-leach_biplot1_gg
-#| fig-cap: "PCA of the complete dataset using ggplot2."
+#| label: fig-leach_biplot1_plotly
+#| fig-cap: "PCA of the complete dataset using plotly."
 #| fig-width: 4
 #| fig-height: 3.5
+#| message: false
+#| warning: false
+#| code-fold: true
+
+arrow_df <- tibble(element=row.names(PCA_leach$rotation),
+                   PC1=PCA_leach$rotation[,1]*6,
+                   PC2=PCA_leach$rotation[,2]*6,
+                   PC3=PCA_leach$rotation[,3]*6)
 
 PCA_leach$x |>
   as_tibble() |>
   mutate(Treat_day = leach_df_wide$Treat_day) |>
-  ggplot(aes(PC1, PC2, colour = PC3, label = Treat_day)) + 
-  geom_label(size = 3, fill = NA) +
-  scale_colour_gradient2(mid = "cornsilk2") +
-  theme_bw()
+  separate_wider_delim(Treat_day, delim="_", names=c("Treatment", "Days")) |>
+  mutate(Days=as.numeric(Days)) |>
+  plot_ly(x=~PC1, y=~PC2, z=~PC3, symbol=~Treatment, color=~Days, type="scatter3d", mode="markers",
+          symbols=c("circle-open", "diamond-open", "cross")) |>
+  add_text(data=arrow_df, text=~element, color="black", symbol=NULL)
 ```
 
-The ordination plots the relative positions (in terms of similarity) of the samples. There are numerous label overlaps making the interpretation of the ordination difficult. If you were producing this for publication you would need to sort this out.
+The ordination plots the relative positions (in terms of similarity) of the samples. If there are numerous label overlaps, this makes the interpretation of the ordination difficult. If you were producing this for publication you would need to sort this out to present the reader with a figure that communicates the message effectively.
 
-*Q156. Which elements are positively associated with granite and concrete, particularly after longer periods of leaching?*
+::: Q.
+Which elements are positively associated with granite and concrete, particularly after longer periods of leaching?
+:::
 
 As is typical, overlapping points make interpretation more difficult. There are elegant solutions to this (in terms of labelling) but for now, we’ll split the data and analyse it separately.
 
@@ -328,9 +395,11 @@ PCA_trts <- prcomp(leach_df_trts[, -1], scale = TRUE, center = TRUE)
 biplot(PCA_trts, xlabs = leach_df_trts$Treat_day)
 ```
 
-*Q157. Repeat the analysis, but set `scale = FALSE`. Which element now seems to dominate the analysis? Explain what you see.*
+::: Q.
+Repeat the analysis, but set `scale = FALSE`. Which element now seems to dominate the analysis? Explain what you see.
+:::
 
-A PCA is normally reported with the proportion of the variation explained by each of the principal components (and the cumulative proportion). If the cumulative proportion for the 1st two PCs is high, then your 2D (PC1 and PC2) ordination is a good representation of the similarities between samples. In that sense a high cumulative proportion is analogous to a low stress (for NMDS).
+A PCA is normally reported with the proportion of the variation explained by each of the principal components (and/or the cumulative proportion). If the cumulative proportion for the 1st two components is high, then the 2D (PC1 and PC2) ordination is a good representation of the similarities between samples. In that sense a high cumulative proportion is analogous to a low stress for NMDS.
 
 Let’s have a look at a summary of the principal components.
 
@@ -343,7 +412,7 @@ PCA_leach_summary$importance[, 1:4] # extract only PC1-4
 
 As you can see, PC1, PC2, and PC3 capture more than 95% of the variance in our data. Adding PC4 brings that up above 99%.
 
-Finally, we can look at factor loadings. This is a measure of how each feature (metal concentration in this case) relates to the principal components. In PCA, the principal components are sequentially ‘less’ influential since they describe increasingly smaller amounts of variation. By centering and standardising your response variables, you can assess the relative importance of each in driving the patterns you observe in your ordination. The magnitude is what we're interested in rather than the sign.
+Finally, we can look at factor loadings. This is a measure of how each feature (metal concentration in this case) relates to the principal components. In PCA, the principal components are sequentially ‘less’ influential since they describe increasingly smaller amounts of variation. By centering and standardising the variables, you can assess the relative importance of each in driving the patterns in the ordination. The magnitude is what we're interested in rather than the sign.
 
 In an object created by `prcomp()`, the loadings are stored as `.$rotation`.
 
@@ -359,4 +428,4 @@ Here you can see that Sr, Rb, Mo are relatively ‘important’ in driving the m
 
 ## Conclusions
 
-I will let you write your own summary and conclusions from this practical as this will help you consolidate your understanding. You may wish to consider the following: the nature of multivariate vs. univariate data, types and characteristics of multivariate data (e.g. counts vs. environmental data), the analytical methods introduced here for dealing with data of different types, the purpose and effect of transformations and standardisations and where they are used, the use of summary metrics (e.g. diversity metrics) and their advantages and disadvantages. You should also be familiar with the interpretation of simple ordinations (both PCA and NMDS) and the concept of stress and ‘proportion explained’ (for NMDS and PCA respectively).
+Multivariate analyses are extremely useful in a variety of contexts. The form of analysis is often more qualitative and less inferential compared to univariate analyses we've covered, but this is an active field of research and there are well-developed methods and R packages for more complex analyses (e.g., [`ade4`](https://adeverse.github.io/ade4/).  
