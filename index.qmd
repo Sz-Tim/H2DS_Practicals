@@ -1,4 +1,4 @@
-![](figs/beach_sine.png){fig-align="center" width="100%"}
+![](figs/beach_normal.png){fig-align="center"}
 
 # Preface {#sec-preface .unnumbered}
 

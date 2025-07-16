@@ -19,7 +19,7 @@ book:
   site-url: https://sz-tim.quarto.pub/h2ds-practicals
   repo-actions: [issue]
   repo-url: https://github.com/Sz-Tim/H2DS_Practicals
-  favicon: figs/two_distributions.png
+  favicon: figs/one_distribution.png
   downloads: [pdf, epub]
   search: true
 
