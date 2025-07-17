@@ -366,9 +366,9 @@ PCA_leach$x |>
   mutate(Treat_day = leach_df_wide$Treat_day) |>
   separate_wider_delim(Treat_day, delim="_", names=c("Treatment", "Days")) |>
   mutate(Days=as.numeric(Days)) |>
-  plot_ly(x=~PC1, y=~PC2, z=~PC3, symbol=~Treatment, color=~Days, type="scatter3d", mode="markers",
-          symbols=c("circle-open", "diamond-open", "cross")) |>
-  add_text(data=arrow_df, text=~element, color="black", symbol=NULL)
+  plot_ly(type="scatter3d", x=~PC1, y=~PC2, z=~PC3, symbol=~Treatment, color=~Days, mode="markers",
+            symbols=c("circle-open", "diamond-open", "cross")) |>
+  add_text(data=arrow_df, x=~PC1, y=~PC2, z=~PC3, text=~element, color=I("black"), symbol=NULL)
 ```
 
 The ordination plots the relative positions (in terms of similarity) of the samples. If there are numerous label overlaps, this makes the interpretation of the ordination difficult. If you were producing this for publication you would need to sort this out to present the reader with a figure that communicates the message effectively.
