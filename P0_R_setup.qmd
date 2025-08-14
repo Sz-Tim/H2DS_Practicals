@@ -25,8 +25,8 @@ We will create an R Project for the semester. During each practical, you should 
 3.  Choose *New Directory \> New Project*
 4.  Set the *Directory name* as **H2_DataScience** and use the *Browse* button by *Create project as a subdirectory of:* to set a convenient location in your OneDrive folder. Click 'Create Project'.
 5.  In the *Files* panel in RStudio, click the *New Folder* button and create a folder called **data**.
-6.  On Brightspace, download the file in *Practicals \> data* and move it into your newly created **data** folder.
-7.  On Brightspace, download the files in *Practicals \> code* and move them into the **H2_DataScience** folder.
+6.  On Brightspace, download H2DS_practicalData.xlsx in *Practicals* and move it into your newly created **data** folder.
+7.  On Brightspace, download the files in *Practicals \> Weekly qmd* and move them into the **H2_DataScience** folder.
 8.  Close RStudio (to learn how to open appropriately)
 
 ![Setting up a new RStudio project.](figs/RStudio_newProject.png){#fig-RStudioNewProject}
