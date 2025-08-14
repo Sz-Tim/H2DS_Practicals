@@ -103,7 +103,6 @@ In some cases, this may be of interest. What is almost always more interesting, 
 library(tidyverse)
 library(readxl)
 library(emmeans)
-set.seed(2025)
 ```
 
 ### ANOVA in R
@@ -579,7 +578,7 @@ These are prediction intervals and they are broader than confidence intervals. T
 
 ### Regression (reprise)
 
-Import the 'PhosphateCalibration' sheet from "H2DS_practicalData.xlsx" (1st year practical data) into R and perform a linear regression with absorbance predicted by concentration. Perform all appropriate checks for data quality and assumptions. Report relevant parameter estimates with confidence intervals.
+Import the 'PhosphateCalibration' sheet from "H2DS_practicalData.xlsx" (1st year practical data) into R and perform a linear regression with absorbance predicted by concentration. Perform all appropriate checks for data quality and assumptions. Report relevant parameter estimates with 92% confidence intervals.
 
 ::: {.callout-tip collapse="true"}
 ## View solution
@@ -675,7 +674,7 @@ Report the results. In a full report or paper, this should include the intercept
 This is the workflow for performing a linear regression. 
 
 ::: callout-note
-Most often, researchers report 95% CIs, but occasionally 80%, 90%, or 95%. It is a bit cheeky to report the 92% CIs, but keep in mind that there is nothing magic about 95% (just like 0.05). 
+Most often, researchers report 95% CIs, but occasionally 80%, 90%, or 95%. It would be a bit cheeky to report the 92% CIs, but keep in mind that there is nothing magic about 95% (just like 0.05). 
 :::
 
 ::: Q.

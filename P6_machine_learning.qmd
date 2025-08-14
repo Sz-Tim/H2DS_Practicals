@@ -1,9 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
 # Machine Learning {#sec-P6}
 
 ## Multivariate analysis
@@ -122,7 +116,7 @@ You can include on your plot the species ‘locations’ (as determined by their
 #| fig-width: 4
 #| fig-height: 4
 
-# you can also plot the 'species' on the ordination,
+# you can also plot the 'species' on the ordination
 ordiplot(ord_4rt, choices = c(1, 2), display = c("sites", "species"), 
          type = "text", main = "NMDS, 4th-rt trans., Bray-Curtis")
 ```
@@ -356,6 +350,8 @@ To plot more than 2 dimensions you could use a static 3D plot, but these are oft
 #| warning: false
 #| code-fold: true
 
+if(knitr::pandoc_to() == "html") {
+  
 arrow_df <- tibble(element=row.names(PCA_leach$rotation),
                    PC1=PCA_leach$rotation[,1]*6,
                    PC2=PCA_leach$rotation[,2]*6,
@@ -369,7 +365,9 @@ PCA_leach$x |>
   plot_ly(type="scatter3d", x=~PC1, y=~PC2, z=~PC3, symbol=~Treatment, color=~Days, mode="markers",
             symbols=c("circle-open", "diamond-open", "cross")) |>
   add_text(data=arrow_df, x=~PC1, y=~PC2, z=~PC3, text=~element, color=I("black"), symbol=NULL)
+}
 ```
+
 
 The ordination plots the relative positions (in terms of similarity) of the samples. If there are numerous label overlaps, this makes the interpretation of the ordination difficult. If you were producing this for publication you would need to sort this out to present the reader with a figure that communicates the message effectively.
 

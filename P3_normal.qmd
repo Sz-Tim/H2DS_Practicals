@@ -366,7 +366,7 @@ ggplot(proportion_df, aes(orig, new_value)) +
 ```
 
 ::: Q.
-Using the Radon concentration worksheet in practical_3_4.xlsx, plot the data. Do they look normally distributed?
+Using the Radon concentration worksheet, plot the data. Do they look normally distributed?
 :::
 
 ```{r}
@@ -476,7 +476,7 @@ mu <- 10
 sigma <- 2
 sim_obs <- rnorm(10000, mu, sigma)
 
-# Draw samples
+# Define sample size and number
 sample_size <- c(3, 10, 30, 100) # size of each sample
 num_samples <- 3000 # number of samples (=repeats) for each sample size
 

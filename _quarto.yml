@@ -42,7 +42,6 @@ format:
     toc-depth: 2
     number-sections: true
     colorlinks: true
-    prefer-html: true
     geometry:
       - top=20mm
       - right=20mm
@@ -52,8 +51,7 @@ format:
     
   epub:
     cover-image: figs/cover.png
-    prefer-html: true
-  
+
 
 callout-appearance: simple
 
