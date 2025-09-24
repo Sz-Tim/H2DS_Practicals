@@ -131,9 +131,10 @@ How many possible outcomes are there for a clutch? What are they?
 
 ::: callout-important
 Three:
-- two fertile
-- one fertile, one infertile
-- two infertile
+
+-   two fertile
+-   one fertile, one infertile
+-   two infertile
 :::
 
 ::: Q.
@@ -149,7 +150,9 @@ Calculate the expected proportions of clutches that contain (a) two fertile, (b)
 :::
 
 ::: callout-important
-(a) 1/4, (b) 1/4, (c) 1/2
+(a) 1/4
+(b) 1/4
+(c) 1/2
 :::
 
 ::: Q.
@@ -192,15 +195,15 @@ What are the possible outcomes? What is the number of possible outcomes?
 0 to 8 = 9 outcomes
 :::
 
+We will assume that the probability $p$ of any offspring being female is 0.5 and being male $q$ is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting $n$ females in a brood of size $n$ is equal to $p^n$.
+
 ::: Q.
 Write down the model for Oozle egg sex: $y \sim Binom(n,p)$.
 :::
 
 ::: callout-important
-$y \sim Binom(8, 0.5)$ (Reorder for next year, since the sex ratio is not specified until after this question!)
+$y \sim Binom(8, 0.5)$
 :::
-
-We will assume that the probability $p$ of any offspring being female is 0.5 and being male $q$ is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting $n$ females in a brood of size $n$ is equal to $p^n$.
 
 ::: Q.
 Calculate the probability of obtaining eight male offspring.
@@ -208,6 +211,7 @@ Calculate the probability of obtaining eight male offspring.
 
 ::: callout-important
 Could use the binomial formula, but the coefficient reduces to 1 since there is only one pathway to 8 males:
+
 ```{r}
 0.5^8
 ```
@@ -243,7 +247,6 @@ p <- 0.5
 
 (factorial(n)/(factorial(x)*factorial(n-x))) * p^x * (1-p)^(n-x)
 ```
-
 :::
 
 It is much easier, of course, to do this using R.
@@ -251,6 +254,10 @@ It is much easier, of course, to do this using R.
 ### Binomial distributions in R
 
 R can calculate probabilities for specific outcomes from a massive array of theoretical probability distributions. The binomial is just one of them.
+
+::: callout-warning
+CHANGE THIS FOR NEXT YEAR! Very confusing and instead should just demonstrate the best method. Obviously.
+:::
 
 ```{r}
 num_female <- 4 # note that 4 is assigned to the variable called num_female
@@ -403,7 +410,6 @@ What is the probability of getting $\geq$ than 2 females?
 1 - pbinom(1, 8, 0.5)
 sum(dbinom(2:8, 8, 0.5))
 ```
-
 :::
 
 Let's visualize these distributions in order to better understand them.
@@ -467,6 +473,7 @@ Re-run the analysis with the probability of female as 0.8 and plot the results. 
 
 ::: callout-important
 The distribution is skewed left, with more probability mass toward larger numbers.
+
 ```{r}
 #| fig-width: 8
 #| fig-height: 4
@@ -484,7 +491,6 @@ prFemale_df$cumul_prob <- cumsum(prFemale_df$prob)
 barplot(prFemale_df$cumul_prob, names=prFemale_df$num_female, 
         xlab="Number of females", ylab="Cumulative probability")
 ```
-
 :::
 
 ------------------------------------------------------------------------
@@ -509,7 +515,6 @@ calc_poisson_prob <- function(x, y_bar) {
   (y_bar^x * exp(-y_bar)) / factorial(x)
 }
 ```
-
 :::
 
 ```{r}
@@ -576,7 +581,6 @@ Use your `calc_poisson_prob()` function to calculate the expected frequency of 0
 ```{r}
 calc_poisson_prob(x=0:2, y_bar=1.41)
 ```
-
 :::
 
 ::: Q.
@@ -608,11 +612,11 @@ If the mean number of worms was 3 per quadrat, would you be more or less likely 
 
 ::: callout-important
 More likely, since the mean is larger. Proof:
+
 ```{r}
 dpois(5, 1.41)
 dpois(5, 3)
 ```
-
 :::
 
 To do these calculation in R, we can use `dpois()` and `ppois()`:
@@ -636,7 +640,7 @@ Why is `a-1` used in the `ppois()` function above? When would you use `a` instea
 ::: callout-important
 As with `pbinom()`, the specified value is included in the sum. So we would use `a` instead of `a-1` if we were interested in $P(y_i \leq a)$ instead of $P(y_i < a)$.
 
-For the converse (greater than, as in the example above), the same logic applies. 
+For the converse (greater than, as in the example above), the same logic applies.
 :::
 
 ```{r}
@@ -660,7 +664,6 @@ barplot(ppois(0:a, lambda),
         ylab="Cumulative probability", xlab="Number of worms",
         space=0.2, ylim=c(0, 1), names.arg=0:a)
 ```
-
 :::
 
 ```{r}
@@ -699,7 +702,6 @@ Write the appropriate code to add a column (called `num_quadrats_expected`) to `
 ```{r}
 worm_df$num_quadrats_expected <- 100 * worm_df$prob
 ```
-
 :::
 
 This is the number of quadrats that you would expect to contain 0, 1, ..., 5 worms, given that the mean density of worms is 1.41 per m$^2$. Note that the number of worms per quadrat is a discrete variable, but you can have non-integer ‘expectations’ (i.e. means).
@@ -712,7 +714,6 @@ Add another column that is the difference in the observed number of quadrats and
 ```{r}
 worm_df$diff <- worm_df$num_quadrats - worm_df$num_quadrats_expected
 ```
-
 :::
 
 ::: Q.
@@ -725,7 +726,6 @@ barplot(worm_df$diff,
         xlab="Number of worms per quadrat", ylab="Observed minus expected", 
         names.arg=0:6)
 ```
-
 :::
 
 ------------------------------------------------------------------------
@@ -805,7 +805,6 @@ paste0("Mean: ", signif(mean(y3), 3), ", variance: ", signif(var(y3), 3))
 paste0("Mean: ", signif(mean(y4), 3), ", variance: ", signif(var(y4), 3))
 paste0("Mean: ", signif(mean(y5), 3), ", variance: ", signif(var(y5), 3))
 ```
-
 :::
 
 Here is $y \sim Pois(\lambda=5)$:

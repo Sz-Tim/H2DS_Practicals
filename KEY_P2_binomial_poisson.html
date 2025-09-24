@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.6.40">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Tim Szewczyk">
-<meta name="dcterms.date" content="2025-09-18">
+<meta name="dcterms.date" content="2025-09-24">
 <title>H2 Data Science Practicals: KEY</title>
 <style>
 code{white-space: pre-wrap;}
@@ -3236,7 +3236,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 18, 2025</p>
+      <p class="date">September 24, 2025</p>
     </div>
   </div>
   
@@ -3354,12 +3354,17 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Three: - two fertile - one fertile, one infertile - two infertile</p>
+<p>Three:</p>
+<ul>
+<li>two fertile</li>
+<li>one fertile, one infertile</li>
+<li>two infertile</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="Q.-1.6" class="Q.">
-<p></p><details class="Q. fbx-simplebox fbx-default" open><summary><strong>Q. 1.6</strong></summary><div>Write down the model specification (with parameters).
+<p></p><details class="Q. fbx-simplebox fbx-default" open><summary><strong>Q. 1.6</strong></summary><div>Write down the model specification with parameters (i.e., <span class="math inline">\(y \sim Binom(...)\)</span>).
 </div></details><p></p>
 </div>
 <div class="callout callout-style-simple callout-important">
@@ -3383,7 +3388,9 @@ window.Quarto = {
 </div>
 <div class="callout-body-container">
 <ol type="a">
-<li>1/4, (b) 1/4, (c) 1/2</li>
+<li>1/4</li>
+<li>1/4</li>
+<li>1/2</li>
 </ol>
 </div>
 </div>
@@ -3454,6 +3461,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<p>We will assume that the probability <span class="math inline">\(p\)</span> of any offspring being female is 0.5 and being male <span class="math inline">\(q\)</span> is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting <span class="math inline">\(n\)</span> females in a brood of size <span class="math inline">\(n\)</span> is equal to <span class="math inline">\(p^n\)</span>.</p>
 <div id="Q.-1.12" class="Q.">
 <p></p><details class="Q. fbx-simplebox fbx-default" open><summary><strong>Q. 1.12</strong></summary><div>Write down the model for Oozle egg sex: <span class="math inline">\(y \sim Binom(n,p)\)</span>.
 </div></details><p></p>
@@ -3464,11 +3472,10 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p><span class="math inline">\(y \sim Binom(8, 0.5)\)</span> (Reorder for next year, since the sex ratio is not specified until after this question!)</p>
+<p><span class="math inline">\(y \sim Binom(8, 0.5)\)</span></p>
 </div>
 </div>
 </div>
-<p>We will assume that the probability <span class="math inline">\(p\)</span> of any offspring being female is 0.5 and being male <span class="math inline">\(q\)</span> is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting <span class="math inline">\(n\)</span> females in a brood of size <span class="math inline">\(n\)</span> is equal to <span class="math inline">\(p^n\)</span>.</p>
 <div id="Q.-1.13" class="Q.">
 <p></p><details class="Q. fbx-simplebox fbx-default" open><summary><strong>Q. 1.13</strong></summary><div>Calculate the probability of obtaining eight male offspring.
 </div></details><p></p>
@@ -3545,6 +3552,16 @@ window.Quarto = {
 <p>It is much easier, of course, to do this using R.</p>
 </section><section id="binomial-distributions-in-r" class="level3"><h3 class="anchored" data-anchor-id="binomial-distributions-in-r">Binomial distributions in R</h3>
 <p>R can calculate probabilities for specific outcomes from a massive array of theoretical probability distributions. The binomial is just one of them.</p>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>CHANGE THIS FOR NEXT YEAR! Very confusing and instead should just demonstrate the best method. Obviously.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">num_female</span> <span class="op">&lt;-</span> <span class="fl">4</span> <span class="co"># note that 4 is assigned to the variable called num_female</span></span>
 <span><span class="va">num_trials</span> <span class="op">&lt;-</span> <span class="fl">8</span></span>
@@ -3708,7 +3725,7 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>x = 0:2 (<code>pbinom(2, 8, 0.5)</code>)</p>
+<p>From 0 to 2, which could be calculated with <code>pbinom(2, 8, 0.5)</code></p>
 </div>
 </div>
 </div>
@@ -4414,23 +4431,23 @@ Figure 5: Binomial and Poisson distributions converge with larger numbers of ev
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">&quot;Mean: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y1</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">&quot;, variance: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y1</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Mean: 5.03, variance: 2.49&quot;</code></pre>
+<pre><code>[1] &quot;Mean: 4.95, variance: 2.54&quot;</code></pre>
 </div>
 <div class="sourceCode" id="cb75"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">&quot;Mean: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y2</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">&quot;, variance: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y2</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Mean: 5.08, variance: 3.68&quot;</code></pre>
+<pre><code>[1] &quot;Mean: 5.05, variance: 3.96&quot;</code></pre>
 </div>
 <div class="sourceCode" id="cb77"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">&quot;Mean: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y3</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">&quot;, variance: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y3</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Mean: 4.94, variance: 4.39&quot;</code></pre>
+<pre><code>[1] &quot;Mean: 5.15, variance: 4.91&quot;</code></pre>
 </div>
 <div class="sourceCode" id="cb79"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">&quot;Mean: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y4</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">&quot;, variance: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y4</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Mean: 4.98, variance: 4.98&quot;</code></pre>
+<pre><code>[1] &quot;Mean: 4.74, variance: 4.51&quot;</code></pre>
 </div>
 <div class="sourceCode" id="cb81"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">&quot;Mean: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">&quot;, variance: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y5</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Mean: 5.04, variance: 5.35&quot;</code></pre>
+<pre><code>[1] &quot;Mean: 5.02, variance: 5.1&quot;</code></pre>
 </div>
 </div>
 </div>
@@ -4441,7 +4458,7 @@ Figure 5: Binomial and Poisson distributions converge with larger numbers of ev
 <div class="sourceCode" id="cb83"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">&quot;Mean: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">&quot;, variance: &quot;</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] &quot;Mean: 5, variance: 5.05&quot;</code></pre>
+<pre><code>[1] &quot;Mean: 5.01, variance: 4.97&quot;</code></pre>
 </div>
 </div>
 <div id="Q.-1.45" class="Q.">
