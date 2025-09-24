@@ -1,4 +1,4 @@
-# Binomial and Poisson Distributions {#sec-P2}
+# Binomial and Poisson distributions {#sec-P2}
 
 We often wish to determine the probability of events occurring given our current understanding of the processes that are involved. This requires a mathematical description of a theoretical relationship. We refer to this as a statistical model. Models are simplified representations of reality. As George Box said, ‘All models are wrong but some are useful’.
 
@@ -83,7 +83,7 @@ How many possible outcomes are there for a clutch? What are they?
 :::
 
 ::: Q.
-Write down the model specification (with parameters).
+Write down the model specification with parameters (i.e., $y \sim Binom(...)$).
 :::
 
 ::: Q.
@@ -137,6 +137,10 @@ It is much easier, of course, to do this using R.
 ### Binomial distributions in R
 
 R can calculate probabilities for specific outcomes from a massive array of theoretical probability distributions. The binomial is just one of them.
+
+::: callout-warning
+CHANGE THIS FOR NEXT YEAR! Very confusing and instead should just demonstrate the best method. Obviously.
+:::
 
 ```{r}
 num_female <- 4 # note that 4 is assigned to the variable called num_female

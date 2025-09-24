@@ -222,7 +222,7 @@ sigma <- 1.2
 lb <- 36 # lower boundary 
 ub <- 40 # upper boundary
 
-norm_df <- tibble(z=seq(-4, 4, length.out=100),
+norm_df <- tibble(z=seq(-4, 4, length.out=1000),
                   x=z*sigma + mu,
                   densNorm=dnorm(x, mu, sigma))
 ggplot(norm_df, aes(x, densNorm)) + 

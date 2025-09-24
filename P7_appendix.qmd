@@ -87,9 +87,9 @@ A binomially distributed variable has **mean** = $n*p$ and **variance** = $n*p*q
 
 The Poisson distribution for a sample is defined as follows:
 
-$P(x) = \frac{\bar{y}^x e^{-\bar{y}}}{x!}$
+$P(x) = \frac{\lambda^x e^{-\lambda}}{x!}$
 
-where $\bar{y}$ is the sample mean and $x$ is the value (count) of interest.
+where $\lambda$ is the mean and $x$ is the value (count) of interest. Note that in a sample, we use the sample mean $\bar{y}$ as our estimate for $\lambda$
 
 ## Z scores
 
