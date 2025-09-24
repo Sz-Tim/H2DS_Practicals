@@ -368,11 +368,11 @@ window.Quarto = {
 <p></p><details class="Q. fbx-simplebox fbx-default" open=""><summary><strong>Q. 2.11</strong></summary><div>What are the possible outcomes? What is the number of possible outcomes?
 </div></details><p></p>
 </div>
+<p>We will assume that the probability <span class="math inline">\(p\)</span> of any offspring being female is 0.5 and being male <span class="math inline">\(q\)</span> is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting <span class="math inline">\(n\)</span> females in a brood of size <span class="math inline">\(n\)</span> is equal to <span class="math inline">\(p^n\)</span>.</p>
 <div id="Q.-2.12" class="Q.">
 <p></p><details class="Q. fbx-simplebox fbx-default" open=""><summary><strong>Q. 2.12</strong></summary><div>Write down the model for Oozle egg sex: <span class="math inline">\(y \sim Binom(n,p)\)</span>.
 </div></details><p></p>
 </div>
-<p>We will assume that the probability <span class="math inline">\(p\)</span> of any offspring being female is 0.5 and being male <span class="math inline">\(q\)</span> is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting <span class="math inline">\(n\)</span> females in a brood of size <span class="math inline">\(n\)</span> is equal to <span class="math inline">\(p^n\)</span>.</p>
 <div id="Q.-2.13" class="Q.">
 <p></p><details class="Q. fbx-simplebox fbx-default" open=""><summary><strong>Q. 2.13</strong></summary><div>Calculate the probability of obtaining eight male offspring.
 </div></details><p></p>
@@ -841,7 +841,7 @@ Figure&nbsp;2.5: Binomial and Poisson distributions converge with larger numbers
 <div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Poisson.html">rpois</a></span><span class="op">(</span><span class="fl">10000</span>, <span class="fl">5</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Mean: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span>, <span class="st">", variance: "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html">signif</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/cor.html">var</a></span><span class="op">(</span><span class="va">y</span><span class="op">)</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Mean: 5.02, variance: 4.96"</code></pre>
+<pre><code>[1] "Mean: 5, variance: 4.97"</code></pre>
 </div>
 </div>
 <div id="Q.-2.45" class="Q.">
