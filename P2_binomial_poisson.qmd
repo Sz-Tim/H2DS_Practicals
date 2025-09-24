@@ -108,11 +108,11 @@ What are the theoretical limits to your outcomes (i.e, max numbers of each)?
 What are the possible outcomes? What is the number of possible outcomes?
 :::
 
+We will assume that the probability $p$ of any offspring being female is 0.5 and being male $q$ is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting $n$ females in a brood of size $n$ is equal to $p^n$.
+
 ::: Q.
 Write down the model for Oozle egg sex: $y \sim Binom(n,p)$.
 :::
-
-We will assume that the probability $p$ of any offspring being female is 0.5 and being male $q$ is 0.5. For the extreme cases where all offspring are one sex, we can use simple probability theory: the probability of getting $n$ females in a brood of size $n$ is equal to $p^n$.
 
 ::: Q.
 Calculate the probability of obtaining eight male offspring.
